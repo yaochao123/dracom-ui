@@ -15,6 +15,7 @@ import HelloWorld from './components/HelloWorld.vue'
 })
 export default class App extends Vue {
   message = 'Hello!'
+  hello = '123'
 }
 </script>
 
