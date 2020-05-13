@@ -7,14 +7,12 @@ function resolve(dir) {
 
 module.exports = {
   publicPath: './',
+  productionSourceMap: false,
+  chainWebpack(config) {
+    config.resolve.alias.set('@', resolve('src'))
+  },
   configureWebpack: {
-    entry: 'src/index.ts',
-    output: {
-      path: path.resolve(__dirname, './lib'),
-      filename: 'index.js',
-      libraryTarget: 'umd',
-      library: 'Dracom'
-    }
+    entry: '@/index.ts'
   },
   devServer: {
     overlay: {

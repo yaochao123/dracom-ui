@@ -15,16 +15,8 @@
     :style="btnStyle"
     @click="handleBtnClick"
   >
-    <img
-      class="lq-button-icon"
-      v-if="icon"
-      :src="icon"
-      alt=""
-    >
-    <span
-      class="lq-button-text"
-      :style="{ color: textColor }"
-    >
+    <img class="lq-button-icon" v-if="icon" :src="icon" alt="" />
+    <span class="lq-button-text" :style="{ color: textColor }">
       {{ text }}
       <slot />
     </span>
@@ -42,7 +34,7 @@ interface Style {
 }
 
 @Component({})
-export default class Button extends Vue {
+export default class LqButton extends Vue {
   // props
   // 按钮内容
   @Prop({

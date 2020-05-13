@@ -2,7 +2,7 @@ import LqButton from './button/index'
 
 const components = [LqButton]
 
-const install = function(Vue: any) {
+const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component)
   })
