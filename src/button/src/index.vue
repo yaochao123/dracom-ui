@@ -1,0 +1,230 @@
+<template>
+  <button
+    :disabled="disabled"
+    class="lq-button"
+    :class="[
+      { 'lq-button-disabled': disabled },
+      { 'lq-button-primary': type === 'primary' },
+      { 'lq-button-danger': type === 'danger' },
+      { 'lq-button-info': type === 'info' },
+      { 'lq-button-warning': type === 'warning' },
+      { 'lq-button-plain': plain },
+      { 'lq-button-miniRange': miniRange },
+      { 'lq-button-larRange': larRange }
+    ]"
+    :style="btnStyle"
+    @click="handleBtnClick"
+  >
+    <img
+      class="lq-button-icon"
+      v-if="icon"
+      :src="icon"
+      alt=""
+    >
+    <span
+      class="lq-button-text"
+      :style="{ color: textColor }"
+    >
+      {{ text }}
+      <slot />
+    </span>
+  </button>
+</template>
+
+<script lang="ts">
+import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+
+interface Style {
+  color: string
+  background: string
+  borderColor: string
+  border?: number
+}
+
+@Component({})
+export default class Button extends Vue {
+  // props
+  // 按钮内容
+  @Prop({
+    type: String,
+    required: false,
+    default: ''
+  })
+  text!: string
+  // 是否禁用
+  @Prop({
+    type: Boolean,
+    required: false,
+    default: false
+  })
+  disabled!: boolean
+  // 按钮颜色
+  @Prop({
+    type: String,
+    required: false,
+    default: ''
+  })
+  color!: string
+  // 按钮文本颜色
+  @Prop({
+    type: String,
+    required: false,
+    default: ''
+  })
+  textColor!: string
+  // 按钮类型(primary|danger|warning|info)
+  @Prop({
+    type: String,
+    required: false,
+    default: ''
+  })
+  type!: string
+  // 朴素按钮
+  @Prop({
+    type: Boolean,
+    required: false,
+    default: false
+  })
+  plain!: boolean
+  // 图标按钮
+  @Prop({
+    type: String,
+    required: false,
+    default: ''
+  })
+  icon!: string
+  // 小圆角按钮
+  @Prop({
+    type: Boolean,
+    required: false,
+    default: false
+  })
+  miniRange!: false
+  // 大圆角按钮
+  @Prop({
+    type: Boolean,
+    required: false,
+    default: false
+  })
+  larRange!: false
+
+  // data
+  private btnStyle: Style = {
+    color: '',
+    background: '',
+    borderColor: ''
+  }
+
+  // 生命周期
+  created() {
+    this.initButton()
+  }
+
+  // methods
+  /**
+   * 初始化按钮
+   */
+  private initButton() {
+    if (this.color) {
+      this.btnStyle.color = this.plain ? this.color : 'white'
+      if (!this.plain) {
+        this.btnStyle.background = this.color
+      }
+      if (this.color.indexOf('gradient') !== -1) {
+        this.btnStyle.border = 0
+      } else {
+        this.btnStyle.borderColor = this.color
+      }
+    }
+  }
+
+  // emit
+  /**
+   * 点击按钮
+   */
+  @Emit('click') private handleBtnClick() {}
+}
+</script>
+
+<style lang="scss" scoped>
+@import '../../style/common.scss';
+@import '../../style/color.scss';
+.lq-button {
+  margin: 10px 0;
+  @include flex($jus: center, $ali: center);
+  position: relative;
+  width: 100%;
+  height: 44px;
+  padding: 0 15px;
+  outline: none;
+  border: $border-width-base solid $border-color;
+  color: #606060;
+  background-color: $white;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  &:active::before {
+    @include position($type: absolute, $t: 50%, $l: 50%, $tt: -50%, $tl: -50%);
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    border: inherit;
+    border-color: $black;
+    border-radius: inherit;
+    opacity: 0.1;
+    content: '';
+  }
+
+  &-primary {
+    color: $white;
+    background-color: $button-primary;
+    border: $border-width-base solid $button-primary;
+  }
+
+  &-info {
+    color: $white;
+    background-color: $button-info;
+    border: $border-width-base solid $button-info;
+  }
+
+  &-danger {
+    color: $white;
+    background-color: $button-danger;
+    border: $border-width-base solid $button-danger;
+  }
+
+  &-warning {
+    color: $white;
+    background-color: $button-warning;
+    border: $border-width-base solid $button-warning;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &-plain {
+    background-color: $white;
+    font-weight: 400;
+  }
+
+  &-miniRange {
+    border-radius: $border-radius-mini;
+  }
+
+  &-larRange {
+    border-radius: $border-radius-larRange;
+  }
+
+  .lq-button-icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  .lq-button-text {
+    margin-left: 5px;
+  }
+}
+</style>
