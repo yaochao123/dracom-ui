@@ -1,22 +1,30 @@
 <template>
   <button
     :disabled="disabled"
-    class="lq-button"
+    class="dr-button"
     :class="[
-      { 'lq-button-disabled': disabled },
-      { 'lq-button-primary': type === 'primary' },
-      { 'lq-button-danger': type === 'danger' },
-      { 'lq-button-info': type === 'info' },
-      { 'lq-button-warning': type === 'warning' },
-      { 'lq-button-plain': plain },
-      { 'lq-button-miniRange': miniRange },
-      { 'lq-button-larRange': larRange }
+      { 'dr-button-disabled': disabled },
+      { 'dr-button-primary': type === 'primary' },
+      { 'dr-button-danger': type === 'danger' },
+      { 'dr-button-info': type === 'info' },
+      { 'dr-button-warning': type === 'warning' },
+      { 'dr-button-plain': plain },
+      { 'dr-button-miniRange': miniRange },
+      { 'dr-button-larRange': larRange }
     ]"
     :style="btnStyle"
     @click="handleBtnClick"
   >
-    <img class="lq-button-icon" v-if="icon" :src="icon" alt="" />
-    <span class="lq-button-text" :style="{ color: textColor }">
+    <img
+      class="dr-button-icon"
+      v-if="icon"
+      :src="icon"
+      alt=""
+    />
+    <span
+      class="dr-button-text"
+      :style="{ color: textColor }"
+    >
       {{ text }}
       <slot />
     </span>
@@ -34,7 +42,7 @@ interface Style {
 }
 
 @Component({})
-export default class LqButton extends Vue {
+export default class drButton extends Vue {
   // props
   // 按钮内容
   @Prop({
@@ -108,7 +116,7 @@ export default class LqButton extends Vue {
   }
 
   // 生命周期
-  created() {
+  private created() {
     this.initButton()
   }
 
@@ -139,10 +147,9 @@ export default class LqButton extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/common.scss';
-@import '../../style/color.scss';
-.lq-button {
-  margin: 10px 0;
+@import '../../../style/common.scss';
+@import '../../../style/color.scss';
+.dr-button {
   @include flex($jus: center, $ali: center);
   position: relative;
   width: 100%;
@@ -210,12 +217,12 @@ export default class LqButton extends Vue {
     border-radius: $border-radius-larRange;
   }
 
-  .lq-button-icon {
+  .dr-button-icon {
     width: 1em;
     height: 1em;
   }
 
-  .lq-button-text {
+  .dr-button-text {
     margin-left: 5px;
   }
 }

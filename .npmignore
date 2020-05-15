@@ -4,6 +4,7 @@ examples/
 packages/
 public/
 src/
+types/
 vue.config.js
 babel.config.js
 tsconfig.json 

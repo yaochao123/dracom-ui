@@ -1,19 +1,27 @@
 {
   "name": "dracom-ui",
-  "version": "1.0.0",
+  "version": "1.1.8",
   "description": "杭州龙骞科技h5端组件库",
   "main": "lib/dracom-ui.umd.min.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "lib/**/*",
+    "types/*"
+  ],
   "private": false,
   "directories": {
     "doc": "docs",
     "example": "examples"
   },
   "scripts": {
+    "serve": "vue-cli-service serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vue-cli-service build --target lib --name dracom-ui --dest lib src/index.js"
+    "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name dracom-ui --dest lib ./src/index.ts"
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "dracom-ui": "^1.1.8",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.1"
@@ -33,6 +41,7 @@
     "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "ts-loader": "^7.0.4",
     "typescript": "~3.8.3",
     "vue-template-compiler": "^2.6.11"
   },
@@ -41,5 +50,11 @@
     "url": "http://192.168.8.201/dracomUI/dracom-ui.git"
   },
   "author": "hzdracom",
-  "license": "MIT"
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "typescript",
+    "vuecli3.x"
+  ]
 }
