@@ -1,29 +1,21 @@
 <template>
   <div id="app">
-    <lq-button>默认按钮</lq-button>
-    <lq-button type="danger">危险按钮</lq-button>
-    <lq-button type="info">信息按钮</lq-button>
-    <lq-button type="warning">警告按钮</lq-button>
-    <lq-button
-      disabled
-      type="primary"
-    >禁用按钮</lq-button>
-    <lq-button plain>朴素按钮</lq-button>
-    <lq-button color="linear-gradient(to right, rgb(75, 176, 255), rgb(97, 73, 246))">渐变按钮</lq-button>
-    <lq-button
-      miniRange
-      type="primary"
-    >小圆角按钮</lq-button>
-    <lq-button
-      larRange
-      type="primary"
-    >大圆角按钮</lq-button>
-    <lq-button
-      color="red"
-      plain
-    >单色按钮</lq-button>
-    <lq-button icon="https://micro-store.oss-cn-hangzhou.aliyuncs.com/202004/583154291799101440.png">图标按钮</lq-button>
-    <lq-button @click="handleClick">点击事件</lq-button>
+    <dr-button>默认按钮</dr-button>
+    <dr-button type="danger">危险按钮</dr-button>
+    <dr-button type="info">信息按钮</dr-button>
+    <dr-button type="warning">警告按钮</dr-button>
+    <dr-button disabled type="primary">禁用按钮</dr-button>
+    <dr-button plain>朴素按钮</dr-button>
+    <dr-button color="linear-gradient(to right, rgb(75, 176, 255), rgb(97, 73, 246))"
+      >渐变按钮</dr-button
+    >
+    <dr-button miniRange type="primary">小圆角按钮</dr-button>
+    <dr-button larRange type="primary">大圆角按钮</dr-button>
+    <dr-button color="red" plain>单色按钮</dr-button>
+    <dr-button icon="https://micro-store.oss-cn-hangzhou.aliyuncs.com/202004/583154291799101440.png"
+      >图标按钮</dr-button
+    >
+    <dr-button @click="handleClick">点击事件</dr-button>
   </div>
 </template>
 
