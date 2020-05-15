@@ -15,16 +15,8 @@
     :style="btnStyle"
     @click="handleBtnClick"
   >
-    <img
-      class="dr-button-icon"
-      v-if="icon"
-      :src="icon"
-      alt=""
-    />
-    <span
-      class="dr-button-text"
-      :style="{ color: textColor }"
-    >
+    <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
+    <span class="dr-button-text" :style="{ color: textColor }">
       {{ text }}
       <slot />
     </span>
@@ -43,70 +35,32 @@ interface Style {
 
 @Component({})
 export default class drButton extends Vue {
-  // props
   // 按钮内容
-  @Prop({
-    type: String,
-    required: false,
-    default: ''
-  })
-  text!: string
+  @Prop({ type: String, required: false, default: '' }) text!: string
+
   // 是否禁用
-  @Prop({
-    type: Boolean,
-    required: false,
-    default: false
-  })
-  disabled!: boolean
+  @Prop({ type: Boolean, required: false, default: false }) disabled!: boolean
+
   // 按钮颜色
-  @Prop({
-    type: String,
-    required: false,
-    default: ''
-  })
-  color!: string
+  @Prop({ type: String, required: false, default: '' }) color!: string
+
   // 按钮文本颜色
-  @Prop({
-    type: String,
-    required: false,
-    default: ''
-  })
-  textColor!: string
+  @Prop({ type: String, required: false, default: '' }) textColor!: string
+
   // 按钮类型(primary|danger|warning|info)
-  @Prop({
-    type: String,
-    required: false,
-    default: ''
-  })
-  type!: string
+  @Prop({ type: String, required: false, default: '' }) type!: string
+
   // 朴素按钮
-  @Prop({
-    type: Boolean,
-    required: false,
-    default: false
-  })
-  plain!: boolean
+  @Prop({ type: Boolean, required: false, default: false }) plain!: boolean
+
   // 图标按钮
-  @Prop({
-    type: String,
-    required: false,
-    default: ''
-  })
-  icon!: string
+  @Prop({ type: String, required: false, default: '' }) icon!: string
+
   // 小圆角按钮
-  @Prop({
-    type: Boolean,
-    required: false,
-    default: false
-  })
-  miniRange!: false
+  @Prop({ type: Boolean, required: false, default: false }) miniRange!: false
+
   // 大圆角按钮
-  @Prop({
-    type: Boolean,
-    required: false,
-    default: false
-  })
-  larRange!: false
+  @Prop({ type: Boolean, required: false, default: false }) larRange!: false
 
   // data
   private btnStyle: Style = {
