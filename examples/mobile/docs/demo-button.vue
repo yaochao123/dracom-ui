@@ -23,6 +23,14 @@
       <dr-button miniRange>小圆角按钮</dr-button>
       <dr-button larRange>大圆角按钮</dr-button>
     </div>
+    <div class="doc-demo-block">
+      <!-- 图标按钮 -->
+      <div class="doc-demo-block-title">图标按钮</div>
+      <dr-button
+        icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
+        >图标按钮</dr-button
+      >
+    </div>
   </div>
 </template>
 
