@@ -9,6 +9,7 @@
       { 'dr-button-info': type === 'info' },
       { 'dr-button-warning': type === 'warning' },
       { 'dr-button-plain': plain },
+      { 'dr-button-block': block },
       { 'dr-button-miniRange': miniRange },
       { 'dr-button-larRange': larRange }
     ]"
@@ -52,6 +53,9 @@ export default class drButton extends Vue {
 
   // 朴素按钮
   @Prop({ type: Boolean, required: false, default: false }) plain!: boolean
+
+  // 块级元素
+  @Prop({ type: Boolean, required: false, default: false }) block!: boolean
 
   // 图标按钮
   @Prop({ type: String, required: false, default: '' }) icon!: string
@@ -161,12 +165,16 @@ export default class drButton extends Vue {
     font-weight: 400;
   }
 
+  &-block {
+    width: 100%;
+    display: block;
+  }
+
   &-miniRange {
     border-radius: $border-radius-mini;
   }
 
   &-larRange {
-    width: 100%;
     border-radius: $border-radius-larRange;
   }
 

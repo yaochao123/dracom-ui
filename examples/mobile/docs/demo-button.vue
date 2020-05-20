@@ -1,6 +1,7 @@
 <template>
   <div class="demo-button">
     <div class="doc-demo-block">
+      <!-- 按钮类型 -->
       <div class="doc-demo-block-title">按钮类型</div>
       <div class="demo-button-row">
         <dr-button>默认按钮</dr-button>
@@ -9,6 +10,18 @@
       </div>
       <dr-button type="warning">警告按钮</dr-button>
       <dr-button type="danger">危险按钮</dr-button>
+    </div>
+    <div class="doc-demo-block">
+      <!-- 禁用状态 -->
+      <div class="doc-demo-block-title">禁用状态</div>
+      <dr-button disabled type="primary">禁用状态</dr-button>
+      <dr-button disabled type="danger">禁用状态</dr-button>
+    </div>
+    <div class="doc-demo-block">
+      <!-- 圆角按钮 -->
+      <div class="doc-demo-block-title">圆角按钮</div>
+      <dr-button miniRange>小圆角按钮</dr-button>
+      <dr-button larRange>大圆角按钮</dr-button>
     </div>
   </div>
 </template>

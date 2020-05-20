@@ -20,10 +20,13 @@ export default class Demo extends Vue {}
 <style lang="scss">
 .doc-demo-block {
   padding: 0 16px;
+  &:first-of-type .doc-demo-block-title {
+    padding-top: 20px;
+  }
 }
 
 .doc-demo-block-title {
-  padding: 20px 0;
+  padding: 32px 0 16px 0;
   margin: 0;
   color: rgba(69, 90, 100, 0.6);
   font-weight: normal;
