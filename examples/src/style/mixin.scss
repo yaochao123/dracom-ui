@@ -1,0 +1,17 @@
+// flex
+@mixin flex($ali: null, $jus: null, $flex: null, $wrap: null, $dire: null) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $ali;
+  flex-wrap: $wrap;
+  flex-direction: $dire;
+}
+
+// position
+@mixin position($type: null, $t: null, $r: null, $b: null, $l: null) {
+  position: $type;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}

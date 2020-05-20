@@ -5,21 +5,17 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'Home',
+    path: '/mobile/',
+    name: 'mobile',
     component: (resolve: any) => {
-      require(['@/pages/homePage.vue'], resolve)
+      require(['@@/components/demo.vue'], resolve)
     },
     children: [
       {
-        path: '/button',
+        path: 'demo-button',
         name: 'Button',
         component: (resolve: any) => {
-          require(['@/docs/button.md'], resolve)
+          require(['@@/docs/demo-button.vue'], resolve)
         }
       }
     ]

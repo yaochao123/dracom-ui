@@ -19,7 +19,8 @@
     "examples/**/*.tsx",
     "examples/**/*.vue",
     "types/index.d.ts",
-    "types/component.d.ts"
+    "types/component.d.ts",
+    "sideNav.ts"
   ],
   // ts 排除的文件
   "exclude": ["node_modules"]

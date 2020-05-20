@@ -6,16 +6,24 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import DemoPage from '@@/components/demo.vue'
 
-@Component({})
+@Component({
+  components: {
+    DemoPage
+  }
+})
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
 #app {
-  min-width: 1100px;
-  background-color: #f7f8fa;
   min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
 }
 </style>

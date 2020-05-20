@@ -101,12 +101,11 @@ export default class drButton extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/common.scss';
+@import '../../../style/mixin.scss';
 @import '../../../style/color.scss';
 .dr-button {
   @include flex($jus: center, $ali: center);
   position: relative;
-  width: 100%;
   height: 44px;
   padding: 0 15px;
   outline: none;
@@ -168,6 +167,7 @@ export default class drButton extends Vue {
   }
 
   &-larRange {
+    width: 100%;
     border-radius: $border-radius-larRange;
   }
 
