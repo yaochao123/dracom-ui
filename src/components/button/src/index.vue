@@ -104,7 +104,6 @@ export default class drButton extends Vue {
 @import '../../../style/mixin.scss';
 @import '../../../style/color.scss';
 .dr-button {
-  @include flex($jus: center, $ali: center);
   position: relative;
   height: 44px;
   padding: 0 15px;
@@ -174,10 +173,7 @@ export default class drButton extends Vue {
   .dr-button-icon {
     width: 1em;
     height: 1em;
-  }
-
-  .dr-button-text {
-    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 </style>

@@ -4,6 +4,7 @@
       <div class="doc-demo-block-title">按钮类型</div>
       <div class="demo-button-row">
         <dr-button>默认按钮</dr-button>
+        <dr-button type="primary">默认按钮</dr-button>
       </div>
     </div>
   </div>

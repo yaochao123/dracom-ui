@@ -35,4 +35,8 @@ export default class Demo extends Vue {}
 .demo-button-row {
   margin-bottom: 12px;
 }
+
+button {
+  margin-right: 16px;
+}
 </style>
