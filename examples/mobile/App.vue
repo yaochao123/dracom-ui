@@ -20,6 +20,7 @@ export default class App extends Vue {}
 #app {
   min-height: 100vh;
   background-color: #ffffff;
+  padding-bottom: 20px;
 }
 
 ::-webkit-scrollbar {

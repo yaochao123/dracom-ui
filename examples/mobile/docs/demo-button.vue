@@ -31,6 +31,16 @@
         >图标按钮</dr-button
       >
     </div>
+    <div class="doc-demo-block">
+      <!-- 自义定颜色 -->
+      <div class="doc-demo-block-title">自义定颜色</div>
+      <dr-button color="#33C0AF">单色按钮</dr-button>
+      <dr-button color="#33C0AF" plain>单色按钮</dr-button>
+      <dr-button
+        color="linear-gradient(270deg,rgba(76,216,234,1) 0%,rgba(109,219,211,1) 100%)"
+        >渐变色按钮</dr-button
+      >
+    </div>
   </div>
 </template>
 
