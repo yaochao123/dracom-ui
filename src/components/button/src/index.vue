@@ -113,7 +113,7 @@ export default class drButton extends Vue {
   background-color: $white;
   box-sizing: border-box;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   &:active::before {
     @include position($type: absolute, $t: 50%, $l: 50%, $tt: -50%, $tl: -50%);

@@ -5,7 +5,10 @@
       <div class="demo-button-row">
         <dr-button>默认按钮</dr-button>
         <dr-button type="primary">默认按钮</dr-button>
+        <dr-button type="info">信息按钮</dr-button>
       </div>
+      <dr-button type="warning">警告按钮</dr-button>
+      <dr-button type="danger">危险按钮</dr-button>
     </div>
   </div>
 </template>
