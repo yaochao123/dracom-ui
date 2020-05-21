@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { navData } from './sideNav'
 
 Vue.use(VueRouter)
+
+const childrens: any = []
+navData.forEach(item => {
+  ;(childrens as any) = childrens.concat(item.children)
+})
 
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/introduce'
   },
   {
     path: '/test',
@@ -20,26 +26,11 @@ const routes = [
     component: (resolve: any) => {
       require(['@/pages/homePage.vue'], resolve)
     },
-    children: [
-      {
-        path: '/button',
-        name: 'Button',
-        component: (resolve: any) => {
-          require(['@/docs/button.md'], resolve)
-        }
-      },
-      {
-        path: '/loading',
-        name: 'Loading',
-        component: (resolve: any) => {
-          require(['@src/loading/src/index.vue'], resolve)
-        }
-      }
-    ]
+    children: childrens
   }
 ]
 
-export default new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes
 })

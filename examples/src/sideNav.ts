@@ -4,8 +4,12 @@ export const navData = [
     id: 0,
     children: [
       {
-        name: '介绍',
-        path: '/home'
+        name: 'Introduce',
+        path: '/introduce',
+        navName: '介绍',
+        component: (resolve: any) => {
+          require(['@/docs/introduce.md'], resolve)
+        }
       }
     ]
   },
@@ -14,8 +18,26 @@ export const navData = [
     id: 1,
     children: [
       {
-        name: 'Button 按钮',
-        path: '/button'
+        name: 'Button',
+        path: '/button',
+        navName: 'Button 按钮',
+        component: (resolve: any) => {
+          require(['@/docs/button.md'], resolve)
+        }
+      }
+    ]
+  },
+  {
+    name: '反馈组件',
+    id: 2,
+    children: [
+      {
+        name: 'Loading',
+        path: '/loading',
+        navName: 'Loading 加载',
+        component: (resolve: any) => {
+          require(['@src/loading/src/index.vue'], resolve)
+        }
       }
     ]
   }

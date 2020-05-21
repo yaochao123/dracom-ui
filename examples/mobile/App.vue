@@ -6,19 +6,14 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DemoPage from '@@/components/demo.vue'
 
-@Component({
-  components: {
-    DemoPage
-  }
-})
+@Component({})
 export default class App extends Vue {}
 </script>
 
 <style lang="scss">
 #app {
-  min-height: 100vh;
+  min-height: calc(100vh - 20px);
   background-color: #ffffff;
   padding-bottom: 20px;
 }

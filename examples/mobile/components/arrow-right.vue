@@ -1,0 +1,30 @@
+<template>
+  <svg viewBox="0 0 1024 1024" class="demo-nav-icon">
+    <path
+      fill="#B6C3D2"
+      d="M601.1 556.5L333.8 289.3c-24.5-24.5-24.5-64.6 0-89.1s64.6-24.5 89.1 0l267.3 267.3c24.5 24.5 24.5 64.6 0 89.1-24.5 24.4-64.6 24.4-89.1-.1z"
+    />
+    <path
+      fill="#B6C3D2"
+      d="M690.2 556.5L422.9 823.8c-24.5 24.5-64.6 24.5-89.1 0s-24.5-64.6 0-89.1l267.3-267.3c24.5-24.5 64.6-24.5 89.1 0 24.5 24.6 24.5 64.6 0 89.1z"
+    />
+  </svg>
+</template>
+
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component({})
+export default class ArrowRight extends Vue {}
+</script>
+
+<style lang="scss" scoped>
+.demo-nav-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+}
+</style>

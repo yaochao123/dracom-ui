@@ -24,8 +24,17 @@
       <dr-button larRange>大圆角按钮</dr-button>
     </div>
     <div class="doc-demo-block">
+      <!-- 加载状态 -->
+      <div class="doc-demo-block-title">加载状态</div>
+      <dr-button type="info" loading></dr-button>
+      <dr-button type="primary" loading>加载中...</dr-button>
+    </div>
+    <div class="doc-demo-block">
       <!-- 图标按钮 -->
       <div class="doc-demo-block-title">图标按钮</div>
+      <dr-button
+        icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
+      ></dr-button>
       <dr-button
         icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
         >图标按钮</dr-button
@@ -48,7 +57,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component({})
-export default class Demo extends Vue {}
+export default class DemoButton extends Vue {}
 </script>
 
 <style lang="scss" scoped></style>

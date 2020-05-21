@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/mobile/',
+    path: '/mobile',
     name: 'mobile',
     component: (resolve: any) => {
       require(['@@/components/demo.vue'], resolve)
@@ -17,12 +17,19 @@ const routes = [
         component: (resolve: any) => {
           require(['@@/docs/demo-button.vue'], resolve)
         }
+      },
+      {
+        path: 'demo-introduce',
+        name: 'Introduce',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-introduce.vue'], resolve)
+        }
       }
     ]
   }
 ]
 
-export default new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes
 })

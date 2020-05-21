@@ -12,8 +12,6 @@ export default class DocSimulator extends Vue {
   // 页面header的高度，为0时展示框固定
   private top = 60
 
-  private src = window.location.origin + '/mobile/demo-button'
-
   private created() {
     window.addEventListener('scroll', this.onScroll)
     this.onScroll()
@@ -27,6 +25,11 @@ export default class DocSimulator extends Vue {
       return true
     }
     return false
+  }
+
+  get src() {
+    const path = this.$route.path.split('/')[1]
+    return `/mobile/demo-${path}`
   }
 
   /**

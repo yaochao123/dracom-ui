@@ -1,6 +1,6 @@
 <template>
   <div class="demo-page">
-    <demo-nav></demo-nav>
+    <demo-nav v-if="showNav"></demo-nav>
     <router-view></router-view>
   </div>
 </template>
@@ -14,7 +14,14 @@ import DemoNav from './demo-nav.vue'
     DemoNav
   }
 })
-export default class Demo extends Vue {}
+export default class Demo extends Vue {
+  get showNav() {
+    if (this.$route.name === 'Introduce') {
+      return false
+    }
+    return true
+  }
+}
 </script>
 
 <style lang="scss">

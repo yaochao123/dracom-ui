@@ -24,7 +24,7 @@
     <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
     <!-- 按钮文本 -->
     <span
-      :class="['dr-button-text', { 'dr-button-text-loading': loading }]"
+      :class="['dr-button-text', { 'dr-button-text-loading': loading || icon }]"
       :style="{ color: textColor }"
     >
       {{ text }}
@@ -208,7 +208,6 @@ export default class drButton extends Vue {
   .dr-button-icon {
     width: 1em;
     height: 1em;
-    margin-right: 5px;
   }
 
   .dr-button-text-loading {

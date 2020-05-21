@@ -29,11 +29,7 @@ import DocSimulator from '@/components/doc-simulator.vue'
     DocSimulator
   }
 })
-export default class HomePage extends Vue {
-  get path() {
-    return this.$route.path.split('/')[1]
-  }
-}
+export default class HomePage extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

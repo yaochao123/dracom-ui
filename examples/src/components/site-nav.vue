@@ -1,23 +1,19 @@
 <template>
-  <div
-    class="site-nav"
-    :style="style"
-  >
-    <div
-      class="site-nav-list"
-      v-for="(item, index) in navData"
-      :key="index"
-    >
+  <div class="site-nav" :style="style">
+    <div class="site-nav-list" v-for="(item, index) in navData" :key="index">
       <ul class="site-nav-section">
         <p class="site-nav-title">{{ item.name }}</p>
         <li
           class="site-nav-item"
-          :class="{ 'site-nav-item-active': (item.id === activeId && innerIndex === activeIndex) }"
+          :class="{
+            'site-nav-item-active':
+              item.id === activeId && innerIndex === activeIndex
+          }"
           v-for="(innerItem, innerIndex) in item.children"
           :key="innerIndex"
           @click="goPage(innerItem.path, innerIndex, item.id)"
         >
-          {{ innerItem.name }}
+          {{ innerItem.navName }}
         </li>
       </ul>
     </div>
