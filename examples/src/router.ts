@@ -21,6 +21,13 @@ const routes = [
         component: (resolve: any) => {
           require(['@/docs/button.md'], resolve)
         }
+      },
+      {
+        path: '/loading',
+        name: 'Loading',
+        component: (resolve: any) => {
+          require(['@src/loading/src/index.vue'], resolve)
+        }
       }
     ]
   }

@@ -98,5 +98,53 @@ export default class SiteContent extends Vue {}
     border-radius: 4px;
     -webkit-font-smoothing: antialiased;
   }
+
+  table {
+    width: 100%;
+    margin-top: 12px;
+    color: #34495e;
+    font-size: 13px;
+    line-height: 1.5;
+    border-collapse: collapse;
+    th {
+      padding: 8px 10px;
+      font-weight: 500;
+      text-align: left;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child th {
+        padding-right: 0;
+      }
+    }
+    td {
+      padding: 8px;
+      border-top: 1px solid #f1f4f8;
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    code {
+      display: inline;
+      margin: 2px 3px;
+      padding: 2px 5px;
+      font-size: 13px;
+      font-family: inherit;
+      word-break: keep-all;
+      background-color: #f0f2f5;
+      border-radius: 4px;
+      -webkit-font-smoothing: antialiased;
+    }
+    em {
+      color: #4fc08d;
+      font-size: 12.5px;
+      font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
+      font-style: normal;
+      -webkit-font-smoothing: auto;
+    }
+  }
 }
 </style>

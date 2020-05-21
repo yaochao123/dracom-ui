@@ -1,8 +1,9 @@
 import DrButton from './components/button/index'
+import DrLoading from './components/loading/index'
 
-const components = [DrButton]
+const components = [DrButton, DrLoading]
 
-const componentsName: string[] = ['DrButton']
+const componentsName: string[] = ['DrButton', 'DrLoading']
 
 const install = function(Vue: any) {
   if ((install as any).installed) return
@@ -17,5 +18,6 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 
 export default {
   install,
-  DrButton
+  DrButton,
+  DrLoading
 }
