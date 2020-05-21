@@ -16,8 +16,17 @@
     :style="btnStyle"
     @click="handleBtnClick"
   >
+    <!-- 是否显示加载状态 -->
+    <span class="dr-button-loading" v-if="loading">
+      <dr-loading :size="loadingSize"></dr-loading>
+    </span>
+    <!-- 是否显示图标 -->
     <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
-    <span class="dr-button-text" :style="{ color: textColor }">
+    <!-- 按钮文本 -->
+    <span
+      :class="['dr-button-text', { 'dr-button-text-loading': loading }]"
+      :style="{ color: textColor }"
+    >
       {{ text }}
       <slot />
     </span>
@@ -26,6 +35,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator'
+import DrLoading from '../../loading/src/index.vue'
 
 interface Style {
   color: string
@@ -34,7 +44,11 @@ interface Style {
   border?: number
 }
 
-@Component({})
+@Component({
+  components: {
+    DrLoading
+  }
+})
 export default class drButton extends Vue {
   // 按钮内容
   @Prop({ type: String, required: false, default: '' }) text!: string
@@ -66,6 +80,14 @@ export default class drButton extends Vue {
   // 大圆角按钮
   @Prop({ type: Boolean, required: false, default: false }) larRange!: false
 
+  // 是否显示加载状态
+  @Prop({ type: Boolean, required: false, default: false }) loading!: false
+
+  // 加载图标大小
+  @Prop({ type: [Number, String], required: false, default: 20 }) loadingSize!:
+    | string
+    | number
+
   // data
   private btnStyle: Style = {
     color: '',
@@ -73,13 +95,15 @@ export default class drButton extends Vue {
     borderColor: ''
   }
 
-  // 生命周期
+  /**
+   * created
+   */
   private created() {
     this.initButton()
   }
 
-  // methods
   /**
+   * methods
    * 初始化按钮
    */
   private initButton() {
@@ -96,8 +120,8 @@ export default class drButton extends Vue {
     }
   }
 
-  // emit
   /**
+   * emit
    * 点击按钮
    */
   @Emit('click') private handleBtnClick() {}
@@ -185,6 +209,10 @@ export default class drButton extends Vue {
     width: 1em;
     height: 1em;
     margin-right: 5px;
+  }
+
+  .dr-button-text-loading {
+    margin-left: 5px;
   }
 }
 </style>

@@ -9,6 +9,12 @@ const routes = [
     redirect: '/home'
   },
   {
+    path: '/test',
+    component: (resolve: any) => {
+      require(['@/pages/test.vue'], resolve)
+    }
+  },
+  {
     path: '/home',
     name: 'Home',
     component: (resolve: any) => {
