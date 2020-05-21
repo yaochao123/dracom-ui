@@ -7,12 +7,20 @@
       cx="50"
       cy="50"
       r="20"
+      :stroke="color"
       fill="none"
     ></circle>
   </svg>
 </template>
 
 <script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component({})
+export default class DrLoading extends Vue {
+  // 颜色
+  @Prop({ type: String, required: false, default: '#c8c9cc' }) color!: string
+}
 </script>
 
 <style lang="scss" scoped>
@@ -25,7 +33,6 @@
   animation: dr-rotate 1.8s linear infinite;
   circle {
     animation: dr-circular 1.5s ease-in-out infinite;
-    stroke: currentColor;
     stroke-width: 3;
     stroke-linecap: round;
   }
