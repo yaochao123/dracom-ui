@@ -2,12 +2,13 @@ import Vue from 'vue'
 
 declare function install(vue: typeof Vue): void
 
-declare class LqButton extends Vue {}
+declare class DrButton extends Vue {}
+declare class DrLoading extends Vue {}
 
 declare const _default: {
   install: typeof install
 }
 
-export { LqButton }
+export { DrButton, DrLoading }
 
 export default _default
