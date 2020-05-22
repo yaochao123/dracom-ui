@@ -16,23 +16,28 @@
     :style="btnStyle"
     @click="handleBtnClick"
   >
-    <!-- 是否显示加载状态 -->
-    <div class="dr-button-loading" v-if="loading">
-      <dr-loading
-        :size="loadingSize"
-        className="dr-button-loading"
-      ></dr-loading>
+    <div class="dr-button-content">
+      <!-- 是否显示加载状态 -->
+      <div class="dr-button-loading" v-if="loading">
+        <dr-loading
+          :size="loadingSize"
+          className="dr-button-loading"
+        ></dr-loading>
+      </div>
+      <!-- 是否显示图标 -->
+      <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
+      <!-- 按钮文本 -->
+      <span
+        :class="[
+          'dr-button-text',
+          { 'dr-button-text-loading': loading || icon }
+        ]"
+        :style="{ color: textColor }"
+      >
+        {{ text }}
+        <slot />
+      </span>
     </div>
-    <!-- 是否显示图标 -->
-    <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
-    <!-- 按钮文本 -->
-    <span
-      :class="['dr-button-text', { 'dr-button-text-loading': loading || icon }]"
-      :style="{ color: textColor }"
-    >
-      {{ text }}
-      <slot />
-    </span>
   </button>
 </template>
 
@@ -159,6 +164,11 @@ export default class drButton extends Vue {
     border-radius: inherit;
     opacity: 0.1;
     content: '';
+  }
+
+  &-content {
+    @include flex($jus: center, $ali: center);
+    height: inherit;
   }
 
   &-primary {

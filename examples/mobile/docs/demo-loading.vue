@@ -10,7 +10,7 @@
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">自义定大小</div>
-      <dr-loading size="30"></dr-loading>
+      <dr-loading size="40"></dr-loading>
     </div>
   </div>
 </template>

@@ -94,7 +94,7 @@ Vue.use(DrButton)
 | miniRange   | 是否为小圆角按钮                                   | _boolean_          | `false`   |
 | larRange    | 是否为大圆角按钮                                   | _boolean_          | `false`   |
 | loading     | 是否显示加载图标                                   | _boolean_          | `false`   |
-| loadingSize | 加载图标大小                                       | _string \| number_ | `20`      |
+| loadingSize | 加载图标大小                                       | _string \| number_ | `20px`    |
 
 ### Events
 

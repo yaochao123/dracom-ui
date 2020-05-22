@@ -1,7 +1,10 @@
 <template>
   <div class="test-page">
-    <dr-button type="primary" loading loadingSize="20">加载中...</dr-button>
-    <dr-loading></dr-loading>
+    <dr-button
+      type="primary"
+      icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
+      >测试</dr-button
+    >
   </div>
 </template>
 

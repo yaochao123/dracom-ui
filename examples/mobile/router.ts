@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { navData } from '../src/sideNav'
 
 Vue.use(VueRouter)
 
