@@ -1,6 +1,7 @@
 <template>
   <div class="test-page">
     <dr-button type="primary" loading loadingSize="20">加载中...</dr-button>
+    <dr-loading></dr-loading>
   </div>
 </template>
 

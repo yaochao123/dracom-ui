@@ -1,7 +1,7 @@
 <template>
   <span class="dr-loading" :style="fontStyle">
-    <svg viewBox="25 25 50 50">
-      <circle cx="50" cy="50" r="20" :stroke="color" fill="none"></circle>
+    <svg viewBox="25 25 50 50" :color="color">
+      <circle cx="50" cy="50" r="20" fill="none"></circle>
     </svg>
   </span>
 </template>
@@ -12,7 +12,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrLoading extends Vue {
   // 颜色
-  @Prop({ type: String, required: false, default: '#c9c9c9' })
+  @Prop({ type: String, required: false, default: 'currentColor' })
   color!: string
 
   // 图标大小
@@ -52,10 +52,9 @@ export default class DrLoading extends Vue {
     height: 100%;
     font-size: 0;
     animation: dr-rotate 1.8s linear infinite;
-    color: currentColor;
     circle {
+      stroke: currentColor;
       animation: dr-circular 1.5s ease-in-out infinite;
-      color: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
     }

@@ -3,8 +3,8 @@
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">
         按钮类型
-        <div class="doc-loading"><dr-loading></dr-loading></div>
       </div>
+      <dr-loading></dr-loading>
     </div>
   </div>
 </template>
