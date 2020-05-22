@@ -1,9 +1,17 @@
 <template>
   <div class="demo-nav">
     <div class="demo-nav-title">{{ title }}</div>
-    <svg class="demo-nav-back" viewBox="0 0 1000 1000" @click="onBack">
-      <path fill="#969799" fill-rule="evenodd" :d="path" />
-    </svg>
+    <!-- <svg
+      class="demo-nav-back"
+      viewBox="0 0 1000 1000"
+      @click="onBack"
+    >
+      <path
+        fill="#969799"
+        fill-rule="evenodd"
+        :d="path"
+      />
+    </svg> -->
   </div>
 </template>
 

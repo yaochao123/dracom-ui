@@ -12,7 +12,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrLoading extends Vue {
   // 颜色
-  @Prop({ type: String, required: false, default: 'currentColor' })
+  @Prop({ type: String, required: false, default: '#c9c9c9' })
   color!: string
 
   // 图标大小

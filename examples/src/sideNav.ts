@@ -36,7 +36,7 @@ export const navData = [
         path: '/loading',
         navName: 'Loading 加载',
         component: (resolve: any) => {
-          require(['@src/loading/src/index.vue'], resolve)
+          require(['@/docs/loading.md'], resolve)
         }
       }
     ]

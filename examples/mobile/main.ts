@@ -7,6 +7,7 @@ import Dracom from 'dracom-ui'
 Vue.config.productionTip = false
 
 Vue.use(Dracom)
+
 new Vue({
   router,
   render: h => h(App)

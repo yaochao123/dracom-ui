@@ -57,6 +57,7 @@ export default class DemoIntroduce extends Vue {
    */
   goPage(data: any) {
     const path = data.path.split('/')[1]
+    window.parent.postMessage(`${path}`, '*')
     this.$router.push({ path: `demo-${path}` })
   }
 }

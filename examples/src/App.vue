@@ -8,7 +8,21 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class App extends Vue {}
+export default class App extends Vue {
+  private mounted() {
+    window.onmessage = (e: any) => {
+      const data = e.data
+      if (data && data.type !== 'webpackOk') {
+        const currentPath = this.$route.path.split('/')[1]
+        if (currentPath !== data) {
+          if (data.indexOf('webpackHotUpdate') === -1) {
+            this.$router.replace({ path: `/${data}` })
+          }
+        }
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">

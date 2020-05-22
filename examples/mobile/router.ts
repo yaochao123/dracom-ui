@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import { navData } from '../src/sideNav'
 
 Vue.use(VueRouter)
 
@@ -12,6 +13,13 @@ const routes = [
     },
     children: [
       {
+        path: 'demo-introduce',
+        name: 'Introduce',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-introduce.vue'], resolve)
+        }
+      },
+      {
         path: 'demo-button',
         name: 'Button',
         component: (resolve: any) => {
@@ -19,10 +27,10 @@ const routes = [
         }
       },
       {
-        path: 'demo-introduce',
-        name: 'Introduce',
+        path: 'demo-loading',
+        name: 'Loading',
         component: (resolve: any) => {
-          require(['@@/docs/demo-introduce.vue'], resolve)
+          require(['@@/docs/demo-loading.vue'], resolve)
         }
       }
     ]
