@@ -29,7 +29,7 @@ export default class DocSimulator extends Vue {
 
   get src() {
     const path = this.$route.path.split('/')[1]
-    return `/mobile#/demo-${path}`
+    return window.location.href.split('#')[0] + `/mobile/demo-${path}`
   }
 
   /**

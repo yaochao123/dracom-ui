@@ -16,7 +16,8 @@ module.exports = {
     },
     mobile: {
       entry: 'examples/mobile/main.ts',
-      tempalte: 'public/index.html'
+      tempalte: 'public/index.html',
+      filename: 'mobile.html'
     }
   },
   chainWebpack: config => {
