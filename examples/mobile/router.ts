@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/mobile',
+    path: '/',
     name: 'mobile',
     component: (resolve: any) => {
       require(['@@/components/demo.vue'], resolve)
