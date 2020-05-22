@@ -1,5 +1,5 @@
 <template>
-  <span class="dr-loading" :style="fontStyle">
+  <span :class="['dr-loading', className]" :style="fontStyle">
     <svg viewBox="25 25 50 50" :color="color">
       <circle cx="50" cy="50" r="20" fill="none"></circle>
     </svg>
@@ -19,6 +19,8 @@ export default class DrLoading extends Vue {
   @Prop({ type: [String, Number], required: false, default: 20 }) size?:
     | string
     | number
+
+  @Prop({ type: String, required: false, default: '' }) className?: string
 
   /**
    * computed
@@ -46,6 +48,7 @@ export default class DrLoading extends Vue {
 @import '../../../style/animation.scss';
 .dr-loading {
   display: inline-block;
+  color: #c9c9c9;
   svg {
     display: block;
     width: 100%;

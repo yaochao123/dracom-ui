@@ -17,9 +17,12 @@
     @click="handleBtnClick"
   >
     <!-- 是否显示加载状态 -->
-    <span class="dr-button-loading" v-if="loading">
-      <dr-loading :size="loadingSize"></dr-loading>
-    </span>
+    <div class="dr-button-loading" v-if="loading">
+      <dr-loading
+        :size="loadingSize"
+        className="dr-button-loading"
+      ></dr-loading>
+    </div>
     <!-- 是否显示图标 -->
     <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
     <!-- 按钮文本 -->
@@ -203,6 +206,10 @@ export default class drButton extends Vue {
 
   &-larRange {
     border-radius: $border-radius-larRange;
+  }
+
+  &-loading {
+    color: inherit;
   }
 
   .dr-button-icon {
