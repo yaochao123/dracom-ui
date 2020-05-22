@@ -20,6 +20,7 @@ export default class DrLoading extends Vue {
     | string
     | number
 
+  // class类名，用于继承父组件颜色
   @Prop({ type: String, required: false, default: '' }) className?: string
 
   /**
