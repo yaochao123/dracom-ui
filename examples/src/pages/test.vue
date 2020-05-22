@@ -1,10 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-button
-      type="primary"
-      icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
-      >测试</dr-button
-    >
+    <dr-loading size="24">加载中...</dr-loading>
   </div>
 </template>
 
@@ -28,9 +24,5 @@ export default class TestPage extends Vue {}
   align-items: center;
   min-height: 100vh;
   width: 375px;
-}
-.loading-wrapper {
-  width: 30px;
-  height: 30px;
 }
 </style>

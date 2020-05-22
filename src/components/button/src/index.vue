@@ -25,18 +25,22 @@
         ></dr-loading>
       </div>
       <!-- 是否显示图标 -->
-      <img class="dr-button-icon" v-if="icon" :src="icon" alt="" />
+      <img
+        :class="['dr-button-icon', { 'dr-button-icon-margin-right': iconMr }]"
+        v-if="icon"
+        :src="icon"
+        alt=""
+      />
       <!-- 按钮文本 -->
       <span
-        :class="[
-          'dr-button-text',
-          { 'dr-button-text-loading': loading || icon }
-        ]"
+        :class="['dr-button-text']"
         :style="{ color: textColor }"
+        v-if="text"
       >
         {{ text }}
-        <slot />
       </span>
+      <!-- slot插槽 -->
+      <slot />
     </div>
   </button>
 </template>
@@ -103,10 +107,16 @@ export default class drButton extends Vue {
     borderColor: ''
   }
 
+  private iconMr: boolean = false
+
   /**
    * created
    */
   private created() {
+    // 插槽有内容且有图标
+    if (this.$slots.default && this.icon) {
+      this.iconMr = true
+    }
     this.initButton()
   }
 
@@ -225,10 +235,9 @@ export default class drButton extends Vue {
   .dr-button-icon {
     width: 1em;
     height: 1em;
-  }
-
-  .dr-button-text-loading {
-    margin-left: 5px;
+    &-margin-right {
+      margin-right: 5px;
+    }
   }
 }
 </style>
