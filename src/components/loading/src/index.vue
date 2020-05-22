@@ -16,7 +16,7 @@ export default class DrLoading extends Vue {
   color!: string
 
   // 图标大小
-  @Prop({ type: [String, Number], required: false, default: 20 }) size?:
+  @Prop({ type: [String, Number], required: false, default: 30 }) size?:
     | string
     | number
 

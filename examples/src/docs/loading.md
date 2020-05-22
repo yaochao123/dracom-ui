@@ -32,14 +32,14 @@ Vue.use(DrLoading)
 通过`size`属性设置加载图标的大小，单位为`px`
 
 ```html
-<dr-loading size="30"></dr-loading>
+<dr-loading size="40"></dr-loading>
 ```
 
 ## API
 
 ### Props
 
-| 参数  | 说明                     | 类型               | 默认值  |
-| ----- | ------------------------ | ------------------ | ------- |
-| color | 颜色                     | _stirng_           | #c9c9c9 |
-| size  | 加载图标大小，单位为`px` | _string \| number_ | 20      |
+| 参数  | 说明                     | 类型               | 默认值    |
+| ----- | ------------------------ | ------------------ | --------- |
+| color | 颜色                     | _stirng_           | `#c9c9c9` |
+| size  | 加载图标大小，单位为`px` | _string \| number_ | `30px`    |
