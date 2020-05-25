@@ -36,7 +36,7 @@ const routes = [
   }
 ]
 
-export const router = new VueRouter({
-  mode: 'hash',
+export default new VueRouter({
+  mode: process.env.NODE_ENV === 'development' ? 'history' : 'hash',
   routes
 })

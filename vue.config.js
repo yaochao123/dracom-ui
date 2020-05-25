@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: './',
+  // publicPath: './',
   parallel: false,
   productionSourceMap: false,
   pages: {
@@ -16,7 +16,8 @@ module.exports = {
     },
     mobile: {
       entry: 'examples/mobile/main.ts',
-      tempalte: 'public/index.html'
+      tempalte: 'public/index.html',
+      filename: 'mobile.html'
     }
   },
   chainWebpack: config => {

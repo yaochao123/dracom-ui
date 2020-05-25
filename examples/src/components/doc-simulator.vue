@@ -19,6 +19,12 @@ export default class DocSimulator extends Vue {
   // 页面header的高度，为0时展示框固定
   private top = 60
 
+  // 基本路由，开发生产环境不同
+  private baseUrl =
+    process.env.NODE_ENV === 'development'
+      ? '/mobile/'
+      : 'https://wx.yinnima.com/dracomUI/mobile.html#/mobile/'
+
   private created() {
     window.addEventListener('scroll', this.onScroll)
     this.onScroll()
@@ -36,7 +42,7 @@ export default class DocSimulator extends Vue {
 
   get src() {
     const path = this.$route.path.split('/')[1]
-    return `/mobile.html#/demo-${path}`
+    return this.baseUrl + `demo-${path}`
   }
 
   /**
