@@ -1,6 +1,13 @@
 <template>
-  <div class="doc-simulator" :class="{ 'doc-simulator-fixed': isFixed }">
-    <iframe :src="src" frameborder="0" :style="simulatorStyle"></iframe>
+  <div
+    class="doc-simulator"
+    :class="{ 'doc-simulator-fixed': isFixed }"
+  >
+    <iframe
+      :src="src"
+      frameborder="0"
+      :style="simulatorStyle"
+    ></iframe>
   </div>
 </template>
 
@@ -29,7 +36,7 @@ export default class DocSimulator extends Vue {
 
   get src() {
     const path = this.$route.path.split('/')[1]
-    return `https://wx.yinnima.com/dracomUI/mobile.html#/demo-${path}`
+    return `/mobile.html#/demo-${path}`
   }
 
   /**
