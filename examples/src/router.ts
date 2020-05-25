@@ -30,7 +30,7 @@ const routes = [
   }
 ]
 
-export const router = new VueRouter({
+export default new VueRouter({
   mode: 'hash',
   routes
 })

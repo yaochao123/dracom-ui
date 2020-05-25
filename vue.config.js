@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: './',
+  // publicPath: './',
   parallel: false,
   productionSourceMap: false,
   pages: {
