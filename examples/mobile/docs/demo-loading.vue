@@ -19,6 +19,14 @@
         <dr-loading type="spinner" size="40"></dr-loading>
       </div>
     </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-block-title">加载文案</div>
+      <dr-loading>加载中...</dr-loading>
+    </div>
+    <div class="doc-demo-block">
+      <div class="doc-demo-block-title">垂直排列</div>
+      <dr-loading vertical>加载中...</dr-loading>
+    </div>
   </div>
 </template>
 

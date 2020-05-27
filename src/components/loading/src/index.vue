@@ -28,6 +28,7 @@
     <span
       :class="['dr-loading-text', { 'dr-loading-text-vertical': vertical }]"
       :color="color"
+      :style="{ fontSize: textSize + 'px' }"
       v-if="showText"
     >
       <slot />
@@ -51,9 +52,6 @@ export default class DrLoading extends Vue {
   @Prop({ type: [String, Number], required: false, default: 30 }) size?:
     | string
     | number
-
-  // class类名，用于继承父组件颜色
-  @Prop({ type: String, required: false, default: '' }) className?: string
 
   // 文字大小
   @Prop({ type: [Number, String], required: false, default: '14' }) textSize?:

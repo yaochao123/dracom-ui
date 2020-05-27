@@ -1,8 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-loading type="spinner" size="40" color="red"></dr-loading>
-    <dr-loading size="40" color="red"></dr-loading>
-    <dr-button loading type="primary"></dr-button>
+    <dr-loading type="spinner" vertical>加载中...</dr-loading>
   </div>
 </template>
 
