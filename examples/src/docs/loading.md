@@ -57,8 +57,10 @@ Vue.use(DrLoading)
 
 ### Props
 
-| 参数  | 说明                     | 类型               | 默认值     |
-| ----- | ------------------------ | ------------------ | ---------- |
-| type  | 类型，可选类型`spinner`  | _string_           | `circular` |
-| color | 颜色                     | _stirng_           | `#c9c9c9`  |
-| size  | 加载图标大小，单位为`px` | _string \| number_ | `30px`     |
+| 参数     | 说明                     | 类型               | 默认值     |
+| -------- | ------------------------ | ------------------ | ---------- |
+| type     | 类型，可选类型`spinner`  | _string_           | `circular` |
+| color    | 颜色                     | _stirng_           | `#c9c9c9`  |
+| size     | 加载图标大小，单位为`px` | _string \| number_ | `30px`     |
+| textSize | 加载问题大小，单位为`px` | _string \| number_ | `14px`     |
+| vertical | 图标、文字垂直排列       | _boolean_          | `false`    |
