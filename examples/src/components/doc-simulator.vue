@@ -20,9 +20,10 @@ export default class DocSimulator extends Vue {
   private top = 60
 
   // 基本路由，开发生产环境不同
+
   private baseUrl =
     process.env.NODE_ENV === 'development'
-      ? '/mobile/'
+      ? '/mobile.html#/mobile/'
       : 'https://wx.yinnima.com/dracomUI/mobile.html#/'
 
   private created() {
@@ -42,6 +43,7 @@ export default class DocSimulator extends Vue {
 
   get src() {
     const path = this.$route.path.split('/')[1]
+    console.log(this.baseUrl + `demo-${path}`)
     return this.baseUrl + `demo-${path}`
   }
 
