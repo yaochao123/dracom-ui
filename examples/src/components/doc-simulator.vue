@@ -43,7 +43,6 @@ export default class DocSimulator extends Vue {
 
   get src() {
     const path = this.$route.path.split('/')[1]
-    console.log(this.baseUrl + `demo-${path}`)
     return this.baseUrl + `demo-${path}`
   }
 
