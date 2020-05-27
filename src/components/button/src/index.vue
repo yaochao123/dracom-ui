@@ -19,10 +19,7 @@
     <div class="dr-button-content">
       <!-- 是否显示加载状态 -->
       <div class="dr-button-loading" v-if="loading">
-        <dr-loading
-          :size="loadingSize"
-          className="dr-button-loading"
-        ></dr-loading>
+        <dr-loading :size="loadingSize" isBtn></dr-loading>
       </div>
       <!-- 是否显示图标 -->
       <img
@@ -229,7 +226,7 @@ export default class drButton extends Vue {
   }
 
   &-loading {
-    color: inherit;
+    margin-right: 5px;
   }
 
   .dr-button-icon {
