@@ -1,6 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-loading size="24">加载中...</dr-loading>
+    <dr-loading type="spinner" vertical>加载中...</dr-loading>
   </div>
 </template>
 
