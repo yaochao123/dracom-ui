@@ -1,6 +1,7 @@
 <template>
   <div class="test-page">
-    <dr-loading type="spinner"></dr-loading>
+    <dr-loading type="spinner" color="#33C0AF" size="40"></dr-loading>
+    <dr-loading color="#33C0AF" size="40"></dr-loading>
   </div>
 </template>
 

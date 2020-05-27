@@ -5,24 +5,25 @@
       { 'dr-loading-vertical': vertical },
       { 'dr-loading-button': isBtn }
     ]"
+    :style="[fontStyle, { color: color }]"
   >
     <!-- circular加载样式 -->
-    <div
-      :class="['dr-loading-circular']"
-      :style="fontStyle"
-      v-if="type === 'circular'"
-    >
-      <svg viewBox="25 25 50 50" :color="color">
+    <div :class="['dr-loading-circular']" v-if="type === 'circular'">
+      <svg viewBox="25 25 50 50">
         <circle cx="50" cy="50" r="20" fill="none"></circle>
       </svg>
     </div>
-    <div class="dr-loading-spinner" v-if="type === 'spinner'">
+    <!-- spinner加载样式 -->
+    <div
+      class="dr-loading-spinner"
+      v-if="type === 'spinner'"
+      :style="fontStyle"
+    >
       <i v-for="line in 12" :key="line"></i>
     </div>
     <!-- 加载文字 -->
     <span
       :class="['dr-loading-text', { 'dr-loading-text-vertical': vertical }]"
-      :style="textStyle"
       :color="color"
       v-if="showText"
     >
@@ -178,7 +179,7 @@ export default class DrLoading extends Vue {
         margin: 0 auto;
         background-color: currentColor;
         border-radius: 40%;
-        content: ' ';
+        content: '';
       }
     }
   }
