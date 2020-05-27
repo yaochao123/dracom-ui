@@ -1,7 +1,8 @@
 <template>
   <div class="test-page">
-    <dr-loading type="spinner" color="#33C0AF" size="40"></dr-loading>
-    <dr-loading color="#33C0AF" size="40"></dr-loading>
+    <dr-loading type="spinner" size="40" color="red"></dr-loading>
+    <dr-loading size="40" color="red"></dr-loading>
+    <dr-button loading type="primary"></dr-button>
   </div>
 </template>
 

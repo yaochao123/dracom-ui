@@ -5,11 +5,14 @@
       { 'dr-loading-vertical': vertical },
       { 'dr-loading-button': isBtn }
     ]"
-    :style="[fontStyle, { color: color }]"
   >
     <!-- circular加载样式 -->
-    <div :class="['dr-loading-circular']" v-if="type === 'circular'">
-      <svg viewBox="25 25 50 50">
+    <div
+      :class="['dr-loading-circular']"
+      v-if="type === 'circular'"
+      :style="fontStyle"
+    >
+      <svg viewBox="25 25 50 50" :color="color">
         <circle cx="50" cy="50" r="20" fill="none"></circle>
       </svg>
     </div>
@@ -17,7 +20,7 @@
     <div
       class="dr-loading-spinner"
       v-if="type === 'spinner'"
-      :style="fontStyle"
+      :style="[fontStyle, { color: color }]"
     >
       <i v-for="line in 12" :key="line"></i>
     </div>
