@@ -12,7 +12,14 @@
           {{ title }}
         </div>
         <!-- 弹框内容 -->
-        <div class="dr-dialog-content" v-html="content" v-if="content"></div>
+        <div
+          :class="[
+            'dr-dialog-content',
+            { 'dr-dialog-content-no-title': !title && !type }
+          ]"
+          v-html="content"
+          v-if="content"
+        ></div>
         <!-- 弹框按钮 -->
         <div class="dr-dialog-button">
           <div
@@ -134,6 +141,9 @@ export default class DrDialog extends Vue {
     color: $dialog-content-color;
     line-height: 20px;
     text-align: center;
+    &-no-title {
+      margin-top: 0;
+    }
   }
 
   &-button {
