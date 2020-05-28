@@ -1,6 +1,6 @@
 {
   "name": "dracom-ui",
-  "version": "1.1.33",
+  "version": "1.1.34",
   "description": "杭州龙骞科技h5端组件库",
   "main": "lib/dracom-ui.umd.min.js",
   "typings": "types/index.d.ts",
