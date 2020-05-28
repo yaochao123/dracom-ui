@@ -21,14 +21,21 @@ const Drdialog = {
         instance.$mount(document.createElement('div'))
         document.body.appendChild(instance.$el)
 
-        if (args.length === 1 && typeof args[0] === 'string') {
-          instance.type = args[0]
+        if (args.length === 1) {
+          if (typeof args[0] === 'string') {
+            instance.type = args[0]
+          }
+          if (typeof args[0] === 'object') {
+            Object.assign(instance, args[0])
+          }
+        }
+        if (args.length === 2) {
+          instance.type = type
+          Object.assign(instance, options)
         }
         instance.showModel = true
 
         return new Promise((resolve, reject) => {
-          Object.assign(instance, options)
-
           instance.handleConfirm = () => {
             instance.showModel = false
             resolve()

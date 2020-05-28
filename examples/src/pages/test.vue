@@ -9,7 +9,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({})
 export default class TestPage extends Vue {
   private handleClick() {
-    this.$dialog('fail', {
+    this.$dialog({
       title: '弹框标题',
       content: '这是一段测试的代码',
       confirmButton: '确定'
