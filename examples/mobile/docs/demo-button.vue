@@ -41,8 +41,8 @@
       >
     </div>
     <div class="doc-demo-block">
-      <!-- 自义定颜色 -->
-      <div class="doc-demo-block-title">自义定颜色</div>
+      <!-- 自定义颜色 -->
+      <div class="doc-demo-block-title">自定义颜色</div>
       <dr-button color="#33C0AF">单色按钮</dr-button>
       <dr-button color="#33C0AF" plain>单色按钮</dr-button>
       <dr-button

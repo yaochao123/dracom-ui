@@ -19,7 +19,9 @@ const Drdialog = {
         instance.$mount(document.createElement('div'))
         document.body.appendChild(instance.$el)
 
-        instance.type = type
+        if (type) {
+          instance.type = type
+        }
         instance.showModel = true
 
         return new Promise((resolve, reject) => {

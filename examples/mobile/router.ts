@@ -31,6 +31,13 @@ const routes = [
         component: (resolve: any) => {
           require(['@@/docs/demo-loading.vue'], resolve)
         }
+      },
+      {
+        path: 'demo-dialog',
+        name: 'Dialog',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-dialog.vue'], resolve)
+        }
       }
     ]
   }

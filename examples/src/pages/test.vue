@@ -6,27 +6,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DrDialog from '@src/dialog/src/index.vue'
-import DrOverlay from '@src/overlay/src/index.vue'
-@Component({
-  components: {
-    DrDialog,
-    DrOverlay
-  }
-})
+@Component({})
 export default class TestPage extends Vue {
-  private showDialog = false
-
-  private handleClick() {
-    this.$dialog('success', {
-      title: '测试标题',
-      content: '代码是写给人看的',
-      cancelButton: '关闭',
-      confirmButton: '确定'
-    })
-      .then(() => {})
-      .catch(() => {})
-  }
+  private handleClick() {}
 }
 </script>
 

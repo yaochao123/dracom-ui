@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="doc-demo-block">
-      <div class="doc-demo-block-title">自义定颜色</div>
+      <div class="doc-demo-block-title">自定义颜色</div>
       <div class="demo-loading">
         <dr-loading color="#33C0AF"></dr-loading>
       </div>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="doc-demo-block">
-      <div class="doc-demo-block-title">自义定大小</div>
+      <div class="doc-demo-block-title">自定义大小</div>
       <div class="demo-loading">
         <dr-loading size="40"></dr-loading>
       </div>
