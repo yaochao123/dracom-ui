@@ -1,20 +1,39 @@
 <template>
   <div class="test-page">
-    <dr-loading type="spinner" vertical>加载中...</dr-loading>
+    <dr-button type="primary" @click="handleClick">弹框按钮</dr-button>
+    <dr-dialog
+      v-model="showDialog"
+      type="success"
+      title="弹框标题"
+      content="您还未订购该功能，开通VIP套餐 即可使用哦～"
+      cancel="关闭"
+      confirm="确定"
+      @confirm="confirm"
+    ></dr-dialog>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DrLoading from '@src/loading/src/index.vue'
-import DrButton from '@src/button/src/index.vue'
+import DrDialog from '@src/dialog/src/index.vue'
+import DrOverlay from '@src/overlay/src/index.vue'
 @Component({
   components: {
-    DrLoading,
-    DrButton
+    DrDialog,
+    DrOverlay
   }
 })
-export default class TestPage extends Vue {}
+export default class TestPage extends Vue {
+  private showDialog = false
+
+  private handleClick() {
+    this.showDialog = true
+  }
+
+  private confirm() {
+    console.log(123)
+  }
+}
 </script>
 
 <style lang="scss" scoped>
