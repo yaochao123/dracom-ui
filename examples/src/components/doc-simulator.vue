@@ -24,7 +24,7 @@ export default class DocSimulator extends Vue {
   private baseUrl =
     process.env.NODE_ENV === 'development'
       ? '/mobile.html#/mobile/'
-      : 'https://wx.yinnima.com/dracomUI/mobile.html#/'
+      : 'https://wx.yinnima.com/dracomUI/mobile.html#/mobile/'
 
   private created() {
     window.addEventListener('scroll', this.onScroll)
