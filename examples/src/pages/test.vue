@@ -1,15 +1,6 @@
 <template>
   <div class="test-page">
     <dr-button type="primary" @click="handleClick">弹框按钮</dr-button>
-    <dr-dialog
-      v-model="showDialog"
-      type="success"
-      title="弹框标题"
-      content="您还未订购该功能，开通VIP套餐 即可使用哦～"
-      cancel="关闭"
-      confirm="确定"
-      @confirm="confirm"
-    ></dr-dialog>
   </div>
 </template>
 
@@ -27,11 +18,14 @@ export default class TestPage extends Vue {
   private showDialog = false
 
   private handleClick() {
-    this.showDialog = true
-  }
-
-  private confirm() {
-    console.log(123)
+    this.$dialog('success', {
+      title: '测试标题',
+      content: '代码是写给人看的',
+      cancelButton: '关闭',
+      confirmButton: '确定'
+    })
+      .then(() => {})
+      .catch(() => {})
   }
 }
 </script>

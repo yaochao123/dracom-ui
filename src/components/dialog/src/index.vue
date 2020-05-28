@@ -3,36 +3,39 @@
     <transition name="dr-dialog-bounce">
       <div class="dr-dialog" v-if="showModel">
         <!-- 弹框标题 -->
-        <div class="dr-dialog-title">
-          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type"
-            >{{ title }}
+        <div :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]">
+          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
           </dr-dialog-icon>
+          {{ title }}
         </div>
         <!-- 弹框内容 -->
         <div class="dr-dialog-content" v-html="content" v-if="content"></div>
         <!-- 弹框按钮 -->
         <div class="dr-dialog-button">
           <div
-            v-if="cancel"
-            class="dr-dialog-button-cancel"
+            v-if="cancelButton"
+            :class="[
+              'dr-dialog-button-cancel',
+              { 'dr-dialog-button-only': !confirmButton }
+            ]"
             :style="[
               { border: `1px solid ${primaryColor}` },
               { color: primaryColor }
             ]"
             @click="handleCancel"
           >
-            {{ cancel }}
+            {{ cancelButton }}
           </div>
           <div
-            v-if="confirm"
+            v-if="confirmButton"
             :class="[
               'dr-dialog-button-confirm',
-              { 'dr-dialog-button-confirm-only': !cancel }
+              { 'dr-dialog-button-only': !cancelButton }
             ]"
             :style="[{ backgroundColor: primaryColor }]"
             @click="handleConfirm"
           >
-            {{ confirm }}
+            {{ confirmButton }}
           </div>
         </div>
       </div>
@@ -71,10 +74,10 @@ export default class DrDialog extends Vue {
   @Prop({ type: String, required: false, default: '' }) content?: string
 
   // 关闭按钮内容
-  @Prop({ type: String, required: false, default: '' }) cancel?: string
+  @Prop({ type: String, required: false, default: '' }) cancelButton?: string
 
   //确定按钮内容
-  @Prop({ type: String, required: false, default: '' }) confirm?: string
+  @Prop({ type: String, required: false, default: '' }) confirmButton?: string
 
   /**
    * 点击关闭按钮
@@ -116,6 +119,9 @@ export default class DrDialog extends Vue {
     font-size: $dialog-title-size;
     color: $dialog-title-color;
     font-weight: $dialog-title-weight;
+    &-only {
+      margin-bottom: 20px;
+    }
   }
 
   &-content {
@@ -141,10 +147,11 @@ export default class DrDialog extends Vue {
     }
     &-confirm {
       color: $dialog-button-confirm-color;
-      &-only {
-        flex: 1;
-        height: 44px;
-      }
+    }
+
+    &-only {
+      flex: 1;
+      height: 44px;
     }
   }
 

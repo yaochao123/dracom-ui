@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import DrButton from './components/button/index'
 import DrLoading from './components/loading/index'
 import DrDialog from './components/dialog/index'
@@ -22,6 +23,8 @@ const install = function(Vue: any) {
 if (typeof window !== 'undefined' && (window as any).Vue) {
   install((window as any).Vue)
 }
+
+Vue.use(DrDialog)
 
 export default {
   install,
