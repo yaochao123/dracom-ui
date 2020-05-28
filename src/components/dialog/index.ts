@@ -9,7 +9,9 @@ const Drdialog = {
     const instance = new (Vue.extend(DrDialog))()
 
     const dialog = {
-      alert: (type: String, options: Object) => {
+      alert: function(type: String, options: Object) {
+        const args = arguments
+
         if (!instance || !isInDocument(instance.$el)) {
           if (instance) {
             instance.$destroy()
@@ -19,8 +21,8 @@ const Drdialog = {
         instance.$mount(document.createElement('div'))
         document.body.appendChild(instance.$el)
 
-        if (type) {
-          instance.type = type
+        if (args.length === 1 && typeof args[0] === 'string') {
+          instance.type = args[0]
         }
         instance.showModel = true
 
