@@ -3,7 +3,10 @@
     <transition name="dr-dialog-bounce">
       <div class="dr-dialog" v-if="showModel">
         <!-- 弹框标题 -->
-        <div :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]">
+        <div
+          :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
+          v-if="title || type"
+        >
           <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
           </dr-dialog-icon>
           {{ title }}
@@ -64,7 +67,7 @@ export default class DrDialog extends Vue {
   @Prop({ type: String, required: false, default: '' }) type?: string
 
   // 标题内容
-  @Prop({ type: String, required: false, default: '标题' }) title?: string
+  @Prop({ type: String, required: false, default: '' }) title?: string
 
   // 主题色
   @Prop({ type: String, required: false, default: '#33C0AF' })
