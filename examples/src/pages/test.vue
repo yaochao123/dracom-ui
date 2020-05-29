@@ -10,7 +10,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({})
 export default class TestPage extends Vue {
   private title = '标题'
-  private content = '只有通过不断的学习和练习，才能变得更强'
+  private content = '这是一段弹出框的内容'
   private confirmButton = '确定'
 
   /**

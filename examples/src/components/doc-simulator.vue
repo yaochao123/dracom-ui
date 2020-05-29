@@ -1,13 +1,6 @@
 <template>
-  <div
-    class="doc-simulator"
-    :class="{ 'doc-simulator-fixed': isFixed }"
-  >
-    <iframe
-      :src="src"
-      frameborder="0"
-      :style="simulatorStyle"
-    ></iframe>
+  <div class="doc-simulator" :class="{ 'doc-simulator-fixed': isFixed }">
+    <iframe :src="src" frameborder="0" :style="simulatorStyle"></iframe>
   </div>
 </template>
 
@@ -59,7 +52,7 @@ export default class DocSimulator extends Vue {
   /**
    * 监听滚动
    */
-  onScroll() {
+  private onScroll() {
     const { pageYOffset: offset } = window
     this.top = Math.max(0, 60 - offset)
   }
