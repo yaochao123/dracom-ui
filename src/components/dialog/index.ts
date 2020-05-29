@@ -30,7 +30,12 @@ const Drdialog = {
       Object.assign(instance, defaultOptions)
     }
 
-    function initDialog(type: String, options: Object, initOptions: Object) {
+    function initDialog(
+      type: String,
+      options: Object,
+      initOptions: Object,
+      promise: any
+    ) {
       instance.$mount(document.createElement('div'))
       document.body.appendChild(instance.$el)
 
@@ -40,23 +45,23 @@ const Drdialog = {
 
       Object.assign(instance, type, options, initOptions)
 
-      return new Promise((resolve, reject) => {
-        if (!instance || !isInDocument(instance.$el)) {
-          if (instance) {
-            instance.$destroy()
-          }
+      if (!instance || !isInDocument(instance.$el)) {
+        if (instance) {
+          instance.$destroy()
         }
+      }
 
-        instance.handleConfirm = () => {
-          resolve()
-          resetOptions()
-        }
+      const { resolve, reject } = promise
 
-        instance.handleCancel = () => {
-          reject()
-          resetOptions()
-        }
-      })
+      instance.handleConfirm = () => {
+        resolve()
+        resetOptions()
+      }
+
+      instance.handleCancel = () => {
+        reject()
+        resetOptions()
+      }
     }
 
     const dialog: Dialog = {
@@ -66,8 +71,9 @@ const Drdialog = {
           showCancelButton: false,
           showConfirmButton: true
         }
-
-        initDialog(type, options, alertOptions)
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, alertOptions, { resolve, reject })
+        })
       },
 
       confirm: function(type: String, options: Object) {
@@ -76,8 +82,9 @@ const Drdialog = {
           showCancelButton: true,
           showConfirmButton: true
         }
-
-        initDialog(type, options, confirmOptions)
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, confirmOptions, { resolve, reject })
+        })
       },
 
       close: () => {

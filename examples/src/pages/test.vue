@@ -1,9 +1,6 @@
 <template>
   <div class="test-page">
     <dr-button type="primary" @click="handleClickBtn">弹框按钮</dr-button>
-    <dr-button type="primary" @click="handleClickBtnNoTitle"
-      >弹框按钮(无标题)</dr-button
-    >
   </div>
 </template>
 
@@ -20,21 +17,19 @@ export default class TestPage extends Vue {
    * 提示弹框
    */
   handleClickBtn() {
-    this.$dialog.alert({
-      title: this.title,
-      content: this.content,
-      confirmButton: this.confirmButton
-    })
-  }
-
-  /**
-   * 提示弹框(无标题)
-   */
-  handleClickBtnNoTitle() {
-    this.$dialog.alert({
-      content: this.content,
-      confirmButton: this.confirmButton
-    })
+    this.$dialog
+      .confirm({
+        title: this.title,
+        content: this.content,
+        confirmButton: this.confirmButton,
+        cancelButton: '取消'
+      })
+      .then(() => {
+        console.log(123)
+      })
+      .catch(() => {
+        console.log(456)
+      })
   }
 }
 </script>
