@@ -18,7 +18,8 @@ export default class DrOverlay extends Vue {
    * 点击遮罩
    */
   handleOverlay() {
-    this.$emit('click')
+    console.log(123)
+    this.$emit('update:show', false)
   }
 }
 </script>

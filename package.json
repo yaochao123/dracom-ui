@@ -1,6 +1,6 @@
 {
   "name": "dracom-ui",
-  "version": "1.1.38",
+  "version": "1.1.39",
   "description": "杭州龙骞科技h5端组件库",
   "main": "lib/dracom-ui.umd.min.js",
   "typings": "types/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "dracom-ui": "^1.1.38",
+    "dracom-ui": "^1.1.39",
     "markdown-it": "^10.0.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",

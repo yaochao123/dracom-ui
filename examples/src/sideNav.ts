@@ -46,6 +46,14 @@ export const navData = [
         component: (resolve: any) => {
           require(['@/docs/dialog.md'], resolve)
         }
+      },
+      {
+        name: 'Overlay',
+        path: '/overlay',
+        navName: 'Overlay 遮罩层',
+        component: (resolve: any) => {
+          require(['@/docs/overlay.md'], resolve)
+        }
       }
     ]
   }
