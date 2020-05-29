@@ -11,7 +11,7 @@
       <div class="doc-demo-block-title">确认弹框</div>
       <dr-button type="primary" @click="confirm">确认弹框</dr-button>
     </div>
-     <div class="doc-demo-block">
+    <div class="doc-demo-block">
       <div class="doc-demo-block-title">弹框类型</div>
       <dr-button type="primary" @click="success">成功弹框</dr-button>
       <dr-button type="primary" @click="fail">失败弹框</dr-button>
@@ -25,6 +25,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { DrDialog } from 'dracom-ui'
 
 @Component({})
 export default class DemoDialog extends Vue {
@@ -72,40 +73,40 @@ export default class DemoDialog extends Vue {
    * 成功弹框
    */
   success() {
-    this.$dialog.alert('success', {
-      title: '成功弹框',
-      content: '只有通过不断的学习和练习，才能变得更强',
-      confirmButton: '确定'
-    }).then(() => {
-
-    })
+    this.$dialog
+      .alert('success', {
+        title: '成功弹框',
+        content: '只有通过不断的学习和练习，才能变得更强',
+        confirmButton: '确定'
+      })
+      .then(() => {})
   }
 
   /**
    * 失败弹框
    */
   fail() {
-    this.$dialog.alert('fail', {
-      title: '失败弹框',
-      content: '只有通过不断的学习和练习，才能变得更强',
-      confirmButton: '确定'
-    }).then(() => {
-      
-    })
+    this.$dialog
+      .alert('fail', {
+        title: '失败弹框',
+        content: '只有通过不断的学习和练习，才能变得更强',
+        confirmButton: '确定'
+      })
+      .then(() => {})
   }
 
   /**
    * 主题色
    */
   primary() {
-    this.$dialog.alert('success', {
-      title: '主题色',
-      content: '只有通过不断的学习和练习，才能变得更强',
-      primaryColor: '#409EFF',
-      confirmButton: '确定'
-    }).then(() => {
-      
-    })
+    this.$dialog
+      .alert('success', {
+        title: '主题色',
+        content: '只有通过不断的学习和练习，才能变得更强',
+        primaryColor: '#409EFF',
+        confirmButton: '确定'
+      })
+      .then(() => {})
   }
 }
 </script>
