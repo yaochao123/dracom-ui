@@ -2,10 +2,14 @@
   <div class="demo-dialog">
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">提示弹框</div>
-      <dr-button type="primary" @click="handleClickBtn">提示弹框</dr-button>
-      <dr-button type="primary" @click="handleClickBtnNoTitle"
-        >提示弹框(无标题)</dr-button
-      >
+      <dr-button
+        type="primary"
+        @click="handleClickBtn"
+      >提示弹框</dr-button>
+      <dr-button
+        type="primary"
+        @click="handleClickBtnNoTitle"
+      >提示弹框(无标题)</dr-button>
     </div>
   </div>
 </template>
@@ -23,7 +27,7 @@ export default class DemoDialog extends Vue {
    * 提示弹框
    */
   handleClickBtn() {
-    this.$dialog({
+    this.$dialog.alert({
       title: this.title,
       content: this.content,
       confirmButton: this.confirmButton
@@ -34,8 +38,11 @@ export default class DemoDialog extends Vue {
    * 提示弹框(无标题)
    */
   handleClickBtnNoTitle() {
-    this.title = ''
-    this.handleClickBtn()
+    this.$dialog.alert({
+      title: '',
+      content: this.content,
+      confirmButton: this.confirmButton
+    })
   }
 }
 </script>

@@ -1,13 +1,20 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" v-if="showModel">
+      <div
+        class="dr-dialog"
+        v-if="showModel"
+      >
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
+          <dr-dialog-icon
+            :color="primaryColor"
+            :type="type"
+            v-if="type"
+          >
           </dr-dialog-icon>
           {{ title }}
         </div>
@@ -21,12 +28,15 @@
           v-if="content"
         ></div>
         <!-- 弹框按钮 -->
-        <div class="dr-dialog-button">
+        <div
+          class="dr-dialog-button"
+          v-if="showCancelButton || showConfirmButton"
+        >
           <div
-            v-if="cancelButton"
+            v-if="showCancelButton"
             :class="[
               'dr-dialog-button-cancel',
-              { 'dr-dialog-button-only': !confirmButton }
+              { 'dr-dialog-button-only': !showConfirmButton }
             ]"
             :style="[
               { border: `1px solid ${primaryColor}` },
@@ -37,10 +47,10 @@
             {{ cancelButton }}
           </div>
           <div
-            v-if="confirmButton"
+            v-if="showConfirmButton"
             :class="[
               'dr-dialog-button-confirm',
-              { 'dr-dialog-button-only': !cancelButton }
+              { 'dr-dialog-button-only': !showCancelButton }
             ]"
             :style="[{ backgroundColor: primaryColor }]"
             @click="handleConfirm"
@@ -82,6 +92,14 @@ export default class DrDialog extends Vue {
 
   // 正文内容
   @Prop({ type: String, required: false, default: '' }) content?: string
+
+  // 是否显示取消按钮
+  @Prop({ type: Boolean, required: false, default: true })
+  showCancelButton?: boolean
+
+  // 是否显示确认按钮
+  @Prop({ type: Boolean, required: false, default: true })
+  showConfirmButton?: boolean
 
   // 关闭按钮内容
   @Prop({ type: String, required: false, default: '' }) cancelButton?: string

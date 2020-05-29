@@ -1,5 +1,11 @@
 import DrDialog from './src/index.vue'
 
+interface Dialog {
+  alert: Function
+  confirm: Function
+  close: Function
+}
+
 function isInDocument(element: Element) {
   return document.body.contains(element)
 }
@@ -8,44 +14,54 @@ const Drdialog = {
   install: (Vue: any) => {
     const instance = new (Vue.extend(DrDialog))()
 
-    const dialog = {
-      alert: function(type: String, options: Object) {
-        const args = arguments
+    function initDialog(type: String, options: Object, initOptions: Object) {
+      instance.$mount(document.createElement('div'))
+      document.body.appendChild(instance.$el)
 
+      if (typeof type === 'string') {
+        instance.type = type
+      }
+
+      Object.assign(instance, type, options, initOptions)
+
+      return new Promise((resolve, reject) => {
         if (!instance || !isInDocument(instance.$el)) {
           if (instance) {
             instance.$destroy()
           }
         }
 
-        instance.$mount(document.createElement('div'))
-        document.body.appendChild(instance.$el)
-
-        if (args.length === 1) {
-          if (typeof args[0] === 'string') {
-            instance.type = args[0]
-          }
-          if (typeof args[0] === 'object') {
-            Object.assign(instance, args[0])
-          }
+        instance.handleConfirm = () => {
+          instance.showModel = false
+          resolve()
         }
-        if (args.length === 2) {
-          instance.type = type
-          Object.assign(instance, options)
+
+        instance.handleCancel = () => {
+          instance.showModel = false
+          reject()
         }
-        instance.showModel = true
+      })
+    }
 
-        return new Promise((resolve, reject) => {
-          instance.handleConfirm = () => {
-            instance.showModel = false
-            resolve()
-          }
+    const dialog: Dialog = {
+      alert: (type: String, options: Object) => {
+        const alertOptions = {
+          showModel: true,
+          showCancelButton: false,
+          showConfirmButton: true
+        }
 
-          instance.handleCancel = () => {
-            instance.showModel = false
-            reject()
-          }
-        })
+        initDialog(type, options, alertOptions)
+      },
+
+      confirm: function(type: String, options: Object) {
+        const confirmOptions = {
+          showModel: true,
+          showCancelButton: true,
+          showConfirmButton: true
+        }
+
+        initDialog(type, options, confirmOptions)
       },
 
       close: () => {
@@ -53,11 +69,7 @@ const Drdialog = {
       }
     }
 
-    Vue.prototype.$dialog = dialog.alert
-
-    Vue.prototype.$dialog.alert = dialog.alert
-
-    Vue.prototype.$dialog.close = dialog.close
+    Vue.prototype.$dialog = dialog
   }
 }
 

@@ -43,3 +43,16 @@ this.$dialog('success', {
 ```
 
 ### 代码演示
+
+```js
+this.$dialog({
+  title: '标题',
+  content: '只有通过不断的学习和练习，才能变得更强',
+  confrimButton: '确定'
+})
+
+this.$dialog({
+  content: '只有通过不断的学习和练习，才能变得更强',
+  confrimButton: '确定'
+})
+```
