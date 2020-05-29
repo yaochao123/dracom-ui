@@ -38,6 +38,13 @@ const routes = [
         component: (resolve: any) => {
           require(['@@/docs/demo-dialog.vue'], resolve)
         }
+      },
+      {
+        path: 'demo-overlay',
+        name: 'Overlay',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-overlay.vue'], resolve)
+        }
       }
     ]
   }

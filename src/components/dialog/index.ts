@@ -88,7 +88,7 @@ const DrDialog: any = {
       },
 
       close: () => {
-        instance.showModel = false
+        resetOptions()
       }
     }
 
