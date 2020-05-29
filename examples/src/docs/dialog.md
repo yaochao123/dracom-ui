@@ -52,14 +52,14 @@ this.$dialog('success', {
 
 this.$dialog.alert({
   title: '提示弹框',
-  content: '只有通过不断的学习和练习，才能变得更强',
+  content: '这是一段弹出框的内容',
   confirmButton: '确定'
 }).then(() => {
 
 })
 
 this.$dialog.alert({
-  content: '只有通过不断的学习和练习，才能变得更强',
+  content: '这是一段弹出框的内容',
   confirmButton: '确定'
 }).then(() => {
 
@@ -73,7 +73,7 @@ this.$dialog.alert({
 
 this.$dialog.confirm({
   title: '确认弹框',
-  content: '只有通过不断的学习和练习，才能变得更强',
+  content: '这是一段弹出框的内容',
   cancelButton: '取消',
   confirmButton: '确定'
 }).then(() => {
@@ -91,7 +91,7 @@ this.$dialog.confirm({
 this.$dialog
   .alert('success', {
     title: '成功弹框',
-    content: '只有通过不断的学习和练习，才能变得更强',
+    content: '这是一段弹出框的内容',
     confirmButton: '确定'
   })
   .then(() => {})
@@ -99,7 +99,7 @@ this.$dialog
 this.$dialog
   .alert('fail', {
     title: '失败弹框',
-    content: '只有通过不断的学习和练习，才能变得更强',
+    content: '这是一段弹出框的内容',
     confirmButton: '确定'
   })
   .then(() => {})
@@ -112,7 +112,7 @@ this.$dialog
 
 this.$dialog.alert('success', {
   title: '主题色',
-  content: '只有通过不断的学习和练习，才能变得更强',
+  content: '这是一段弹出框的内容',
   primaryColor: '#409EFF',
   confirmButton: '确定'
 }).then(() => {
