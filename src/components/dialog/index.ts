@@ -14,6 +14,22 @@ const Drdialog = {
   install: (Vue: any) => {
     const instance = new (Vue.extend(DrDialog))()
 
+    const defaultOptions = {
+      showModel: false,
+      type: '',
+      title: '',
+      primaryColor: '#33C0AF',
+      content: '',
+      showCancelButton: true,
+      showConfirmButton: true,
+      cancelButton: '',
+      confirmButton: ''
+    }
+
+    function resetOptions() {
+      Object.assign(instance, defaultOptions)
+    }
+
     function initDialog(type: String, options: Object, initOptions: Object) {
       instance.$mount(document.createElement('div'))
       document.body.appendChild(instance.$el)
@@ -32,13 +48,13 @@ const Drdialog = {
         }
 
         instance.handleConfirm = () => {
-          instance.showModel = false
           resolve()
+          resetOptions()
         }
 
         instance.handleCancel = () => {
-          instance.showModel = false
           reject()
+          resetOptions()
         }
       })
     }
