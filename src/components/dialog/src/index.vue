@@ -1,20 +1,13 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div
-        class="dr-dialog"
-        v-if="showModel"
-      >
+      <div class="dr-dialog" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon
-            :color="primaryColor"
-            :type="type"
-            v-if="type"
-          >
+          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
           </dr-dialog-icon>
           {{ title }}
         </div>
@@ -76,7 +69,7 @@ import DrOverlay from '../../overlay/src/index.vue'
     DrOverlay
   }
 })
-export default class DrDialog extends Vue {
+export default class Dialog extends Vue {
   // 是否显示弹框
   @Model('handleClick', { type: Boolean }) showModel?: boolean
 
@@ -112,7 +105,6 @@ export default class DrDialog extends Vue {
    */
   private handleCancel() {
     this.$emit('handleClick', false)
-    this.$emit('cancel')
   }
 
   /**
@@ -120,7 +112,6 @@ export default class DrDialog extends Vue {
    */
   private handleConfirm() {
     this.$emit('handleClick', false)
-    this.$emit('confirm')
   }
 }
 </script>

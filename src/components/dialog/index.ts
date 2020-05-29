@@ -1,6 +1,6 @@
-import DrDialog from './src/index.vue'
+import Dialog from './src/index.vue'
 
-interface Dialog {
+interface dialog {
   alert: Function
   confirm: Function
   close: Function
@@ -10,9 +10,9 @@ function isInDocument(element: Element) {
   return document.body.contains(element)
 }
 
-const Drdialog = {
+const DrDialog: any = {
   install: (Vue: any) => {
-    const instance = new (Vue.extend(DrDialog))()
+    const instance = new (Vue.extend(Dialog))()
 
     const defaultOptions = {
       showModel: false,
@@ -43,7 +43,7 @@ const Drdialog = {
         instance.type = type
       }
 
-      Object.assign(instance, type, options, initOptions)
+      Object.assign(instance, type, options, initOptions, promise)
 
       if (!instance || !isInDocument(instance.$el)) {
         if (instance) {
@@ -64,7 +64,7 @@ const Drdialog = {
       }
     }
 
-    const dialog: Dialog = {
+    const dialog: dialog = {
       alert: (type: String, options: Object) => {
         const alertOptions = {
           showModel: true,
@@ -96,4 +96,6 @@ const Drdialog = {
   }
 }
 
-export default Drdialog
+DrDialog.Component = Dialog
+
+export default DrDialog
