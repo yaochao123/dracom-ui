@@ -16,7 +16,8 @@ Vue.use(DrLoading)
 通过 type 属性可以设置加载图标类型，默认类型为`circular`，可选类型`spinner`
 
 ```html
-<dr-loading></dr-loading> <dr-loading type="spinner"></dr-loading>
+<dr-loading></dr-loading>
+<dr-loading type="spinner"></dr-loading>
 ```
 
 ### 自定义颜色
@@ -51,6 +52,7 @@ Vue.use(DrLoading)
 
 ```html
 <dr-loading vertical>加载中...</dr-loading>
+<dr-loading type="spinner" vertical>加载中...</dr-loading>
 ```
 
 ## API

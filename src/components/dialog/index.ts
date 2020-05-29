@@ -1,0 +1,101 @@
+import Dialog from './src/index.vue'
+
+interface dialog {
+  alert: Function
+  confirm: Function
+  close: Function
+}
+
+function isInDocument(element: Element) {
+  return document.body.contains(element)
+}
+
+const DrDialog: any = {
+  install: (Vue: any) => {
+    const instance = new (Vue.extend(Dialog))()
+
+    const defaultOptions = {
+      showModel: false,
+      type: '',
+      title: '',
+      primaryColor: '#33C0AF',
+      content: '',
+      showCancelButton: true,
+      showConfirmButton: true,
+      cancelButton: '',
+      confirmButton: ''
+    }
+
+    function resetOptions() {
+      Object.assign(instance, defaultOptions)
+    }
+
+    function initDialog(
+      type: String,
+      options: Object,
+      initOptions: Object,
+      promise: any
+    ) {
+      instance.$mount(document.createElement('div'))
+      document.body.appendChild(instance.$el)
+
+      if (typeof type === 'string') {
+        instance.type = type
+      }
+
+      Object.assign(instance, type, options, initOptions, promise)
+
+      if (!instance || !isInDocument(instance.$el)) {
+        if (instance) {
+          instance.$destroy()
+        }
+      }
+
+      const { resolve, reject } = promise
+
+      instance.handleConfirm = () => {
+        resolve()
+        resetOptions()
+      }
+
+      instance.handleCancel = () => {
+        reject()
+        resetOptions()
+      }
+    }
+
+    const dialog: dialog = {
+      alert: (type: String, options: Object) => {
+        const alertOptions = {
+          showModel: true,
+          showCancelButton: false,
+          showConfirmButton: true
+        }
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, alertOptions, { resolve, reject })
+        })
+      },
+
+      confirm: function(type: String, options: Object) {
+        const confirmOptions = {
+          showModel: true,
+          showCancelButton: true,
+          showConfirmButton: true
+        }
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, confirmOptions, { resolve, reject })
+        })
+      },
+
+      close: () => {
+        instance.showModel = false
+      }
+    }
+
+    Vue.prototype.$dialog = dialog
+  }
+}
+
+DrDialog.Component = Dialog
+
+export default DrDialog

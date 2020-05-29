@@ -145,7 +145,7 @@ export default class drButton extends Vue {
 
 <style lang="scss" scoped>
 @import '../../../style/mixin.scss';
-@import '../../../style/color.scss';
+@import '../../../style/common.scss';
 .dr-button {
   display: inline-flex;
   justify-content: center;

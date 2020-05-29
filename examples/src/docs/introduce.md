@@ -14,9 +14,10 @@ npm install dracom-ui --save
 
 ### 引入 DracomUI
 
+目前只支持全局引入，组件文档内的引入流程可以忽略，后续支持按需引入
+
 ```js
 import Dracom from 'dracom-ui'
-
 Vue.use(Dracom)
 ```
 

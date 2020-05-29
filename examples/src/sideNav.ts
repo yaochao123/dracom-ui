@@ -38,6 +38,14 @@ export const navData = [
         component: (resolve: any) => {
           require(['@/docs/loading.md'], resolve)
         }
+      },
+      {
+        name: 'Dialog',
+        path: '/dialog',
+        navName: 'Dialog 弹出框',
+        component: (resolve: any) => {
+          require(['@/docs/dialog.md'], resolve)
+        }
       }
     ]
   }

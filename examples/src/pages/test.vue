@@ -1,20 +1,37 @@
 <template>
   <div class="test-page">
-    <dr-loading type="spinner" vertical>加载中...</dr-loading>
+    <dr-button type="primary" @click="handleClickBtn">弹框按钮</dr-button>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import DrLoading from '@src/loading/src/index.vue'
-import DrButton from '@src/button/src/index.vue'
-@Component({
-  components: {
-    DrLoading,
-    DrButton
+
+@Component({})
+export default class TestPage extends Vue {
+  private title = '标题'
+  private content = '只有通过不断的学习和练习，才能变得更强'
+  private confirmButton = '确定'
+
+  /**
+   * 提示弹框
+   */
+  handleClickBtn() {
+    this.$dialog
+      .confirm({
+        title: this.title,
+        content: this.content,
+        confirmButton: this.confirmButton,
+        cancelButton: '取消'
+      })
+      .then(() => {
+        console.log(123)
+      })
+      .catch(() => {
+        console.log(456)
+      })
   }
-})
-export default class TestPage extends Vue {}
+}
 </script>
 
 <style lang="scss" scoped>

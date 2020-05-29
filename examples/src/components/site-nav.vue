@@ -1,13 +1,6 @@
 <template>
-  <div
-    class="site-nav"
-    :style="style"
-  >
-    <div
-      class="site-nav-list"
-      v-for="(item, index) in navData"
-      :key="index"
-    >
+  <div class="site-nav" :style="style">
+    <div class="site-nav-list" v-for="(item, index) in navData" :key="index">
       <ul class="site-nav-section">
         <p class="site-nav-title">{{ item.name }}</p>
         <li
