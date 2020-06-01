@@ -10,8 +10,8 @@
       { 'dr-button-warning': type === 'warning' },
       { 'dr-button-plain': plain },
       { 'dr-button-block': block },
-      { 'dr-button-miniRange': miniRange },
-      { 'dr-button-larRange': larRange }
+      { 'dr-button-mini-range': miniRange },
+      { 'dr-button-large-range': largeRange }
     ]"
     :style="btnStyle"
     @click="handleBtnClick"
@@ -19,7 +19,7 @@
     <div class="dr-button-content">
       <!-- 是否显示加载状态 -->
       <div class="dr-button-loading" v-if="loading">
-        <dr-loading :size="loadingSize" isBtn></dr-loading>
+        <dr-loading :size="loadingSize"></dr-loading>
       </div>
       <!-- 是否显示图标 -->
       <img
@@ -87,7 +87,7 @@ export default class drButton extends Vue {
   @Prop({ type: Boolean, required: false, default: false }) miniRange!: false
 
   // 大圆角按钮
-  @Prop({ type: Boolean, required: false, default: false }) larRange!: false
+  @Prop({ type: Boolean, required: false, default: false }) largeRange!: false
 
   // 是否显示加载状态
   @Prop({ type: Boolean, required: false, default: false }) loading!: false
@@ -217,12 +217,12 @@ export default class drButton extends Vue {
     display: block;
   }
 
-  &-miniRange {
+  &-mini-range {
     border-radius: $border-radius-mini;
   }
 
-  &-larRange {
-    border-radius: $border-radius-larRange;
+  &-large-range {
+    border-radius: $border-radius-large;
   }
 
   &-loading {

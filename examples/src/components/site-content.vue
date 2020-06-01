@@ -65,8 +65,13 @@ export default class SiteContent extends Vue {}
     color: #4fc08d;
   }
 
-  .hljs-name {
+  .hljs-name,
+  .hljs-attr {
     color: #4994df;
+  }
+
+  .hljs-literal {
+    color: #eb6f6f;
   }
 
   code {

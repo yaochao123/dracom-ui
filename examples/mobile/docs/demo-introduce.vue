@@ -33,7 +33,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import ArrowRight from '../components/arrow-right.vue'
-import { navData } from '../../src/sideNav'
+import { navData } from '../../src/router/sideNav'
 
 @Component({
   components: {

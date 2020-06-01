@@ -81,20 +81,20 @@ Vue.use(DrButton)
 
 ### Props
 
-| 参数        | 说明                                               | 类型               | 默认值    |
-| ----------- | -------------------------------------------------- | ------------------ | --------- |
-| type        | 类型，可选值为 `primary` `info` `warning` `danger` | _string_           | `default` |
-| text        | 按钮文本内容                                       | _string_           | -         |
-| textColor   | 按钮文本颜色                                       | _string_           | -         |
-| color       | 按钮颜色，支持传入 linear-gradient 渐变色          | _string_           | -         |
-| icon        | 左侧图标链接                                       | _string_           | -         |
-| plain       | 是否为朴素按钮                                     | _boolean_          | `false`   |
-| disabled    | 是否禁用按钮                                       | _boolean_          | `false`   |
-| block       | 是否为块级元素                                     | _boolean_          | `false`   |
-| miniRange   | 是否为小圆角按钮                                   | _boolean_          | `false`   |
-| larRange    | 是否为大圆角按钮                                   | _boolean_          | `false`   |
-| loading     | 是否显示加载图标                                   | _boolean_          | `false`   |
-| loadingSize | 加载图标大小                                       | _string \| number_ | `20px`    |
+| 参数         | 说明                                               | 类型               | 默认值    |
+| ------------ | -------------------------------------------------- | ------------------ | --------- |
+| type         | 类型，可选值为 `primary` `info` `warning` `danger` | _string_           | `default` |
+| text         | 按钮文本内容                                       | _string_           | -         |
+| text-color   | 按钮文本颜色                                       | _string_           | -         |
+| color        | 按钮颜色，支持传入 linear-gradient 渐变色          | _string_           | -         |
+| icon         | 左侧图标链接                                       | _string_           | -         |
+| plain        | 是否为朴素按钮                                     | _boolean_          | `false`   |
+| disabled     | 是否禁用按钮                                       | _boolean_          | `false`   |
+| block        | 是否为块级元素                                     | _boolean_          | `false`   |
+| mini-range   | 是否为小圆角按钮                                   | _boolean_          | `false`   |
+| large-range  | 是否为大圆角按钮                                   | _boolean_          | `false`   |
+| loading      | 是否显示加载图标                                   | _boolean_          | `false`   |
+| loading-size | 加载图标大小                                       | _string \| number_ | `20px`    |
 
 ### Events
 

@@ -4,6 +4,7 @@ interface dialog {
   alert: Function
   confirm: Function
   close: Function
+  setDefaultOptions: Function
 }
 
 function isInDocument(element: Element) {
@@ -22,6 +23,10 @@ const DrDialog: any = {
       content: '',
       showCancelButton: true,
       showConfirmButton: true,
+      overlay: true,
+      lockScroll: true,
+      closeOnOverlay: false,
+      closeOnPopState: true,
       cancelButton: '',
       confirmButton: ''
     }
@@ -44,6 +49,20 @@ const DrDialog: any = {
       }
 
       Object.assign(instance, type, options, initOptions, promise)
+
+      if (instance.closeOnOverlay) {
+        setTimeout(() => {
+          instance.$el.lastChild.addEventListener('click', () => {
+            resetOptions()
+          })
+
+          if (instance.closeOnPopState) {
+            window.addEventListener('popstate', () => {
+              resetOptions()
+            })
+          }
+        }, 0)
+      }
 
       if (!instance || !isInDocument(instance.$el)) {
         if (instance) {
@@ -76,7 +95,7 @@ const DrDialog: any = {
         })
       },
 
-      confirm: function(type: String, options: Object) {
+      confirm: (type: String, options: Object) => {
         const confirmOptions = {
           showModel: true,
           showCancelButton: true,
@@ -88,7 +107,11 @@ const DrDialog: any = {
       },
 
       close: () => {
-        resetOptions()
+        instance.showModel = false
+      },
+
+      setDefaultOptions: (options: any) => {
+        Object.assign(instance, options)
       }
     }
 

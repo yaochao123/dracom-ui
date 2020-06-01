@@ -124,11 +124,12 @@ this.$dialog.alert('success', {
 
 ### 方法
 
-| 方法名         | 说明     | 参数             | 返回值    |
-| -------------- | -------- | ---------------- | --------- |
-| Dialog.alert   | 展示弹框 | `type` `options` | `Promise` |
-| Dialog.confirm | 确认弹框 | `type` `options` | `Promise` |
-| Dialog.close   | 关闭弹框 | -                | `void`    |
+| 方法名                   | 说明                             | 参数             | 返回值    |
+| ------------------------ | -------------------------------- | ---------------- | --------- |
+| Dialog.alert             | 展示弹框                         | `type` `options` | `Promise` |
+| Dialog.confirm           | 确认弹框                         | `type` `options` | `Promise` |
+| Dialog.close             | 关闭弹框                         | -                | `void`    |
+| Dialog.setDefaultOptions | 修改默认配置，对所有 Dialog 生效 | `options`        | `void`    |
 
 ### Options
 
@@ -141,8 +142,13 @@ this.$dialog.alert('success', {
 | primaryColor| 弹出框主题色 | _string_ | `#33C0AF` |
 | cancelButton | 取消按钮内容 | _string_ | - |
 | confirmButton | 确认按钮内容 | _string_ | - |
+| width | 弹出框宽度，单位`px` | _number\|string_ | `300` |
 | showCancelButton | 是否显示取消按钮 | _boolean_ | `true` |
 | showConfirmButton | 是否显示确认按钮 | _boolean_ | `true` |
+| overlay | 是否显示遮罩层 | _boolean_ | `true` |
+| lockScroll | 是否禁止背景滚动 | _boolean_ | `true` |
+| closeOnOverlay | 是否通过点击遮罩层关闭弹框 | _boolean_ | `false` |
+| closeOnPopstate | 是否在页面回退时关闭弹框 | _boolean_ | `true` |
 
 ### Props
 
@@ -153,8 +159,13 @@ this.$dialog.alert('success', {
 | type | `success`成功、`fail`失败| _string_ | - |
 | title | 弹出框标题 | _string_ | - |
 | content | 弹出框内容 | _string_ | - |
-| primaryColor| 弹出框主题色 | _string_ | `#33C0AF` |
-| cancelButton | 取消按钮内容 | _string_ | - |
-| confirmButton | 确认按钮内容 | _string_ | - |
-| showCancelButton | 是否显示取消按钮 | _boolean_ | `true` |
-| showConfirmButton | 是否显示确认按钮 | _boolean_ | `true` |
+| primary-color| 弹出框主题色 | _string_ | `#33C0AF` |
+| cancel-button | 取消按钮内容 | _string_ | - |
+| confirm-button | 确认按钮内容 | _string_ | - |
+| width | 弹出框宽度，单位`px` | _number\|string_ | `300` |
+| show-cancel-button | 是否显示取消按钮 | _boolean_ | `true` |
+| show-confirm-button | 是否显示确认按钮 | _boolean_ | `true` |
+| overlay | 是否显示遮罩层 | _boolean_ | `true` |
+| lock-scroll | 是否禁止背景滚动 | _boolean_ | `true` |
+| close-on-overlay | 是否通过点击遮罩层关闭弹框 | _boolean_ | `false` |
+| close-on-popstate | 是否在页面回退时关闭弹框 | _boolean_ | `true` |
