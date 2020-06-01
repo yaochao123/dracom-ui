@@ -57,8 +57,12 @@ const DrDialog: any = {
           })
 
           if (instance.closeOnPopState) {
+            window.addEventListener('hashchange', () => {
+              instance.showModel = false
+            })
+
             window.addEventListener('popstate', () => {
-              resetOptions()
+              instance.showModel = false
             })
           }
         }, 0)
