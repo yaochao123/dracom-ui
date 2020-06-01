@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" v-if="showModel">
+      <div class="dr-dialog" :style="{ width: `${width}px` }" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
@@ -54,15 +54,20 @@
       </div>
     </transition>
     <!-- 遮罩 -->
-    <dr-overlay :show="showModel"></dr-overlay>
+    <dr-overlay
+      :show="showModel && overlay"
+      :lock-scroll="lockScroll"
+      @click="handleOverlay"
+    ></dr-overlay>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Model } from 'vue-property-decorator'
+import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator'
 import DrDialogIcon from '../components/dr-dialog-icon.vue'
 import DrOverlay from '../../overlay/src/index.vue'
 
+Component.registerHooks(['beforeRouteLeave'])
 @Component({
   components: {
     DrDialogIcon,
@@ -72,6 +77,11 @@ import DrOverlay from '../../overlay/src/index.vue'
 export default class Dialog extends Vue {
   // 是否显示弹框
   @Model('handleClick', { type: Boolean }) showModel?: boolean
+
+  // 弹框宽度
+  @Prop({ type: [Number, String], required: false, default: 300 }) width?:
+    | number
+    | string
 
   // 图标类型
   @Prop({ type: String, required: false, default: '' }) type?: string
@@ -94,6 +104,19 @@ export default class Dialog extends Vue {
   @Prop({ type: Boolean, required: false, default: true })
   showConfirmButton?: boolean
 
+  // 是否显示遮罩层
+  @Prop({ type: Boolean, required: false, default: true }) overlay?: boolean
+
+  // 是否禁止背景滚动
+  @Prop({ type: Boolean, required: false, default: true }) lockScroll?: boolean
+
+  // 点击遮罩层关闭弹框
+  @Prop({ type: Boolean, required: false, default: false })
+  closeOnOverlay?: boolean
+
+  @Prop({ type: Boolean, required: false, default: true })
+  closeOnPopState?: boolean
+
   // 关闭按钮内容
   @Prop({ type: String, required: false, default: '' }) cancelButton?: string
 
@@ -113,6 +136,13 @@ export default class Dialog extends Vue {
   private handleConfirm() {
     this.$emit('handleClick', false)
   }
+
+  // 点击遮罩层
+  private handleOverlay() {
+    if (this.closeOnOverlay) {
+      this.$emit('handleClick', false)
+    }
+  }
 }
 </script>
 
@@ -123,7 +153,6 @@ export default class Dialog extends Vue {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;
   background-color: $dialog-background-color;
   border-radius: $dialog-border-radius;
   padding: 36px 24px 22px 24px;

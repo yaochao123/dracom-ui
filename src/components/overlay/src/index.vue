@@ -1,6 +1,12 @@
 <template>
   <transition name="dr-overlay-fade">
-    <div class="dr-overlay" v-if="show" @click="handleOverlay">
+    <div
+      v-if="show"
+      :class="['dr-overlay']"
+      :style="{ 'z-index': zIndex }"
+      @click="handleOverlay"
+      @touchmove="touchMove"
+    >
       <slot />
     </div>
   </transition>
@@ -8,18 +14,43 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator'
+import { noop, preventDefault } from '../../../utils/index'
 
 @Component({})
 export default class DrOverlay extends Vue {
   // 是否显示遮罩
   @Prop({ type: Boolean, required: false, default: false }) show?: boolean
 
+  // 层级
+  @Prop({ type: [Number, String], required: false, default: 1 }) zIndex?:
+    | number
+    | string
+
+  // 是否禁止滚动
+  @Prop({ type: Boolean, required: false, default: true }) lockScroll?: boolean
+
+  private noop = noop
+  private preventDefault = preventDefault
+
+  /**
+   * 判断是否触发禁止滚动
+   */
+  get touchMove() {
+    return this.lockScroll ? this.preventDefault : noop
+  }
+
   /**
    * 点击遮罩
    */
   handleOverlay() {
-    console.log(123)
-    this.$emit('update:show', false)
+    this.$emit('click')
+  }
+
+  /**
+   * 锁屏禁止滚动
+   */
+  preventTouchMove(event: Event) {
+    preventDefault(event, true)
   }
 }
 </script>

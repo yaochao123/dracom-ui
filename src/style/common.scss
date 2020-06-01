@@ -25,7 +25,7 @@ $weight-6: 600;
 $border-color: $gray-2;
 $border-width-base: 1px;
 $border-radius-mini: 4px;
-$border-radius-larRange: 25px;
+$border-radius-large: 25px;
 
 // Button
 $button-default: $gray-1;
@@ -42,7 +42,7 @@ $dialog-title-size: $size-16;
 $dialog-title-weight: $weight-6;
 $dialog-content-color: $gray-1;
 $dialog-content-size: $size-14;
-$dialog-button-radius: $border-radius-larRange;
+$dialog-button-radius: $border-radius-large;
 $dialog-button-size: $size-16;
 $dialog-button-weight: $weight-5;
 $dialog-button-confirm-color: $white;

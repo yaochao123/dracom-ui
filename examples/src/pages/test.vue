@@ -1,6 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-button type="primary" @click="handleClickBtn">弹框按钮</dr-button>
+    <dr-button large-range>小圆角按钮</dr-button>
   </div>
 </template>
 
@@ -8,30 +8,7 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class TestPage extends Vue {
-  private title = '标题'
-  private content = '这是一段弹出框的内容'
-  private confirmButton = '确定'
-
-  /**
-   * 提示弹框
-   */
-  handleClickBtn() {
-    this.$dialog
-      .confirm({
-        title: this.title,
-        content: this.content,
-        confirmButton: this.confirmButton,
-        cancelButton: '取消'
-      })
-      .then(() => {
-        console.log(123)
-      })
-      .catch(() => {
-        console.log(456)
-      })
-  }
-}
+export default class TestPage extends Vue {}
 </script>
 
 <style lang="scss" scoped>

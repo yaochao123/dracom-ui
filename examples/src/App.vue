@@ -10,9 +10,18 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({})
 export default class App extends Vue {
   private mounted() {
+    this.$dialog.setDefaultOptions({
+      closeOnOverlay: true
+    })
     window.onmessage = (e: any) => {
       const data = e.data
-      if (data && data.type !== 'webpackOk') {
+      if (
+        data &&
+        data.type &&
+        data.type !== 'webpackOk' &&
+        data.type !== 'webpackErrors' &&
+        data.type !== 'webpackInvalid'
+      ) {
         const currentPath = this.$route.path.split('/')[1]
         if (currentPath !== data) {
           if (data.indexOf('webpackHotUpdate') === -1) {

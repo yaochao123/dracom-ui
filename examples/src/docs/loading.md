@@ -16,8 +16,7 @@ Vue.use(DrLoading)
 通过 type 属性可以设置加载图标类型，默认类型为`circular`，可选类型`spinner`
 
 ```html
-<dr-loading></dr-loading>
-<dr-loading type="spinner"></dr-loading>
+<dr-loading></dr-loading> <dr-loading type="spinner"></dr-loading>
 ```
 
 ### 自定义颜色
@@ -59,10 +58,10 @@ Vue.use(DrLoading)
 
 ### Props
 
-| 参数     | 说明                     | 类型               | 默认值     |
-| -------- | ------------------------ | ------------------ | ---------- |
-| type     | 类型，可选类型`spinner`  | _string_           | `circular` |
-| color    | 颜色                     | _stirng_           | `#c9c9c9`  |
-| size     | 加载图标大小，单位为`px` | _string \| number_ | `30px`     |
-| textSize | 加载问题大小，单位为`px` | _string \| number_ | `14px`     |
-| vertical | 图标、文字垂直排列       | _boolean_          | `false`    |
+| 参数      | 说明                     | 类型               | 默认值     |
+| --------- | ------------------------ | ------------------ | ---------- |
+| type      | 类型，可选类型`spinner`  | _string_           | `circular` |
+| color     | 颜色                     | _stirng_           | `#c9c9c9`  |
+| size      | 加载图标大小，单位为`px` | _string \| number_ | `30px`     |
+| text-size | 加载问题大小，单位为`px` | _string \| number_ | `14px`     |
+| vertical  | 图标、文字垂直排列       | _boolean_          | `false`    |

@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { Vue, Component, Watch } from 'vue-property-decorator'
-import { navData } from '../sideNav'
+import { navData } from '../router/sideNav'
 @Component({})
 export default class SiteNav extends Vue {
   // 左侧导航数据
