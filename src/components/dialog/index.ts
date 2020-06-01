@@ -110,7 +110,7 @@ const DrDialog: any = {
         instance.showModel = false
       },
 
-      setDefaultOptions: (options: any) => {
+      setDefaultOptions: (options: Object) => {
         Object.assign(instance, options)
       }
     }
