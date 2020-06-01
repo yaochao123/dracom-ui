@@ -23,10 +23,10 @@ this.$dialog('success', {
   confirmButton: '确定'
 })
   .then(() => {
-    // 确认回掉
+    // 确认回调
   })
   .catch(() => {
-    // 取消回掉
+    // 取消回调
   })
 ```
 
@@ -169,3 +169,11 @@ this.$dialog.alert('success', {
 | lock-scroll | 是否禁止背景滚动 | _boolean_ | `true` |
 | close-on-overlay | 是否通过点击遮罩层关闭弹框 | _boolean_ | `false` |
 | close-on-popstate | 是否在页面回退时关闭弹框 | _boolean_ | `true` |
+
+### Events
+
+通过组件调用`Dialog`时，支持一下事件：
+| 事件 | 说明 | 回调参数 |
+| -------------- | -------- | ---------------- |
+| cancel | 点击取消按钮时触发 | - |
+| confirm | 点击确定按钮时触发 | - |

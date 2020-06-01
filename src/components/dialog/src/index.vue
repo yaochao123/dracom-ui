@@ -1,13 +1,21 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" :style="{ width: `${width}px` }" v-if="showModel">
+      <div
+        class="dr-dialog"
+        :style="{ width: `${width}px` }"
+        v-if="showModel"
+      >
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
+          <dr-dialog-icon
+            :color="primaryColor"
+            :type="type"
+            v-if="type"
+          >
           </dr-dialog-icon>
           {{ title }}
         </div>
@@ -128,6 +136,7 @@ export default class Dialog extends Vue {
    */
   private handleCancel() {
     this.$emit('handleClick', false)
+    this.$emit('cancel')
   }
 
   /**
@@ -135,6 +144,7 @@ export default class Dialog extends Vue {
    */
   private handleConfirm() {
     this.$emit('handleClick', false)
+    this.$emit('confirm')
   }
 
   // 点击遮罩层
