@@ -22,7 +22,7 @@ export default class DrOverlay extends Vue {
   @Prop({ type: Boolean, required: false, default: false }) show?: boolean
 
   // 层级
-  @Prop({ type: [Number, String], required: false, default: 1 }) zIndex?:
+  @Prop({ type: [Number, String], required: false, default: 1000 }) zIndex?:
     | number
     | string
 
