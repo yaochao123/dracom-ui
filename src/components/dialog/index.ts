@@ -55,19 +55,17 @@ const DrDialog: any = {
           instance.$el.lastChild.addEventListener('click', () => {
             resetOptions()
           })
-
-          if (instance.closeOnPopState) {
-            window.addEventListener('hashchange', () => {
-              console.log('hashchange')
-              instance.showModel = false
-            })
-
-            window.addEventListener('popstate', () => {
-              console.log('popstate')
-              instance.showModel = false
-            })
-          }
         }, 0)
+      }
+
+      if (instance.closeOnPopState) {
+        window.addEventListener(
+          'popstate',
+          () => {
+            resetOptions()
+          },
+          false
+        )
       }
 
       if (!instance || !isInDocument(instance.$el)) {
