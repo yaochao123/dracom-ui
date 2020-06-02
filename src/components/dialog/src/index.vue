@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" v-if="showModel">
+      <div class="dr-dialog" :style="{ width: dialogWidth }" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
@@ -78,6 +78,11 @@ export default class Dialog extends Vue {
   // 是否显示弹框
   @Model('handleClick', { type: Boolean }) showModel?: boolean
 
+  // 弹框宽度
+  @Prop({ type: [Number, String], required: false, default: 300 }) width?:
+    | number
+    | string
+
   // 图标类型
   @Prop({ type: String, required: false, default: '' }) type?: string
 
@@ -117,6 +122,13 @@ export default class Dialog extends Vue {
 
   //确定按钮内容
   @Prop({ type: String, required: false, default: '' }) confirmButton?: string
+
+  /**
+   * 计算弹出框宽度
+   */
+  get dialogWidth() {
+    return Number(this.width) / 37.5 + 'rem'
+  }
 
   /**
    * 点击关闭按钮

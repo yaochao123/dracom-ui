@@ -1,3 +1,6 @@
+import './static/iconfont/iconfont.css'
+import './static/iconfont/iconfont.js'
+
 import DrButton from './components/button/index'
 import DrLoading from './components/loading/index'
 import DrDialog from './components/dialog/index'

@@ -1,6 +1,10 @@
 <template>
   <div class="test-page">
-    <dr-search></dr-search>
+    <dr-search
+      v-model="searchVal"
+      buttonText="确定"
+      @click="handleClick"
+    ></dr-search>
   </div>
 </template>
 
@@ -8,7 +12,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class TestPage extends Vue {}
+export default class TestPage extends Vue {
+  searchVal = ''
+
+  handleClick() {
+    console.log(this.searchVal)
+  }
+}
 </script>
 
 <style lang="scss" scoped>
