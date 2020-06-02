@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div :class="['dr-dialog']" v-if="showModel">
+      <div class="dr-dialog" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
