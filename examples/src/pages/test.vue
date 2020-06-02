@@ -1,6 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-button large-range @click="handleClick">小圆角按钮</dr-button>
+    <dr-search></dr-search>
   </div>
 </template>
 
@@ -8,25 +8,13 @@
 import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
-export default class TestPage extends Vue {
-  handleClick() {
-    this.$dialog
-      .alert({
-        title: '测试弹框',
-        content: '这是测试弹框',
-        confirmButton: '知道了'
-      })
-      .then(() => {})
-  }
-}
+export default class TestPage extends Vue {}
 </script>
 
 <style lang="scss" scoped>
 .test-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 375px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }
 </style>
