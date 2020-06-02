@@ -41,7 +41,18 @@ module.exports = {
       ]
     })
   },
-  css: { extract: false },
+  css: {
+    extract: false,
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 75
+          })
+        ]
+      }
+    }
+  },
   devServer: {
     overlay: {
       warnings: false,
