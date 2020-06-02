@@ -142,7 +142,6 @@ this.$dialog.alert('success', {
 | primaryColor| 弹出框主题色 | _string_ | `#33C0AF` |
 | cancelButton | 取消按钮内容 | _string_ | - |
 | confirmButton | 确认按钮内容 | _string_ | - |
-| width | 弹出框宽度，单位`px` | _number\|string_ | `300` |
 | showCancelButton | 是否显示取消按钮 | _boolean_ | `true` |
 | showConfirmButton | 是否显示确认按钮 | _boolean_ | `true` |
 | overlay | 是否显示遮罩层 | _boolean_ | `true` |
@@ -162,7 +161,6 @@ this.$dialog.alert('success', {
 | primary-color| 弹出框主题色 | _string_ | `#33C0AF` |
 | cancel-button | 取消按钮内容 | _string_ | - |
 | confirm-button | 确认按钮内容 | _string_ | - |
-| width | 弹出框宽度，单位`px` | _number\|string_ | `300` |
 | show-cancel-button | 是否显示取消按钮 | _boolean_ | `true` |
 | show-confirm-button | 是否显示确认按钮 | _boolean_ | `true` |
 | overlay | 是否显示遮罩层 | _boolean_ | `true` |

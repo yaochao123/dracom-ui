@@ -1,4 +1,5 @@
 const path = require('path')
+const cssOptions = require('./config/css.config')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -41,7 +42,7 @@ module.exports = {
       ]
     })
   },
-  css: { extract: false },
+  css: cssOptions,
   devServer: {
     overlay: {
       warnings: false,

@@ -1,21 +1,13 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div
-        class="dr-dialog"
-        :style="{ width: `${width}px` }"
-        v-if="showModel"
-      >
+      <div :class="['dr-dialog']" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon
-            :color="primaryColor"
-            :type="type"
-            v-if="type"
-          >
+          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
           </dr-dialog-icon>
           {{ title }}
         </div>
@@ -85,11 +77,6 @@ Component.registerHooks(['beforeRouteLeave'])
 export default class Dialog extends Vue {
   // 是否显示弹框
   @Model('handleClick', { type: Boolean }) showModel?: boolean
-
-  // 弹框宽度
-  @Prop({ type: [Number, String], required: false, default: 300 }) width?:
-    | number
-    | string
 
   // 图标类型
   @Prop({ type: String, required: false, default: '' }) type?: string
@@ -163,6 +150,7 @@ export default class Dialog extends Vue {
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 300px;
   background-color: $dialog-background-color;
   border-radius: $dialog-border-radius;
   padding: 36px 24px 22px 24px;
