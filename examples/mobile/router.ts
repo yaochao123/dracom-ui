@@ -26,6 +26,20 @@ const routes = [
         }
       },
       {
+        path: 'demo-icon',
+        name: 'Icon',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-icon.vue'], resolve)
+        }
+      },
+      {
+        path: 'demo-search',
+        name: 'Search',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-search.vue'], resolve)
+        }
+      },
+      {
         path: 'demo-loading',
         name: 'Loading',
         component: (resolve: any) => {

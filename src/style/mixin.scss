@@ -5,10 +5,19 @@
   align-items: $ali;
   flex-wrap: $wrap;
   flex-direction: $dire;
+  flex: $flex;
 }
 
 // position
-@mixin position($type: null, $t: null, $r: null, $b: null, $l: null, $tt: null, $tl: null) {
+@mixin position(
+  $type: null,
+  $t: null,
+  $r: null,
+  $b: null,
+  $l: null,
+  $tt: null,
+  $tl: null
+) {
   position: $type;
   top: $t;
   left: $l;

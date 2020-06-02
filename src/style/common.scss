@@ -7,6 +7,8 @@ $green: #33c0af;
 $orange: #ff976a;
 $gray-1: #606060;
 $gray-2: #e1e6eb;
+$input-background-color: #f2f5f8;
+$placeholder-color: #a2a2a2;
 $title-color: #303030;
 
 // Size Palette
@@ -50,3 +52,15 @@ $dialog-button-confirm-color: $white;
 // Overlay
 $overlay-background-color: rgba(0, 0, 0, 0.7);
 $overlay-zIndex: 1;
+
+// search
+$search-input-background-color: $input-background-color;
+$search-input-border: 0;
+$search-input-placeholder-font-size: $size-14;
+$search-input-placeholder-color: $placeholder-color;
+$search-input-height: 36px;
+$search-input-border-radius: $border-radius-mini;
+$search-input-color: $title-color;
+$search-input-font-size: $size-14;
+$search-input-cancel-font-size: $size-14;
+$search-input-cancel-font-weight: $weight-5;
