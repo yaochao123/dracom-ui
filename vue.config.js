@@ -1,4 +1,5 @@
 const path = require('path')
+const cssOptions = require('./config/css.config')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -41,18 +42,7 @@ module.exports = {
       ]
     })
   },
-  // css: {
-  //   extract: false,
-  //   loaderOptions: {
-  //     postcss: {
-  //       plugins: [
-  //         require('postcss-px2rem')({
-  //           remUnit: 37.5
-  //         })
-  //       ]
-  //     }
-  //   }
-  // },
+  css: cssOptions,
   devServer: {
     overlay: {
       warnings: false,

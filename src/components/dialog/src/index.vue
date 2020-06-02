@@ -1,21 +1,13 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div
-        class="dr-dialog"
-        :style="{ width: `${width}px` }"
-        v-if="showModel"
-      >
+      <div class="dr-dialog" :style="{ width: `${width}px` }" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon
-            :color="primaryColor"
-            :type="type"
-            v-if="type"
-          >
+          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
           </dr-dialog-icon>
           {{ title }}
         </div>
@@ -130,6 +122,12 @@ export default class Dialog extends Vue {
 
   //确定按钮内容
   @Prop({ type: String, required: false, default: '' }) confirmButton?: string
+
+  get dialogWidth() {
+    return {
+      width: this.width + 'px'
+    }
+  }
 
   /**
    * 点击关闭按钮
