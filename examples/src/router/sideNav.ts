@@ -24,6 +24,14 @@ export const navData = [
         component: (resolve: any) => {
           require(['@/docs/button.md'], resolve)
         }
+      },
+      {
+        name: 'Search',
+        path: '/search',
+        navName: 'Search 搜索框',
+        component: (resolve: any) => {
+          require(['@/docs/search.md'], resolve)
+        }
       }
     ]
   },

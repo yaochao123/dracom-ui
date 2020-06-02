@@ -4,7 +4,7 @@
       <input
         class="dr-search-input"
         type="text"
-        placeholder="请输入搜索内容"
+        :placeholder="placeholder"
         :value="inputValue"
         @input="input($event)"
       />
@@ -34,6 +34,10 @@ export default class DrSearch extends Vue {
 
   // 右侧按钮内容
   @Prop({ type: String, required: false, default: '取消' }) buttonText?: string
+
+  // 占位内容
+  @Prop({ type: String, required: false, default: '请输入搜索内容' })
+  placeholder?: string
 
   // 输入框绑定内容
   private inputValue = ''
