@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" :style="{ width: `${width}px` }" v-if="showModel">
+      <div :class="['dr-dialog', drDialogWidth]" v-if="showModel">
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
@@ -123,7 +123,7 @@ export default class Dialog extends Vue {
   //确定按钮内容
   @Prop({ type: String, required: false, default: '' }) confirmButton?: string
 
-  get dialogWidth() {
+  get drDialogWidth() {
     return {
       width: this.width + 'px'
     }
