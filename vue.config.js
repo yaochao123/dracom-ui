@@ -41,18 +41,18 @@ module.exports = {
       ]
     })
   },
-  css: {
-    extract: false,
-    loaderOptions: {
-      postcss: {
-        plugins: [
-          require('postcss-px2rem')({
-            remUnit: 37.5
-          })
-        ]
-      }
-    }
-  },
+  // css: {
+  //   extract: false,
+  //   loaderOptions: {
+  //     postcss: {
+  //       plugins: [
+  //         require('postcss-px2rem')({
+  //           remUnit: 37.5
+  //         })
+  //       ]
+  //     }
+  //   }
+  // },
   devServer: {
     overlay: {
       warnings: false,
