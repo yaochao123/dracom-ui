@@ -16,11 +16,10 @@
       ></i>
     </div>
     <span
-      class="dr-search-cancel"
+      class="dr-search-button"
       v-show="showButton"
       @click="handleClickBtn"
-      >{{ buttonText }}</span
-    >
+    >{{ buttonText }}</span>
   </div>
 </template>
 
@@ -112,12 +111,14 @@ export default class DrSearch extends Vue {
     color: rgba(120, 120, 120, 0.7);
   }
 
-  &-cancel {
+  &-button {
+    padding: 10px 0 10px;
     margin-left: 18px;
     font-size: $search-input-cancel-font-size;
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: $search-input-cancel-font-weight;
     color: rgba(0, 0, 0, 1);
+    cursor: pointer;
   }
 }
 </style>

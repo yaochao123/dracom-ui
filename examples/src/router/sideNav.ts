@@ -26,6 +26,20 @@ export const navData = [
         }
       },
       {
+        name: 'Icon',
+        path: '/icon',
+        navName: 'Icon 图标',
+        component: (resolve: any) => {
+          require(['@/docs/icon.md'], resolve)
+        }
+      }
+    ]
+  },
+  {
+    name: '表单组件',
+    id: 2,
+    children: [
+      {
         name: 'Search',
         path: '/search',
         navName: 'Search 搜索框',
@@ -37,7 +51,7 @@ export const navData = [
   },
   {
     name: '反馈组件',
-    id: 2,
+    id: 3,
     children: [
       {
         name: 'Loading',
