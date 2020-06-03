@@ -77,6 +77,12 @@ Vue.use(DrButton)
 >
 ```
 
+### Material 风格
+
+```html
+<dr-button type="primary" material>Material风格按钮</dr-button>
+```
+
 ## API
 
 ### Props
@@ -97,6 +103,7 @@ Vue.use(DrButton)
 | mini-range   | 是否为小圆角按钮                                   | _boolean_          | `false`   |
 | large-range  | 是否为大圆角按钮                                   | _boolean_          | `false`   |
 | loading      | 是否显示加载图标                                   | _boolean_          | `false`   |
+| material     | 是否使用`material`风格                             | _boolean_          | `false`   |
 | loading-size | 加载图标大小                                       | _string \| number_ | `20px`    |
 
 ### Events

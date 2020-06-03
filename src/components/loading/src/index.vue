@@ -1,25 +1,19 @@
 <template>
-  <div :class="[
+  <div
+    :class="[
       'dr-loading',
       { 'dr-loading-vertical': vertical },
       { 'dr-loading-button': isBtn }
-    ]">
+    ]"
+  >
     <!-- circular加载样式 -->
     <div
       :class="['dr-loading-circular']"
       v-if="type === 'circular'"
       :style="fontStyle"
     >
-      <svg
-        viewBox="25 25 50 50"
-        :color="color"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="20"
-          fill="none"
-        ></circle>
+      <svg viewBox="25 25 50 50" :color="color">
+        <circle cx="50" cy="50" r="20" fill="none"></circle>
       </svg>
     </div>
     <!-- spinner加载样式 -->
@@ -28,10 +22,7 @@
       v-if="type === 'spinner'"
       :style="[fontStyle, { color: color }]"
     >
-      <i
-        v-for="line in 12"
-        :key="line"
-      ></i>
+      <i v-for="line in 12" :key="line"></i>
     </div>
     <!-- 加载文字 -->
     <span
@@ -51,24 +42,24 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrLoading extends Vue {
   // 类型
-  @Prop({ type: String, required: false, default: 'circular' }) type?: string
+  @Prop({ type: String, required: false, default: 'circular' }) type!: string
 
   // 颜色
   @Prop({ type: String, required: false, default: 'currentColor' })
   color!: string
 
   // 图标大小
-  @Prop({ type: [String, Number], required: false, default: 30 }) size?:
+  @Prop({ type: [String, Number], required: false, default: 30 }) size!:
     | string
     | number
 
   // 文字大小
-  @Prop({ type: [Number, String], required: false, default: '14' }) textSize?:
+  @Prop({ type: [Number, String], required: false, default: '14' }) textSize!:
     | number
     | string
 
   // 垂直排列
-  @Prop({ type: Boolean, required: false, default: false }) vertical?: boolean
+  @Prop({ type: Boolean, required: false, default: false }) vertical!: boolean
 
   // 是否是在按钮中使用
   @Prop({ type: Boolean, required: false, default: false }) isBtn?: boolean
