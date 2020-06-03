@@ -144,15 +144,13 @@ export default class Dialog extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/mixin.scss';
-@import '../../../style/common.scss';
 .dr-dialog {
   position: fixed;
   top: 50%;
   left: 50%;
   width: 300px;
-  background-color: $dialog-background-color;
-  border-radius: $dialog-border-radius;
+  background-color: var(--dr-dialog-background-color);
+  border-radius: var(--dr-dialog-border-radius);
   padding: 36px 24px 22px 24px;
   box-sizing: border-box;
   transform: translate3d(-50%, -50%, 0);
@@ -161,20 +159,20 @@ export default class Dialog extends Vue {
   z-index: 2001;
 
   &-title {
-    @include flex($jus: center, $ali: center);
-    font-size: $dialog-title-size;
-    color: $dialog-title-color;
-    font-weight: $dialog-title-weight;
+    @include flex($jc: center);
+    font-size: var(--dr-dialog-title-size);
+    color: var(--dr-dialog-title-color);
+    font-weight: var(--dr-dialog-title-weight);
     &-only {
       margin-bottom: 20px;
     }
   }
 
   &-content {
-    @include flex($jus: center);
+    @include flex($jc: center);
     margin: 20px 0 31px 0;
-    font-size: $dialog-content-size;
-    color: $dialog-content-color;
+    font-size: var(--dr-dialog-content-size);
+    color: var(--dr-dialog-content-color);
     line-height: 20px;
     text-align: center;
     &-no-title {
@@ -183,19 +181,19 @@ export default class Dialog extends Vue {
   }
 
   &-button {
-    @include flex($jus: space-between);
+    @include flex($jc: space-between);
     &-cancel,
     &-confirm {
-      @include flex($jus: center, $ali: center);
+      @include flex($jc: center);
       height: 36px;
-      border-radius: $dialog-button-radius;
-      font-size: $dialog-button-size;
-      font-weight: $dialog-button-weight;
+      border-radius: var(--dr-dialog-button-radius);
+      font-size: var(--dr-dialog-button-size);
+      font-weight: var(--dr-dialog-button-weight);
       width: 114px;
       cursor: pointer;
     }
     &-confirm {
-      color: $dialog-button-confirm-color;
+      color: var(--dr-dialog-button-confirm-color);
     }
 
     &-only {

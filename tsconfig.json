@@ -1,6 +1,7 @@
 // tsconfig.json
 {
   "compilerOptions": {
+    "allowJs": true,
     // 与 Vue 的浏览器支持保持一致
     "target": "es5",
     // 这可以对 `this` 上的数据 property 进行更严格的推断
@@ -24,5 +25,7 @@
     "sideNav.ts"
   ],
   // ts 排除的文件
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

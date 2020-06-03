@@ -1,0 +1,67 @@
+:root {
+  // Color Palette
+  --dr-black: #000;
+  --dr-white: #fff;
+  --dr-blue: #1989fa;
+  --dr-red: #ee0a24;
+  --dr-green: #33c0af;
+  --dr-orange: #ff976a;
+  --dr-gray-1: #606060;
+  --dr-gray-2: #e1e6eb;
+
+  // Color
+  --dr-title-color: #303030;
+  --dr-primary-color: var(--dr-green);
+
+  // FontSize
+  --dr-font-size-xs: 12px;
+  --dr-font-size-sm: 14px;
+  --dr-font-size-md: 16px;
+  --dr-font-size-lg: 18px;
+  --dr-font-size-xl: 20px;
+
+  // Nav
+  --dr-nav-color: #455a64;
+  --dr-nav-color-active: var(--dr-primary-color);
+
+  // Border
+  --dr-border-color: var(--dr-gray-2);
+  --dr-border-width-base: 1px;
+  --dr-border-radius-sm: 2px;
+  --dr-border-radius-md: 4px;
+  --dr-border-radius-lg: 8px;
+  --dr-border-radius-xl: 25px;
+
+  // Button
+  --dr-button-color-default: var(--dr-gray-1);
+  --dr-button-color-primary: var(--dr-primary-color);
+  --dr-button-color-info: var(--dr-blue);
+  --dr-button-color-danger: var(--dr-red);
+  --dr-button-color-warning: var(--dr-orange);
+  --dr-button-mini-height: 22px;
+  --dr-button-mini-min-width: 22px;
+  --dr-button-mini-font-size: var(--dr-font-size-xs);
+  --dr-button-small-height: 32px;
+  --dr-button-small-font-size: var(--dr-font-size-sm);
+  --dr-button-small-min-width: 32px;
+  --dr-button-normal-height: 44px;
+  --dr-button-normal-font-size: var(--dr-font-size-sm);
+  --dr-button-normal-min-width: 44px;
+
+  // Dialog
+  --dr-dialog-background-color: var(--dr-white);
+  --dr-dialog-border-radius: var(--dr-border-radius-md);
+  --dr-dialog-title-color: var(--dr-title-color);
+  --dr-dialog-title-size: var(--dr-font-size-md);
+  --dr-dialog-title-weight: 600;
+  --dr-dialog-content-color: var(--dr-gray-1);
+  --dr-dialog-content-size: var(--dr-font-size-sm);
+  --dr-dialog-button-radius: var(--dr-border-radius-xl);
+  --dr-dialog-button-size: var(--dr-font-size-md);
+  --dr-dialog-button-weight: 500;
+  --dr-dialog-button-confirm-color: var(--dr-white);
+
+  // Overlay
+  --dr-overlay-background-color: rgba(0, 0, 0, 0.7);
+  --dr-overlay-zIndex: 1;
+}

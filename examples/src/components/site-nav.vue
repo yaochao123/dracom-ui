@@ -12,9 +12,7 @@
           v-for="(innerItem, innerIndex) in item.children"
           :key="innerIndex"
           @click="goPage(innerItem.path, innerIndex, item.id)"
-        >
-          {{ innerItem.navName }}
-        </li>
+        >{{ innerItem.navName }}</li>
       </ul>
     </div>
   </div>
@@ -105,10 +103,8 @@ export default class SiteNav extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/mixin.scss';
-@import '@/style/color.scss';
 .site-nav {
-  @include position($type: fixed, $t: 60px, $l: 0, $b: 0);
+  @include position(fixed, top 60px left 0 bottom 0);
   background-color: #ffffff;
   width: 220px;
   padding: 24px 0;
@@ -134,24 +130,24 @@ export default class SiteNav extends Vue {
     .site-nav-section {
       .site-nav-title {
         padding: 8px 0 8px 30px;
-        color: $nav-color;
+        color: var(--dr-nav-color);
         font-weight: 500;
         font-size: 15px;
         line-height: 28px;
       }
       .site-nav-item {
         padding: 8px 0 8px 30px;
-        color: $nav-color;
+        color: var(--dr-nav-color);
         font-size: 14px;
         line-height: 28px;
         -webkit-transition: color 0.2s;
         transition: color 0.2s;
         cursor: pointer;
         &:hover {
-          color: $nav-color-active;
+          color: var(--dr-nav-color-active);
         }
         &-active {
-          color: $nav-color-active;
+          color: var(--dr-nav-color-active);
         }
       }
     }

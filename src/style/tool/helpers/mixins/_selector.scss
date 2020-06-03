@@ -1,0 +1,100 @@
+// 伪类选择器-选择多个元素时
+
+/// 伪类选择器-从头开始
+///
+/// @name first
+/// @group 伪类选择器
+/// @author PungsKi
+/// @param  {Number} $num [1] - 序号，前几位
+/// @param  {Boolean} $is-same [true] - 元素中是否都是同类型的元素
+@mixin first($num: 1, $type: true) {
+  @if ($num ==1) and ($type == true) {
+    &:first-child {
+      @content;
+    }
+  }
+  @if ($num == 1) and ($type == false) {
+    &:first-of-type {
+      @content;
+    }
+  }
+  @if ($num !=1) and ($type == true) {
+    &:nth-child(-n + #{$num}) {
+      @content;
+    }
+  }
+  @if ($num != 1) and ($type == false) {
+    &:nth-of-type(-n + #{$num}) {
+      @content;
+    }
+  }
+}
+
+/// 伪类选择器-从尾开始
+///
+/// @name last
+/// @group 伪类选择器
+/// @author PungsKi
+/// @param  {Number} $num [1] - 序号，后几位
+/// @param  {Boolean} $is-same [true] - 元素中是否都是同类型的元素
+@mixin last($num: 1, $type: true) {
+  @if ($num ==1) and ($type == true) {
+    &:last-child {
+      @content;
+    }
+  }
+  @if ($num == 1) and ($type == false) {
+    &:last-of-type {
+      @content;
+    }
+  }
+  @if ($num !=1) and ($type == true) {
+    &:nth-last-child(-n + #{$num}) {
+      @content;
+    }
+  }
+  @if ($num != 1) and ($type == false) {
+    &:nth-last-of-type(-n + #{$num}) {
+      @content;
+    }
+  }
+}
+
+/// 伪类选择器-该元素之后开始
+///
+/// @name after
+/// @group 伪类选择器
+/// @author PungsKi
+/// @param  {Number} $num [1] - 序号，之后几位
+/// @param  {Boolean} $is-same [true] - 元素中是否都是同类型的元素
+@mixin after($num: 1, $type: true) {
+  @if $type {
+    &:nth-child(n + #{$num + 1}) {
+      @content;
+    }
+  } @else {
+    &:nth-of-type(n + #{$num + 1}) {
+      @content;
+    }
+  }
+}
+
+/// 伪类选择器-两元素之间
+///
+/// @name between
+/// @group 伪类选择器
+/// @author PungsKi
+/// @param  {Number} $first [] - 开始序号
+/// @param  {Number} $last [] - 结束序号
+/// @param  {Boolean} $is-same [true] - 元素中是否都是同类型的元素
+@mixin between($first, $last, $type: true) {
+  @if $type {
+    &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+      @content;
+    }
+  } @else {
+    &:nth-of-type(n + #{$first}):nth-of-type(-n + #{$last}) {
+      @content;
+    }
+  }
+}

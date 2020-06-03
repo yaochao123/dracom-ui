@@ -41,4 +41,7 @@ export default class App extends Vue {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
+* {
+  box-sizing: border-box;
+}
 </style>

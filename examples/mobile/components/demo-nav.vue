@@ -11,7 +11,7 @@
         fill-rule="evenodd"
         :d="path"
       />
-    </svg> -->
+    </svg>-->
   </div>
 </template>
 
@@ -34,15 +34,14 @@ export default class DemoNav extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/mixin.scss';
 .demo-nav {
   position: relative;
-  @include flex($jus: center, $ali: center);
+  @include flex($jc: center);
   height: 56px;
   font-size: 17px;
   font-weight: 500;
   &-back {
-    @include position($type: absolute, $t: 16px, $l: 16px);
+    @include position(absolute, top 16px left 16px);
     width: 24px;
     height: 24px;
     cursor: pointer;

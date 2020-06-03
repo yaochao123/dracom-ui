@@ -21,4 +21,7 @@ export default class App extends Vue {}
   width: 0;
   background: transparent;
 }
+* {
+  box-sizing: border-box;
+}
 </style>

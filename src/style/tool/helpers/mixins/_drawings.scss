@@ -1,0 +1,178 @@
+// 汉堡图形
+//
+// (---) top    -> &::before
+// [---] middle -> &
+// (---) bottom -> &::after
+
+/// 绘图-汉堡图形
+///
+/// @name burger
+/// @group 绘图
+/// @param {Number} $width  [30px] - 线条宽度
+/// @param {Number} $height  [5px] - 线条高度
+/// @param {Number} $gutter  [3px] - 线条间距
+/// @param {String} $color  [#000] - 线条颜色
+/// @param {Number} $border-radius  [0px] - 圆角
+/// @param {Number} $transition-duration  [0.3s] - 动效持续时间
+
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: 0.3s) {
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
+
+  position: relative;
+  margin: $height + $gutter 0;
+  user-select: none;
+  &,
+  &::before,
+  &::after {
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    outline: 1px solid transparent; // 1
+
+    @if $border-radius !=0 {
+      border-radius: $border-radius;
+    }
+
+    transition-property: background-color, transform;
+    transition-duration: $transition-duration;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  &::before {
+    top: -($height + $gutter);
+  }
+
+  &::after {
+    top: $height + $gutter;
+  }
+}
+
+/// 绘图-汉堡-->叉 过渡动画
+///
+/// @name burger-to-cross
+/// @group 绘图
+/// @param {String} $color - 颜色变换
+@mixin burger-to-cross($color: auto) {
+  & {
+    background-color: transparent;
+  }
+
+  @if ($color !=auto) {
+    &::before,
+    &::after {
+      background-color: $color;
+    }
+  }
+
+  &::before {
+    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+  }
+
+  &::after {
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+  }
+}
+
+/// 绘图-三角形(含尖括号)
+///
+/// @name triangle
+/// @group 绘图
+/// @param {Number} $triangle-width [20px] 三角形外宽度
+/// @param {Number} $border-width [1px] 三角形内宽度（尖括号粗细）
+/// @param {String} $direction [top] 三角形方向（`top`，`right`，`bottom`，`left`）
+/// @param {String} var(--dr-border-color) [#000] 边框颜色
+/// @param {Number} $deg [90deg] 顶角角度
+/// @param {String} $background-color [#fff] 背景颜色
+/// @link http://lugolabs.com/caret
+
+@mixin triangle(
+  $triangle-width: 20px,
+  $border-width: 1px,
+  $direction: top,
+  $border-color: #000,
+  $deg: 90deg,
+  $background-color: #fff
+) {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 2 * $triangle-width;
+  height: $triangle-width / tan($deg / 2);
+  $width: $triangle-width / tan($deg / 2);
+  $borderWidth: $border-width / sin($deg / 2);
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: $triangle-width;
+    border-color: transparent;
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    border-top-width: 0;
+    border-bottom-width: $width;
+    border-bottom-color: var(--dr-border-color);
+  }
+
+  &:after {
+    left: 0;
+    top: $borderWidth;
+    border-top-width: 0;
+    border-bottom-width: $width;
+    border-bottom-color: $background-color;
+  }
+  @if $direction==top {
+    transform: rotate(0);
+  } @else if $direction==right {
+    transform: rotate(90deg);
+  } @else if $direction==bottom {
+    transform: rotate(180deg);
+  } @else if $direction==left {
+    transform: rotate(270deg);
+  }
+}
+
+/// 绘图-文字两旁隔离线
+///
+/// @name split-lines
+/// @group 绘图
+/// @param {Number} $split [20px] - 间距
+/// @param {String} $color [#ccc] - 线条颜色
+/// @param {Number} $maxWidth [100%] - 最大宽度
+/// @param {Number} $height [1px] - 线条粗细
+
+@mixin split-lines($split: 20px, $color: #ccc, $maxWidth: 100%, $height: 1px) {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  &:before,
+  &:after {
+    content: "";
+    flex-grow: 1;
+    background-color: $color;
+    display: inline-block;
+    vertical-align: middle;
+    height: $height;
+    max-width: $maxWidth;
+  }
+
+  &:before {
+    margin-right: $split;
+  }
+
+  &:after {
+    margin-left: $split;
+  }
+}

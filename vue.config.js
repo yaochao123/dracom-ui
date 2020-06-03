@@ -25,7 +25,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('./examples/src'))
       .set('@@', resolve('./examples/mobile'))
-      .set('@src', resolve('src/components'))
+      .set('@src', resolve('./src/'))
   },
   configureWebpack: config => {
     config.module.rules.push({

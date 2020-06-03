@@ -1,0 +1,59 @@
+/// 控制文字行数溢出省略号
+///
+/// @name clamp
+/// @group 溢出省略
+/// @param  {Number} $lines      [1] - 几行省略号
+/// @param  {Number} $substract  [100%] - 宽度
+/// @example
+///
+/// //SCSS
+/// div {
+/// 	@include ellipsis;
+/// }
+///
+///	.box {
+/// 	@include ellipsis(3);
+///	}
+///	//CSS
+///	div {
+///   width: 100%;
+///	  white-space: nowrap;
+///   text-overflow: ellipsis;
+///   overflow: hidden;
+///	}
+///
+///	.box {
+///   width: 100%;
+///	  overflow: hidden;
+///   text-overflow: ellipsis;
+///   display: -webkit-box;
+///   display: box;
+///   -webkit-box-orient: vertical;
+///   box-orient: vertical;
+///   word-break: break-all;
+///   -webkit-line-clamp: 3;
+///   line-clamp: 3;
+///	}
+///
+
+@mixin clamp($lines: 1, $substract: 100%) {
+  @if $lines == 1 {
+    width: $substract;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  } @else {
+    width: $substract;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /* autoprefixer: ignore next */
+    display: box;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical; // 参考 https://github.com/postcss/autoprefixer/issues/776
+    box-orient: vertical;
+    word-break: break-all;
+    -webkit-line-clamp: $lines;
+    line-clamp: $lines;
+  }
+}

@@ -12,7 +12,6 @@ export default class SiteContent extends Vue {}
 </script>
 
 <style lang="scss">
-@import '@/style/common.scss';
 .site-content {
   margin: 0 390px 0 220px;
   padding: 30px;
@@ -24,7 +23,7 @@ export default class SiteContent extends Vue {}
     margin-bottom: 24px;
     padding: 24px;
     background-color: #fff;
-    border-radius: $doc-border-radius;
+    border-radius: 12px;
     box-shadow: 0 8px 12px #ebedf0;
     box-sizing: border-box;
   }
@@ -62,7 +61,7 @@ export default class SiteContent extends Vue {}
   .hljs-template-tag,
   .hljs-template-variable,
   .hljs-addition {
-    color: #4fc08d;
+    color: var(--dr-primary-color);
   }
 
   .hljs-name,
@@ -144,7 +143,7 @@ export default class SiteContent extends Vue {}
       -webkit-font-smoothing: antialiased;
     }
     em {
-      color: #4fc08d;
+      color: var(--dr-primary-color);
       font-size: 12.5px;
       font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
       font-style: normal;

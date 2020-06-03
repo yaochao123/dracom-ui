@@ -150,8 +150,6 @@ export default class drButton extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/mixin.scss';
-@import '../../../style/common.scss';
 .dr-button {
   display: inline-flex;
   justify-content: center;
@@ -160,52 +158,52 @@ export default class drButton extends Vue {
   height: 44px;
   padding: 0 15px;
   outline: none;
-  border: $border-width-base solid $border-color;
+  border: var(--dr-border-width-base) solid var(--dr-border-color);
   color: #606060;
-  background-color: $white;
+  background-color: var(--dr-white);
   box-sizing: border-box;
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
   &:active::before {
-    @include position($type: absolute, $t: 50%, $l: 50%, $tt: -50%, $tl: -50%);
+    @include absolute(50%, 50%);
     width: 100%;
     height: 100%;
-    background-color: $black;
+    background-color: var(--dr-black);
     border: inherit;
-    border-color: $black;
+    border-color: var(--dr-black);
     border-radius: inherit;
     opacity: 0.1;
     content: '';
   }
 
   &-content {
-    @include flex($jus: center, $ali: center);
+    @include flex($jc: center);
     height: inherit;
   }
 
   &-primary {
-    color: $white;
-    background-color: $button-primary;
-    border: $border-width-base solid $button-primary;
+    color: var(--dr-white);
+    background-color: var(--dr-button-color-primary);
+    border: var(--dr-border-width-base) solid var(--dr-button-color-primary);
   }
 
   &-info {
-    color: $white;
-    background-color: $button-info;
-    border: $border-width-base solid $button-info;
+    color: var(--dr-white);
+    background-color: var(--dr-button-color-info);
+    border: var(--dr-border-width-base) solid var(--dr-button-color-info);
   }
 
   &-danger {
-    color: $white;
-    background-color: $button-danger;
-    border: $border-width-base solid $button-danger;
+    color: var(--dr-white);
+    background-color: var(--dr-button-color-danger);
+    border: var(--dr-border-width-base) solid var(--dr-button-color-danger);
   }
 
   &-warning {
-    color: $white;
-    background-color: $button-warning;
-    border: $border-width-base solid $button-warning;
+    color: var(--dr-white);
+    background-color: var(--dr-button-color-warning);
+    border: var(--dr-border-width-base) solid var(--dr-button-color-warning);
   }
 
   &-disabled {
@@ -214,7 +212,7 @@ export default class drButton extends Vue {
   }
 
   &-plain {
-    background-color: $white;
+    background-color: var(--dr-white);
     font-weight: 400;
   }
 
@@ -224,11 +222,11 @@ export default class drButton extends Vue {
   }
 
   &-mini-range {
-    border-radius: $border-radius-mini;
+    border-radius: var(--dr-border-radius-md);
   }
 
   &-large-range {
-    border-radius: $border-radius-large;
+    border-radius: var(--dr-border-radius-xl);
   }
 
   &-loading {

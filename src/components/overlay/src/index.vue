@@ -56,17 +56,15 @@ export default class DrOverlay extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/common.scss';
-@import '../../../style/mixin.scss';
 .dr-overlay {
-  @include flex($jus: center, $ali: center);
+  @include flex($jc: center);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: $overlay-zIndex;
-  background-color: $overlay-background-color;
+  z-index: var(--dr-overlay-zIndex);
+  background-color: var(--dr-overlay-background-color);
 
   &-fade-enter-active,
   &-fade-leave-active {

@@ -60,9 +60,8 @@ export default class DocSimulator extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '@/style/mixin.scss';
 .doc-simulator {
-  @include position($type: absolute, $t: 90px, $r: 30px);
+  @include position(absolute, top 90px right 30px);
   @media screen and (max-width: 1100px) {
     left: 750px;
   }
@@ -76,7 +75,7 @@ export default class DocSimulator extends Vue {
   border-radius: 12px;
   font-size: 16px;
   box-shadow: #ebedf0 0 4px 12px;
-  height: calc(100vh - 95px);
+  // height: calc(100vh - 95px);
   color: #323233;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
     Segoe UI, Arial, Roboto, 'PingFang SC', 'Hiragino Sans GB',

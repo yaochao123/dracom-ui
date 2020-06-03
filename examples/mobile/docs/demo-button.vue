@@ -21,7 +21,7 @@
       <!-- 圆角按钮 -->
       <div class="doc-demo-block-title">圆角按钮</div>
       <dr-button miniRange>小圆角按钮</dr-button>
-      <dr-button larRange>大圆角按钮</dr-button>
+      <dr-button largeRange>大圆角按钮</dr-button>
     </div>
     <div class="doc-demo-block">
       <!-- 加载状态 -->

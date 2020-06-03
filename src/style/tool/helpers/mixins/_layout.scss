@@ -1,0 +1,126 @@
+/// 布局-定位部分公共方法
+///
+/// @name absolute
+/// @group 布局
+/// @author PungsKi
+/// @param  {Number} $top [50%] - 距离顶部
+/// @param  {Number} $left [50%] - 距离左部
+/// @param  {Boolean} $is-center [true] - 是否需要水平垂直居中
+
+@mixin absolute($top: 50%, $left: 50%, $is-center: true) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  @if $is-center {
+    @if $top == 50% {
+      @if $left == 50% {
+        transform: translate3d(-50%, -50%, 0);
+      } @else {
+        transform: translate3d(0, -50%, 0);
+      }
+    } @else if $left == 50% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
+
+/// 布局-设置`position`
+///
+/// @name position
+/// @group 布局
+/// @param {String} $position - 可选值: `static` / `relative` / `absolute` / `fixed`
+/// @param {String} $args - 可设置值: `top` / `right` / `bottom` / `left`
+/// @example
+/// //SCSS
+///
+/// .absolute{
+///   @include position(absolute,top 10px right 20px);
+/// }
+/// .absolute{
+///   @include position(absolute,top 0 right 0 bottom 0 left 0);
+/// }
+///
+/// //Output CSS
+///
+/// .absolute {
+///   position: absolute;
+///   top: 10px;
+///   right: 20px;
+/// }
+///
+/// .absolute {
+///   position: absolute;
+///   top: 0;
+///   right: 0;
+///   bottom: 0;
+///   left: 0;
+/// }
+
+@mixin position($position, $args) {
+  position: $position;
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+}
+
+/// inline-block公共方法
+///
+/// @name ib
+/// @group 布局
+/// @author PungsKi
+/// @param  {String} $select [*] - 子级选择
+/// @param  {Number} $fz [14px] - 字体大小
+/// @param  {String} $va [middle] - 垂直布局
+/// @content 子级内容
+/// @example
+/// //SCSS
+///
+/// .ib {
+///   @include ib(".right") {
+///     text-align: center;
+///   }
+/// }
+///
+/// //Output CSS
+///
+/// .ib {
+///   font-size: 0;
+///   > * {
+///     font-size: 14;
+///   }
+///   > .right {
+///     display: inline-block;
+///     vertical-align: middle;
+///     text-align: center;
+///   }
+/// }
+///
+@mixin ib($select: "*", $fz: 14px, $va: middle) {
+  font-size: 0;
+  & > * {
+    font-size: $fz;
+  }
+  & > #{$select} {
+    display: inline-block;
+    vertical-align: $va;
+    @content;
+  }
+}
+/// 布局-flex公共方法
+///
+/// @name flex
+/// @group 布局
+/// @author PungsKi
+/// @param  {String|Null} $direction [null] - 方向（flex-direction）
+/// @param  {String|Null} $jc [null] - 横向布局（justify-content）
+/// @param  {String} $ai [center] - 纵向布局（align-items）
+
+@mixin flex($direction: null, $jc: null, $ai: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $jc;
+  align-items: $ai;
+}

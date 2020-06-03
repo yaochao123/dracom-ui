@@ -124,7 +124,6 @@ export default class DrLoading extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/animation.scss';
 .dr-loading {
   display: flex;
   align-items: center;
