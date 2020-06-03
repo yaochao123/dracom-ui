@@ -13,7 +13,7 @@ export default class App extends Vue {
     window.onmessage = (e: any) => {
       const data = e.data
       if (
-        data &&
+        data !== 'undefined' &&
         data.type !== 'webpackOk' &&
         data.type !== 'webpackErrors' &&
         data.type !== 'webpackInvalid'

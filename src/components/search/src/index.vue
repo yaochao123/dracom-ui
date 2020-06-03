@@ -19,7 +19,8 @@
       class="dr-search-button"
       v-show="showButton"
       @click="handleClickBtn"
-    >{{ buttonText }}</span>
+      >{{ buttonText }}</span
+    >
   </div>
 </template>
 
@@ -29,14 +30,14 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrSearch extends Vue {
   // 是否显示右侧按钮
-  @Prop({ type: Boolean, required: false, default: true }) showButton?: boolean
+  @Prop({ type: Boolean, required: false, default: true }) showButton!: boolean
 
   // 右侧按钮内容
-  @Prop({ type: String, required: false, default: '取消' }) buttonText?: string
+  @Prop({ type: String, required: false, default: '取消' }) buttonText!: string
 
   // 占位内容
   @Prop({ type: String, required: false, default: '请输入搜索内容' })
-  placeholder?: string
+  placeholder!: string
 
   // 输入框绑定内容
   private inputValue = ''
