@@ -5,7 +5,6 @@
 ```js
 import Vue from 'vue'
 import { DrButton } from 'dracom-ui'
-
 Vue.use(DrButton)
 ```
 
@@ -34,16 +33,16 @@ Vue.use(DrButton)
 
 ### 圆角按钮
 
-通过`miniRange`来设置小圆角按钮，`larRange`来设置大圆角按钮
+通过`min-range`来设置小圆角按钮，`large-range`来设置大圆角按钮
 
 ```html
-<dr-button miniRange>小圆角按钮</dr-button>
-<dr-button larRange>大圆角按钮</dr-button>
+<dr-button min-range>小圆角按钮</dr-button>
+<dr-button large-range>大圆角按钮</dr-button>
 ```
 
 ### 加载状态
 
-通过`loading`属性设置按钮为加载状态，可以通过`loadingSize`设置加载图标大小
+通过`loading`属性设置按钮为加载状态，可以通过`loading-size`设置加载图标大小
 
 ```html
 <dr-button type="info" loading></dr-button>
@@ -52,7 +51,7 @@ Vue.use(DrButton)
 
 ### 图标按钮
 
-通过`icon`属性设置按钮图标，目前支持网络图片和本地图片，后续支持字体图标
+通过`icon`属性设置按钮图标，支持网络图片、本地图片和字体图标
 
 ```html
 <dr-button
@@ -62,6 +61,7 @@ Vue.use(DrButton)
   icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
   >图标按钮</dr-button
 >
+<dr-button icon-font="success" color="red">字体图标</dr-button>
 ```
 
 ### 自定义颜色
@@ -84,10 +84,13 @@ Vue.use(DrButton)
 | 参数         | 说明                                               | 类型               | 默认值    |
 | ------------ | -------------------------------------------------- | ------------------ | --------- |
 | type         | 类型，可选值为 `primary` `info` `warning` `danger` | _string_           | `default` |
-| text         | 按钮文本内容                                       | _string_           | -         |
-| text-color   | 按钮文本颜色                                       | _string_           | -         |
-| color        | 按钮颜色，支持传入 linear-gradient 渐变色          | _string_           | -         |
-| icon         | 左侧图标链接                                       | _string_           | -         |
+| text         | 按钮文本内容                                       | _string_           | `-`       |
+| text-color   | 按钮文本颜色                                       | _string_           | `-`       |
+| color        | 按钮颜色，支持传入 linear-gradient 渐变色          | _string_           | `-`       |
+| icon         | 左侧图标链接                                       | _string_           | `-`       |
+| icon-font    | 字体图标                                           | _string_           | `-`       |
+| icon-color   | 字体图标颜色                                       | _string_           | `-`       |
+| icon-size    | 字体图标大小，单位`px`                             | _number\|string_   | `14`      |
 | plain        | 是否为朴素按钮                                     | _boolean_          | `false`   |
 | disabled     | 是否禁用按钮                                       | _boolean_          | `false`   |
 | block        | 是否为块级元素                                     | _boolean_          | `false`   |

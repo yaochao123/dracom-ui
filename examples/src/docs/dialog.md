@@ -5,7 +5,6 @@
 ```js
 import Vue from 'vue'
 import { DrDialog } from 'dracom-ui'
-
 Vue.use(DrDialog)
 ```
 
@@ -54,16 +53,12 @@ this.$dialog.alert({
   title: '提示弹框',
   content: '这是一段弹出框的内容',
   confirmButton: '确定'
-}).then(() => {
-
-})
+}).then(() => {})
 
 this.$dialog.alert({
   content: '这是一段弹出框的内容',
   confirmButton: '确定'
-}).then(() => {
-
-})
+}).then(() => {})
 ```
 
 ### 确认弹框
@@ -78,9 +73,7 @@ this.$dialog.confirm({
   confirmButton: '确定'
 }).then(() => {
 
-}).catch(() => {
-
-})
+}).catch(() => {})
 ```
 
 ### 类型弹框
@@ -115,9 +108,7 @@ this.$dialog.alert('success', {
   content: '这是一段弹出框的内容',
   primaryColor: '#409EFF',
   confirmButton: '确定'
-}).then(() => {
-
-})
+}).then(() => {})
 ```
 
 ## API

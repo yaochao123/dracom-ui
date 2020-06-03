@@ -3,18 +3,10 @@
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">组件调用</div>
       <div class="dr-icon-wrapper">
-        <dr-icon
-          name="success"
-          size="30"
-          color="blue"
-        ></dr-icon>
+        <dr-icon name="success" size="30"></dr-icon>
       </div>
       <div class="dr-icon-wrapper">
-        <dr-icon
-          name="fail"
-          size="30"
-          color="blue"
-        ></dr-icon>
+        <dr-icon name="fail" size="30"></dr-icon>
       </div>
     </div>
     <div class="doc-demo-block">

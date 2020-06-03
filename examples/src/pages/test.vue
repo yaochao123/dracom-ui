@@ -1,10 +1,6 @@
 <template>
   <div class="test-page">
-    <dr-search
-      v-model="searchVal"
-      buttonText="确定"
-      @click="handleClick"
-    ></dr-search>
+    <dr-button @click="handleClick" icon-font="success">按钮</dr-button>
   </div>
 </template>
 
@@ -13,10 +9,15 @@ import { Component, Vue } from 'vue-property-decorator'
 
 @Component({})
 export default class TestPage extends Vue {
-  searchVal = ''
-
   handleClick() {
-    console.log(this.searchVal)
+    this.$dialog
+      .alert({
+        type: 'success',
+        title: '测试弹框',
+        content: '这是测试弹框',
+        confirmButton: '确定'
+      })
+      .then(() => {})
   }
 }
 </script>

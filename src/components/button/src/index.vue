@@ -17,23 +17,26 @@
     @click="handleBtnClick"
   >
     <div class="dr-button-content">
-      <!-- 是否显示加载状态 -->
-      <div
-        class="dr-button-loading"
-        v-if="loading"
-      >
-        <dr-loading
-          :size="loadingSize"
-          isBtn
-        ></dr-loading>
+      <!-- 加载状态 -->
+      <div class="dr-button-loading" v-if="loading">
+        <dr-loading :size="loadingSize" isBtn></dr-loading>
       </div>
-      <!-- 是否显示图标 -->
+      <!-- 图标 -->
       <img
         :class="['dr-button-icon', { 'dr-button-icon-margin-right': iconMr }]"
-        v-if="icon"
         :src="icon"
         alt=""
+        v-if="icon"
       />
+      <!-- 字体图标 -->
+      <dr-icon
+        :class="{ 'dr-button-icon-margin-right': iconMr }"
+        :name="iconFont"
+        :color="iconColor"
+        :size="iconSize"
+        v-if="iconFont"
+      >
+      </dr-icon>
       <!-- 按钮文本 -->
       <span
         :class="['dr-button-text']"
@@ -66,19 +69,19 @@ interface Style {
 })
 export default class drButton extends Vue {
   // 按钮内容
-  @Prop({ type: String, required: false, default: '' }) text!: string
+  @Prop({ type: String, required: false }) text!: string
 
   // 是否禁用
   @Prop({ type: Boolean, required: false, default: false }) disabled!: boolean
 
   // 按钮颜色
-  @Prop({ type: String, required: false, default: '' }) color!: string
+  @Prop({ type: String, required: false }) color!: string
 
   // 按钮文本颜色
-  @Prop({ type: String, required: false, default: '' }) textColor!: string
+  @Prop({ type: String, required: false }) textColor!: string
 
   // 按钮类型(primary|danger|warning|info)
-  @Prop({ type: String, required: false, default: '' }) type!: string
+  @Prop({ type: String, required: false }) type!: string
 
   // 朴素按钮
   @Prop({ type: Boolean, required: false, default: false }) plain!: boolean
@@ -87,10 +90,22 @@ export default class drButton extends Vue {
   @Prop({ type: Boolean, required: false, default: false }) block!: boolean
 
   // 图标按钮
-  @Prop({ type: String, required: false, default: '' }) icon!: string
+  @Prop({ type: String, required: false }) icon!: string
+
+  // 字体图标
+  @Prop({ type: String, required: false }) iconFont!: string
+
+  // 字体图标颜色
+  @Prop({ type: String, required: false, default: 'currentColor' })
+  iconColor!: string
+
+  @Prop({ type: [Number, String], required: false, default: '14' }) iconSize?:
+    | number
+    | string
 
   // 小圆角按钮
-  @Prop({ type: Boolean, required: false, default: false }) miniRange!: false
+  @Prop({ type: Boolean, required: false, default: false })
+  miniRange!: false
 
   // 大圆角按钮
   @Prop({ type: Boolean, required: false, default: false }) largeRange!: false
@@ -103,21 +118,22 @@ export default class drButton extends Vue {
     | string
     | number
 
-  // data
+  // 按钮样式
   private btnStyle: Style = {
     color: '',
     background: '',
     borderColor: ''
   }
 
-  private iconMr: boolean = false
+  // 是否存在图标
+  private iconMr = false
 
   /**
    * created
    */
   private created() {
     // 插槽有内容且有图标
-    if (this.$slots.default && this.icon) {
+    if (this.$slots.default && (this.icon || this.iconFont)) {
       this.iconMr = true
     }
     this.initButton()

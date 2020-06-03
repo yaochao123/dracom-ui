@@ -1,11 +1,9 @@
 <template>
-  <div
-    class="dr-icon"
-    :style="iconSize"
-  >
-    <svg class="dr-icon-svg">
-      <use :xlink:href="`#icon-${name}`"></use>
-    </svg>
+  <div class="dr-icon">
+    <i
+      :class="['iconfont', `icon-${name}`]"
+      :style="[{ 'font-size': size + 'px' },{ 'color': color }]"
+    ></i>
   </div>
 </template>
 
@@ -18,17 +16,12 @@ export default class DrIcon extends Vue {
   @Prop({ type: String, required: true }) name?: string
 
   // 图标大小
-  @Prop({ type: [Number, String], required: false, default: '1em' }) size?:
+  @Prop({ type: [Number, String], required: false, default: '26' }) size?:
     | number
     | string
 
-  // 计算图标大小
-  get iconSize() {
-    return {
-      width: Number(this.size) / 37.5 + 'rem',
-      height: Number(this.size) / 37.5 + 'rem'
-    }
-  }
+  // 图标颜色
+  @Prop({ type: String, required: false }) color?: string
 }
 </script>
 
