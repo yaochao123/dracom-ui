@@ -9,7 +9,6 @@
 ```js
 import Vue from 'vue'
 import { DrOverlay } from 'dracom-ui'
-
 Vue.use(DrOverlay)
 ```
 

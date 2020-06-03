@@ -1,15 +1,22 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" :style="{ width: dialogWidth }" v-if="showModel">
+      <div
+        class="dr-dialog"
+        :style="{ width: dialogWidth }"
+        v-if="showModel"
+      >
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
-          </dr-dialog-icon>
-          {{ title }}
+          <dr-icon
+            :name="type"
+            :color="primaryColor"
+            v-if="type"
+          ></dr-icon>
+          <span :class="{ 'dr-dialog-title-has-icon': type }">{{ title }}</span>
         </div>
         <!-- 弹框内容 -->
         <div
@@ -177,6 +184,10 @@ export default class Dialog extends Vue {
     font-size: $dialog-title-size;
     color: $dialog-title-color;
     font-weight: $dialog-title-weight;
+    &-has-icon {
+      margin-left: 8px;
+    }
+
     &-only {
       margin-bottom: 20px;
     }

@@ -9,7 +9,6 @@
 ```js
 import Vue from 'vue'
 import { DrIcon } from 'dracom-ui'
-
 Vue.use(DrIcon)
 ```
 
@@ -19,23 +18,21 @@ Vue.use(DrIcon)
 
 ```html
 <dr-icon name="success" size="30"></dr-icon>
-
 <dr-icon name="fail" size="30"></dr-icon>
 ```
 
 ### 类名调用
 
 ```html
-<i class="iconfont icon-search"></i>
-
-<i class="iconfont icon-delete"></i>
+<i class="iconfont icon-search"></i> <i class="iconfont icon-delete"></i>
 ```
 
 ## API
 
 ### Props
 
-| 参数 | 说明                                   | 类型             | 默认值 |
-| ---- | -------------------------------------- | ---------------- | ------ |
-| name | 图标名称，所选图标必须在图标库里已存在 | _string_         | `-`    |
-| size | 图标大小,单位`px`                      | _number\|string_ | `1em`  |
+| 参数  | 说明                                   | 类型             | 默认值 |
+| ----- | -------------------------------------- | ---------------- | ------ |
+| name  | 图标名称，所选图标必须在图标库里已存在 | _string_         | `-`    |
+| size  | 图标大小,单位`px`                      | _number\|string_ | `26`   |
+| color | 图标颜色                               | _string_         | `-`    |

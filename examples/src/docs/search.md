@@ -9,7 +9,6 @@
 ```js
 import Vue from 'vue'
 import { DrSearch } from 'dracom-ui'
-
 Vue.use(DrSearch)
 ```
 
