@@ -19,7 +19,8 @@
       class="dr-search-button"
       v-show="showButton"
       @click="handleClickBtn"
-    >{{ buttonText }}</span>
+      >{{ buttonText }}</span
+    >
   </div>
 </template>
 
@@ -62,32 +63,32 @@ export default class DrSearch extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/common.scss';
-@import '../../../style/mixin.scss';
 .dr-search {
-  @include flex($ali: center);
+  @include flex();
 
   &-input-wrapper {
-    @include flex($flex: 1);
+    display: flex;
+    flex: 1;
     position: relative;
   }
 
   &-input {
-    @include flex($flex: 1);
+    display: flex;
+    flex: 1;
     box-sizing: border-box;
     padding: 8px 10px;
-    border: $search-input-border;
-    height: $search-input-height;
-    background-color: $search-input-background-color;
-    border-radius: $search-input-border-radius;
+    border: 0;
+    height: 36px;
+    background-color: var(--dr-search-background-color);
+    border-radius: var(--dr-border-radius-md);
     outline: none;
-    font-size: $search-input-font-size;
-    color: $search-input-color;
+    font-size: var(--dr-font-size-sm);
+    color: var(--dr-title-color);
     padding: 0 30px;
 
     &::-webkit-input-placeholder {
-      font-size: $search-input-placeholder-font-size;
-      color: $search-input-placeholder-color;
+      font-size: var(--dr-font-size-sm);
+      color: var(--dr-input-placeholder-color);
     }
   }
 
@@ -114,9 +115,9 @@ export default class DrSearch extends Vue {
   &-button {
     padding: 10px 0 10px;
     margin-left: 18px;
-    font-size: $search-input-cancel-font-size;
+    font-size: var(--dr-font-size-sm);
     font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: $search-input-cancel-font-weight;
+    font-weight: var(--dr-dialog-button-weight);
     color: rgba(0, 0, 0, 1);
     cursor: pointer;
   }
