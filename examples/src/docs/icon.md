@@ -24,7 +24,8 @@ Vue.use(DrIcon)
 ### 类名调用
 
 ```html
-<i class="iconfont icon-search"></i> <i class="iconfont icon-delete"></i>
+<i class="iconfont icon-search"></i>
+<i class="iconfont icon-delete"></i>
 ```
 
 ## API
