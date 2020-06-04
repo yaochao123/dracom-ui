@@ -3,7 +3,6 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-import '@src/style/_animation.scss'
 // import Dracom from 'dracom-ui'
 import Dracom from '../../src/index'
 // css变量兼容
