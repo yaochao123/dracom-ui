@@ -13,10 +13,10 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrIcon extends Vue {
   // 图标名称
-  @Prop({ type: String, required: true }) name?: string
+  @Prop({ type: String, required: true }) name!: string
 
   // 图标大小
-  @Prop({ type: [Number, String], required: false, default: '26' }) size?:
+  @Prop({ type: [Number, String], required: false, default: '26' }) size!:
     | number
     | string
 
@@ -26,11 +26,4 @@ export default class DrIcon extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.dr-icon {
-  &-svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-  }
-}
 </style>

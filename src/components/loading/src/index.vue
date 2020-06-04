@@ -1,19 +1,25 @@
 <template>
-  <div
-    :class="[
+  <div :class="[
       'dr-loading',
       { 'dr-loading-vertical': vertical },
       { 'dr-loading-button': isBtn }
-    ]"
-  >
+    ]">
     <!-- circular加载样式 -->
     <div
       :class="['dr-loading-circular']"
       v-if="type === 'circular'"
       :style="fontStyle"
     >
-      <svg viewBox="25 25 50 50" :color="color">
-        <circle cx="50" cy="50" r="20" fill="none"></circle>
+      <svg
+        viewBox="25 25 50 50"
+        :color="color"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+        ></circle>
       </svg>
     </div>
     <!-- spinner加载样式 -->
@@ -22,7 +28,10 @@
       v-if="type === 'spinner'"
       :style="[fontStyle, { color: color }]"
     >
-      <i v-for="line in 12" :key="line"></i>
+      <i
+        v-for="line in 12"
+        :key="line"
+      ></i>
     </div>
     <!-- 加载文字 -->
     <span
@@ -62,7 +71,7 @@ export default class DrLoading extends Vue {
   @Prop({ type: Boolean, required: false, default: false }) vertical!: boolean
 
   // 是否是在按钮中使用
-  @Prop({ type: Boolean, required: false, default: false }) isBtn?: boolean
+  @Prop({ type: Boolean, required: false, default: false }) isBtn!: boolean
 
   /**
    * 是否显示文本
@@ -90,7 +99,6 @@ export default class DrLoading extends Vue {
   }
 
   /**
-   * computed
    * 计算加载图标样式
    */
   get fontStyle() {
@@ -121,10 +129,10 @@ export default class DrLoading extends Vue {
       width: 100%;
       height: 100%;
       font-size: 0;
-      animation: dr-rotate 1.8s linear infinite;
+      animation: dr-loading-rotate 1.8s linear infinite;
       circle {
         stroke: currentColor;
-        animation: dr-circular 1.5s ease-in-out infinite;
+        animation: dr-loading-circular 1.5s ease-in-out infinite;
         stroke-width: 3;
         stroke-linecap: round;
       }
@@ -136,7 +144,7 @@ export default class DrLoading extends Vue {
     width: 30px;
     height: 30px;
     color: currentColor;
-    animation: dr-rotate 0.8s linear infinite;
+    animation: dr-loading-rotate 0.8s linear infinite;
     animation-timing-function: steps(12);
     @for $i from 1 through 12 {
       i {
