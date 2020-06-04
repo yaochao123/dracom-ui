@@ -7,17 +7,8 @@ import DrDialog from './components/dialog/index'
 import DrOverlay from './components/overlay/index'
 import DrSearch from './components/search/index'
 import DrIcon from './components/icon/index'
-import DrTab from './components/tab/index'
 
-const components = [
-  DrButton,
-  DrLoading,
-  DrDialog,
-  DrOverlay,
-  DrSearch,
-  DrIcon,
-  DrTab
-]
+const components = [DrButton, DrLoading, DrDialog, DrOverlay, DrSearch, DrIcon]
 
 const componentsName: string[] = [
   'DrButton',
@@ -25,8 +16,7 @@ const componentsName: string[] = [
   'DrDialog',
   'DrOverlay',
   'DrSearch',
-  'DrIcon',
-  'DrTab'
+  'DrIcon'
 ]
 
 const install = function(Vue: any) {
@@ -52,6 +42,5 @@ export default {
   DrDialog,
   DrOverlay,
   DrSearch,
-  DrIcon,
-  DrTab
+  DrIcon
 }
