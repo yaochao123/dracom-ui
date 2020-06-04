@@ -6,8 +6,7 @@
   "typings": "types/index.d.ts",
   "files": [
     "lib/**/*",
-    "types/*",
-    "style/*"
+    "types/*"
   ],
   "private": false,
   "directories": {
