@@ -1,15 +1,22 @@
 <template>
   <div>
     <transition name="dr-dialog-bounce">
-      <div class="dr-dialog" v-if="showModel">
+      <div
+        class="dr-dialog"
+        :style="{ width: dialogWidth }"
+        v-if="showModel"
+      >
         <!-- 弹框标题 -->
         <div
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-dialog-icon :color="primaryColor" :type="type" v-if="type">
-          </dr-dialog-icon>
-          {{ title }}
+          <dr-icon
+            :name="type"
+            :color="primaryColor"
+            v-if="type"
+          ></dr-icon>
+          <span :class="{ 'dr-dialog-title-has-icon': type }">{{ title }}</span>
         </div>
         <!-- 弹框内容 -->
         <div
@@ -78,6 +85,11 @@ export default class Dialog extends Vue {
   // 是否显示弹框
   @Model('handleClick', { type: Boolean }) showModel?: boolean
 
+  // 弹框宽度
+  @Prop({ type: [Number, String], required: false, default: 300 }) width?:
+    | number
+    | string
+
   // 图标类型
   @Prop({ type: String, required: false, default: '' }) type?: string
 
@@ -117,6 +129,13 @@ export default class Dialog extends Vue {
 
   //确定按钮内容
   @Prop({ type: String, required: false, default: '' }) confirmButton?: string
+
+  /**
+   * 计算弹出框宽度
+   */
+  get dialogWidth() {
+    return Number(this.width) / 37.5 + 'rem'
+  }
 
   /**
    * 点击关闭按钮
@@ -163,6 +182,10 @@ export default class Dialog extends Vue {
     font-size: var(--dr-dialog-title-size);
     color: var(--dr-dialog-title-color);
     font-weight: var(--dr-dialog-title-weight);
+    &-has-icon {
+      margin-left: 8px;
+    }
+
     &-only {
       margin-bottom: 20px;
     }

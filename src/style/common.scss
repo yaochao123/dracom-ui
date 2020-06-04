@@ -1,0 +1,66 @@
+// Color Palette
+$black: #000;
+$white: #fff;
+$blue: #1989fa;
+$red: #ee0a24;
+$green: #33c0af;
+$orange: #ff976a;
+$gray-1: #606060;
+$gray-2: #e1e6eb;
+$input-background-color: #f2f5f8;
+$placeholder-color: #a2a2a2;
+$title-color: #303030;
+
+// Size Palette
+$size-14: 14px;
+$size-16: 16px;
+
+// Weight Palette
+$weight-1: 100;
+$weight-2: 200;
+$weight-3: 300;
+$weight-4: 400;
+$weight-5: 500;
+$weight-6: 600;
+
+// Border
+$border-color: $gray-2;
+$border-width-base: 1px;
+$border-radius-mini: 4px;
+$border-radius-large: 25px;
+
+// Button
+$button-default: $gray-1;
+$button-primary: $green;
+$button-info: $blue;
+$button-danger: $red;
+$button-warning: $orange;
+
+// Dialog
+$dialog-background-color: $white;
+$dialog-border-radius: $border-radius-mini;
+$dialog-title-color: $title-color;
+$dialog-title-size: $size-16;
+$dialog-title-weight: $weight-6;
+$dialog-content-color: $gray-1;
+$dialog-content-size: $size-14;
+$dialog-button-radius: $border-radius-large;
+$dialog-button-size: $size-16;
+$dialog-button-weight: $weight-5;
+$dialog-button-confirm-color: $white;
+
+// Overlay
+$overlay-background-color: rgba(0, 0, 0, 0.7);
+$overlay-zIndex: 1;
+
+// search
+$search-input-background-color: $input-background-color;
+$search-input-border: 0;
+$search-input-placeholder-font-size: $size-14;
+$search-input-placeholder-color: $placeholder-color;
+$search-input-height: 36px;
+$search-input-border-radius: $border-radius-mini;
+$search-input-color: $title-color;
+$search-input-font-size: $size-14;
+$search-input-cancel-font-size: $size-14;
+$search-input-cancel-font-weight: $weight-5;

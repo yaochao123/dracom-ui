@@ -2,23 +2,39 @@
   <div class="demo-dialog">
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">提示弹框</div>
-      <dr-button type="primary" @click="alert">提示弹框</dr-button>
-      <dr-button type="primary" @click="alertNoTitle"
-        >提示弹框(无标题)</dr-button
-      >
+      <dr-button
+        type="primary"
+        @click="alert"
+      >提示弹框</dr-button>
+      <dr-button
+        type="primary"
+        @click="alertNoTitle"
+      >提示弹框(无标题)</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">确认弹框</div>
-      <dr-button type="primary" @click="confirm">确认弹框</dr-button>
+      <dr-button
+        type="primary"
+        @click="confirm"
+      >确认弹框</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">弹框类型</div>
-      <dr-button type="primary" @click="success">成功弹框</dr-button>
-      <dr-button type="primary" @click="fail">失败弹框</dr-button>
+      <dr-button
+        type="primary"
+        @click="success"
+      >成功弹框</dr-button>
+      <dr-button
+        type="primary"
+        @click="fail"
+      >失败弹框</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">主题色</div>
-      <dr-button type="primary" @click="primary">主题色</dr-button>
+      <dr-button
+        type="primary"
+        @click="primary"
+      >主题色</dr-button>
     </div>
   </div>
 </template>
@@ -32,7 +48,7 @@ export default class DemoDialog extends Vue {
   /**
    * 提示弹框
    */
-  alert() {
+  private alert() {
     this.$dialog
       .alert({
         title: '提示弹框',
@@ -45,7 +61,7 @@ export default class DemoDialog extends Vue {
   /**
    * 提示弹框(无标题)
    */
-  alertNoTitle() {
+  private alertNoTitle() {
     this.$dialog
       .alert({
         content: '这是一段弹出框的内容',
@@ -57,7 +73,7 @@ export default class DemoDialog extends Vue {
   /**
    * 确认弹框
    */
-  confirm() {
+  private confirm() {
     this.$dialog
       .confirm({
         title: '确认弹框',
@@ -72,7 +88,7 @@ export default class DemoDialog extends Vue {
   /**
    * 成功弹框
    */
-  success() {
+  private success() {
     this.$dialog
       .alert('success', {
         title: '成功弹框',
@@ -85,7 +101,7 @@ export default class DemoDialog extends Vue {
   /**
    * 失败弹框
    */
-  fail() {
+  private fail() {
     this.$dialog
       .alert('fail', {
         title: '失败弹框',
@@ -98,7 +114,7 @@ export default class DemoDialog extends Vue {
   /**
    * 主题色
    */
-  primary() {
+  private primary() {
     this.$dialog
       .alert('success', {
         title: '主题色',

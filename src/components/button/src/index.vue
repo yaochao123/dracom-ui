@@ -1,9 +1,9 @@
 <template>
   <button
-    :disabled="disabled"
-    class="dr-button"
     :class="[
+      'dr-button',
       { 'dr-button-disabled': disabled },
+      { 'dr-button-default': !material },
       { 'dr-button-primary': type === 'primary' },
       { 'dr-button-danger': type === 'danger' },
       { 'dr-button-info': type === 'info' },
@@ -14,34 +14,36 @@
       { 'dr-button-large-range': largeRange }
     ]"
     :style="btnStyle"
+    :disabled="disabled"
     @click="handleBtnClick"
   >
+    <span
+      class="dr-button-material"
+      :style="{ top: y + 'px', left: x + 'px' }"
+      v-if="material && showMaterial"
+    ></span>
     <div class="dr-button-content">
-      <!-- 是否显示加载状态 -->
-      <div
-        class="dr-button-loading"
-        v-if="loading"
-      >
-        <dr-loading
-          :size="loadingSize"
-          isBtn
-        ></dr-loading>
+      <!-- 加载状态 -->
+      <div class="dr-button-loading" v-if="loading">
+        <dr-loading :size="loadingSize" isBtn></dr-loading>
       </div>
-      <!-- 是否显示图标 -->
+      <!-- 图标 -->
       <img
         :class="['dr-button-icon', { 'dr-button-icon-margin-right': iconMr }]"
-        v-if="icon"
         :src="icon"
-        alt=""
+        alt
+        v-if="icon"
       />
+      <!-- 字体图标 -->
+      <dr-icon
+        :class="{ 'dr-button-icon-margin-right': iconMr }"
+        :name="iconFont"
+        :color="iconColor"
+        :size="iconSize"
+        v-if="iconFont"
+      ></dr-icon>
       <!-- 按钮文本 -->
-      <span
-        :class="['dr-button-text']"
-        :style="{ color: textColor }"
-        v-if="text"
-      >
-        {{ text }}
-      </span>
+      <span :class="['dr-button-text']" :style="{ color: textColor }" v-if="text">{{ text }}</span>
       <!-- slot插槽 -->
       <slot />
     </div>
@@ -66,19 +68,22 @@ interface Style {
 })
 export default class drButton extends Vue {
   // 按钮内容
-  @Prop({ type: String, required: false, default: '' }) text!: string
+  @Prop({ type: String, required: false }) text?: string
 
   // 是否禁用
   @Prop({ type: Boolean, required: false, default: false }) disabled!: boolean
 
+  // 是否使用material风格
+  @Prop({ type: Boolean, required: false, default: false }) material!: boolean
+
   // 按钮颜色
-  @Prop({ type: String, required: false, default: '' }) color!: string
+  @Prop({ type: String, required: false }) color?: string
 
   // 按钮文本颜色
-  @Prop({ type: String, required: false, default: '' }) textColor!: string
+  @Prop({ type: String, required: false }) textColor?: string
 
   // 按钮类型(primary|danger|warning|info)
-  @Prop({ type: String, required: false, default: '' }) type!: string
+  @Prop({ type: String, required: false }) type?: string
 
   // 朴素按钮
   @Prop({ type: Boolean, required: false, default: false }) plain!: boolean
@@ -87,10 +92,22 @@ export default class drButton extends Vue {
   @Prop({ type: Boolean, required: false, default: false }) block!: boolean
 
   // 图标按钮
-  @Prop({ type: String, required: false, default: '' }) icon!: string
+  @Prop({ type: String, required: false }) icon?: string
+
+  // 字体图标
+  @Prop({ type: String, required: false }) iconFont?: string
+
+  // 字体图标颜色
+  @Prop({ type: String, required: false, default: 'currentColor' })
+  iconColor!: string
+
+  @Prop({ type: [Number, String], required: false, default: '14' }) iconSize!:
+    | number
+    | string
 
   // 小圆角按钮
-  @Prop({ type: Boolean, required: false, default: false }) miniRange!: false
+  @Prop({ type: Boolean, required: false, default: false })
+  miniRange!: false
 
   // 大圆角按钮
   @Prop({ type: Boolean, required: false, default: false }) largeRange!: false
@@ -103,28 +120,34 @@ export default class drButton extends Vue {
     | string
     | number
 
-  // data
+  // 按钮样式
   private btnStyle: Style = {
     color: '',
     background: '',
     borderColor: ''
   }
 
-  private iconMr: boolean = false
+  // 是否存在图标
+  private iconMr = false
+
+  // material风格
+  private x = 0
+  private y = 0
+  private showMaterial = false
+  private timer: any
 
   /**
    * created
    */
   private created() {
     // 插槽有内容且有图标
-    if (this.$slots.default && this.icon) {
+    if (this.$slots.default && (this.icon || this.iconFont)) {
       this.iconMr = true
     }
     this.initButton()
   }
 
   /**
-   * methods
    * 初始化按钮
    */
   private initButton() {
@@ -142,10 +165,21 @@ export default class drButton extends Vue {
   }
 
   /**
-   * emit
    * 点击按钮
    */
-  @Emit('click') private handleBtnClick() {}
+  @Emit('click') private handleBtnClick(e: any) {
+    if (this.material) {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+      this.showMaterial = true
+      this.x = e.offsetX
+      this.y = e.offsetY
+      this.timer = setTimeout(() => {
+        this.showMaterial = false
+      }, 500)
+    }
+  }
 }
 </script>
 
@@ -164,17 +198,29 @@ export default class drButton extends Vue {
   box-sizing: border-box;
   font-weight: 500;
   font-size: 14px;
+  overflow: hidden;
   cursor: pointer;
-  &:active::before {
-    @include absolute(50%, 50%);
-    width: 100%;
-    height: 100%;
-    background-color: var(--dr-black);
-    border: inherit;
-    border-color: var(--dr-black);
-    border-radius: inherit;
-    opacity: 0.1;
-    content: '';
+  &-default {
+    &:active::before {
+      @include absolute(50%, 50%);
+      width: 100%;
+      height: 100%;
+      background-color: var(--dr-black);
+      border: inherit;
+      border-color: var(--dr-black);
+      border-radius: inherit;
+      opacity: 0.1;
+      content: '';
+    }
+  }
+
+  &-material {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    animation: move 0.5s linear infinite;
+    border-radius: 50%;
+    pointer-events: none;
+    background-color: #fff;
   }
 
   &-content {
@@ -233,11 +279,24 @@ export default class drButton extends Vue {
     margin-right: 5px;
   }
 
-  .dr-button-icon {
-    width: 1em;
-    height: 1em;
+  &-icon {
+    width: 14px;
+    height: 14px;
     &-margin-right {
       margin-right: 5px;
+    }
+  }
+
+  @keyframes move {
+    from {
+      width: 0;
+      height: 0;
+      opacity: 0.7;
+    }
+    to {
+      width: 1000px;
+      height: 1000px;
+      opacity: 0;
     }
   }
 }
