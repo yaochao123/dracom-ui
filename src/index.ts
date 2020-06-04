@@ -10,14 +10,7 @@ import DrIcon from './components/icon/index'
 
 const components = [DrButton, DrLoading, DrDialog, DrOverlay, DrSearch, DrIcon]
 
-const componentsName: string[] = [
-  'DrButton',
-  'DrLoading',
-  'DrDialog',
-  'DrOverlay',
-  'DrSearch',
-  'DrIcon'
-]
+const componentsName: string[] = components.map(component => String(component))
 
 const install = function(Vue: any) {
   if ((install as any).installed) return
@@ -37,10 +30,5 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 
 export default {
   install,
-  DrButton,
-  DrLoading,
-  DrDialog,
-  DrOverlay,
-  DrSearch,
-  DrIcon
+  ...components
 }
