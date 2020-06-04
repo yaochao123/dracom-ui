@@ -19,7 +19,7 @@ const DrDialog: any = {
       showModel: false,
       type: '',
       title: '',
-      primaryColor: '#33C0AF',
+      primaryColor: '',
       content: '',
       showCancelButton: true,
       showConfirmButton: true,

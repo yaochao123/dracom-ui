@@ -30,11 +30,11 @@
       >失败弹框</dr-button>
     </div>
     <div class="doc-demo-block">
-      <div class="doc-demo-block-title">主题色</div>
+      <div class="doc-demo-block-title">自定义颜色</div>
       <dr-button
         type="primary"
         @click="primary"
-      >主题色</dr-button>
+      >自定义颜色</dr-button>
     </div>
   </div>
 </template>
@@ -112,12 +112,12 @@ export default class DemoDialog extends Vue {
   }
 
   /**
-   * 主题色
+   * 自定义颜色
    */
   private primary() {
     this.$dialog
       .alert('success', {
-        title: '主题色',
+        title: '自定义颜色',
         content: '这是一段弹出框的内容',
         primaryColor: '#409EFF',
         confirmButton: '确定'

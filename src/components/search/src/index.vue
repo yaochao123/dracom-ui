@@ -62,8 +62,6 @@ export default class DrSearch extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../style/common.scss';
-@import '../../../style/mixin.scss';
 .dr-search {
   @include flex;
 
@@ -78,18 +76,18 @@ export default class DrSearch extends Vue {
     flex: 1;
     box-sizing: border-box;
     padding: 8px 10px;
-    border: $search-input-border;
-    height: $search-input-height;
-    background-color: $search-input-background-color;
-    border-radius: $search-input-border-radius;
+    border: var(--dr-search-input-border);
+    height: var(--dr-search-input-height);
+    background-color: var(--dr-search-input-background-color);
+    border-radius: var(--dr-search-input-border-radius);
     outline: none;
-    font-size: $search-input-font-size;
-    color: $search-input-color;
+    font-size: var(--dr-search-input-font-size);
+    color: var(--dr-search-input-color);
     padding: 0 30px;
 
     &::-webkit-input-placeholder {
-      font-size: $search-input-placeholder-font-size;
-      color: $search-input-placeholder-color;
+      font-size: var(--dr-search-input-placeholder-font-size);
+      color: var(--dr-search-input-placeholder-color);
     }
   }
 
@@ -116,9 +114,9 @@ export default class DrSearch extends Vue {
   &-button {
     padding: 10px 0 10px;
     margin-left: 18px;
-    font-size: $search-input-cancel-font-size;
+    font-size: var(--dr-search-input-cancel-font-size);
     font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: $search-input-cancel-font-weight;
+    font-weight: var(--dr-search-input-cancel-font-weight);
     color: rgba(0, 0, 0, 1);
     cursor: pointer;
   }

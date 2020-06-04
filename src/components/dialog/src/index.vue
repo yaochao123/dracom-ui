@@ -7,7 +7,7 @@
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-icon :name="type" :color="primaryColor" v-if="type"></dr-icon>
+          <dr-icon class="dr-dialog-icon" :name="type" :color="primaryColor" v-if="type"></dr-icon>
           <span :class="{ 'dr-dialog-title-has-icon': type }">{{ title }}</span>
         </div>
         <!-- 弹框内容 -->
@@ -20,44 +20,36 @@
           v-if="content"
         ></div>
         <!-- 弹框按钮 -->
-        <div
-          class="dr-dialog-button"
-          v-if="showCancelButton || showConfirmButton"
-        >
+        <div class="dr-dialog-button" v-if="showCancelButton || showConfirmButton">
           <div
             v-if="showCancelButton"
             :class="[
               'dr-dialog-button-cancel',
               { 'dr-dialog-button-only': !showConfirmButton }
             ]"
-            :style="[
-              { border: `1px solid ${primaryColor}` },
-              { color: primaryColor }
-            ]"
+            :style="primaryColor
+            ? { borderColor: primaryColor ,
+                color: primaryColor }
+            : {}"
             @click="handleCancel"
-          >
-            {{ cancelButton }}
-          </div>
+          >{{ cancelButton }}</div>
           <div
             v-if="showConfirmButton"
             :class="[
               'dr-dialog-button-confirm',
               { 'dr-dialog-button-only': !showCancelButton }
             ]"
-            :style="[{ backgroundColor: primaryColor }]"
+            :style="primaryColor
+            ?{ borderColor: primaryColor,
+              backgroundColor: primaryColor }
+            : {}"
             @click="handleConfirm"
-          >
-            {{ confirmButton }}
-          </div>
+          >{{ confirmButton }}</div>
         </div>
       </div>
     </transition>
     <!-- 遮罩 -->
-    <dr-overlay
-      :show="showModel && overlay"
-      :lock-scroll="lockScroll"
-      @click="handleOverlay"
-    ></dr-overlay>
+    <dr-overlay :show="showModel && overlay" :lock-scroll="lockScroll" @click="handleOverlay"></dr-overlay>
   </div>
 </template>
 
@@ -86,8 +78,8 @@ export default class Dialog extends Vue {
   // 标题内容
   @Prop({ type: String, required: false }) title?: string
 
-  // 主题色
-  @Prop({ type: String, required: false, default: '#33C0AF' })
+  // 自定义颜色
+  @Prop({ type: String, required: false, default: '' })
   primaryColor!: string
 
   // 正文内容
@@ -167,6 +159,10 @@ export default class Dialog extends Vue {
   transition-property: transform, opacity;
   z-index: 2001;
 
+  &-icon {
+    color: var(--dr-dialog-theme-color);
+  }
+
   &-title {
     @include flex($jc: center);
     font-size: var(--dr-dialog-title-size);
@@ -203,9 +199,15 @@ export default class Dialog extends Vue {
       font-weight: var(--dr-dialog-button-weight);
       width: 114px;
       cursor: pointer;
+      border: 1px solid var(--dr-button-color-primary);
     }
     &-confirm {
-      color: var(--dr-dialog-button-confirm-color);
+      background-color: var(--dr-dialog-theme-color);
+      color: #ffffff;
+    }
+
+    &-cancel {
+      color: var(--dr-dialog-theme-color);
     }
 
     &-only {
