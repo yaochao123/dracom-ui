@@ -1,5 +1,6 @@
 const path = require('path')
 const cssOptions = require('./config/css.config')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -41,6 +42,12 @@ module.exports = {
         }
       ]
     })
+    config.plugins.push(
+      new CopyWebpackPlugin([{
+        from: resolve('./src/style/variables.css'),
+        to: resolve('./lib/variables.css'),
+      }])
+    )
   },
   css: cssOptions,
   devServer: {
