@@ -28,6 +28,8 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
   install((window as any).Vue)
 }
 
+export { install, DrButton, DrLoading, DrDialog, DrOverlay, DrSearch, DrIcon }
+
 export default {
   install,
   ...components

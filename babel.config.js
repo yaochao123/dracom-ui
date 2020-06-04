@@ -3,8 +3,10 @@ let options = {
 }
 
 const plugins = [
+  'import',
   {
-    libraryName: 'dracom-ui'
+    libraryName: 'dracom-ui',
+    libraryDirectory: 'src/components'
   }
 ]
 
