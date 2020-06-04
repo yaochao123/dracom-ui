@@ -56,7 +56,7 @@ export default class SiteHeader extends Vue {
   updateValue(val: any) {
     let rgba = `rgba(${val.rgba.r},${val.rgba.g},${val.rgba.b},${val.rgba.a})`
     this.addStyle(`:root{--dr-primary-color:${rgba}}`)
-    this.addChildStyle(`:root{--dr-primary-color:${rgba}}`)
+    this.addIframeStyle(`:root{--dr-primary-color:${rgba}}`)
   }
 
   addStyle(content: string) {
@@ -72,7 +72,7 @@ export default class SiteHeader extends Vue {
     head?.appendChild(style)
   }
 
-  addChildStyle(content: string) {
+  addIframeStyle(content: string) {
     let childHead: any = document.querySelector('iframe')
     childHead.contentWindow.postMessage(content, '*')
   }

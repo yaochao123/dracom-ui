@@ -12,6 +12,8 @@
   // Color
   --dr-title-color: #303030;
   --dr-primary-color: var(--dr-green);
+  --dr-input-background-color: #f2f5f8;
+  --dr-placeholder-color: #a2a2a2;
 
   // FontSize
   --dr-font-size-xs: 12px;
@@ -59,11 +61,11 @@
   --dr-dialog-button-radius: var(--dr-border-radius-xl);
   --dr-dialog-button-size: var(--dr-font-size-md);
   --dr-dialog-button-weight: 500;
-  --dr-dialog-button-confirm-color: var(--dr-white);
+  --dr-dialog-theme-color: var(--dr-button-color-primary);
 
   // Overlay
   --dr-overlay-background-color: rgba(0, 0, 0, 0.7);
-  --dr-overlay-zIndex: 1;
+  --dr-overlay-z-index: 1;
 
   // Input
   --dr-input-placeholder-color: #a2a2a2;

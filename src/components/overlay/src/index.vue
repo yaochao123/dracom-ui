@@ -63,7 +63,7 @@ export default class DrOverlay extends Vue {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: var(--dr-overlay-zIndex);
+  z-index: var(--dr-overlay-z-index);
   background-color: var(--dr-overlay-background-color);
 
   &-fade-enter-active,
