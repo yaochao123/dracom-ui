@@ -1,19 +1,25 @@
 <template>
-  <div
-    :class="[
+  <div :class="[
       'dr-loading',
       { 'dr-loading-vertical': vertical },
       { 'dr-loading-button': isBtn }
-    ]"
-  >
+    ]">
     <!-- circular加载样式 -->
     <div
       :class="['dr-loading-circular']"
       v-if="type === 'circular'"
       :style="fontStyle"
     >
-      <svg viewBox="25 25 50 50" :color="color">
-        <circle cx="50" cy="50" r="20" fill="none"></circle>
+      <svg
+        viewBox="25 25 50 50"
+        :color="color"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="20"
+          fill="none"
+        ></circle>
       </svg>
     </div>
     <!-- spinner加载样式 -->
@@ -22,13 +28,16 @@
       v-if="type === 'spinner'"
       :style="[fontStyle, { color: color }]"
     >
-      <i v-for="line in 12" :key="line"></i>
+      <i
+        v-for="line in 12"
+        :key="line"
+      ></i>
     </div>
     <!-- 加载文字 -->
     <span
       :class="['dr-loading-text', { 'dr-loading-text-vertical': vertical }]"
       :color="color"
-      :style="{ fontSize: textSize + 'px' }"
+      :style="textStyle"
       v-if="showText"
     >
       <slot />
@@ -42,30 +51,29 @@ import { Vue, Component, Prop } from 'vue-property-decorator'
 @Component({})
 export default class DrLoading extends Vue {
   // 类型
-  @Prop({ type: String, required: false, default: 'circular' }) type?: string
+  @Prop({ type: String, required: false, default: 'circular' }) type!: string
 
   // 颜色
   @Prop({ type: String, required: false, default: 'currentColor' })
   color!: string
 
   // 图标大小
-  @Prop({ type: [String, Number], required: false, default: 30 }) size?:
+  @Prop({ type: [String, Number], required: false, default: 30 }) size!:
     | string
     | number
 
   // 文字大小
-  @Prop({ type: [Number, String], required: false, default: '14' }) textSize?:
+  @Prop({ type: [Number, String], required: false, default: '14' }) textSize!:
     | number
     | string
 
   // 垂直排列
-  @Prop({ type: Boolean, required: false, default: false }) vertical?: boolean
+  @Prop({ type: Boolean, required: false, default: false }) vertical!: boolean
 
   // 是否是在按钮中使用
-  @Prop({ type: Boolean, required: false, default: false }) isBtn?: boolean
+  @Prop({ type: Boolean, required: false, default: false }) isBtn!: boolean
 
   /**
-   * computed
    * 是否显示文本
    */
   get showText() {
@@ -76,48 +84,28 @@ export default class DrLoading extends Vue {
   }
 
   /**
-   * computed
    * 计算文本样式
    */
   get textStyle() {
     if (this.$slots.default && this.textSize) {
-      if (typeof this.textSize === 'string') {
-        const size =
-          this.textSize.indexOf('px') !== -1
-            ? this.textSize
-            : this.textSize + 'px'
-        return {
-          fontSize: size
-        }
-      }
-      if (typeof this.textSize === 'number') {
-        return {
-          fontSize: this.textSize + 'px'
-        }
+      const size = this.textSize
+      return {
+        fontSize: Number(size) / 37.5 + 'rem'
       }
     }
     return {
-      fontSize: '14px'
+      fontSize: '0.374rem'
     }
   }
 
   /**
-   * computed
    * 计算加载图标样式
    */
   get fontStyle() {
-    if (typeof this.size === 'string') {
-      const size = this.size.indexOf('px') !== -1 ? this.size : this.size + 'px'
-      return {
-        width: size,
-        height: size
-      }
-    }
-    if (typeof this.size === 'number') {
-      return {
-        width: this.size + 'px',
-        height: this.size + 'px'
-      }
+    const size = this.size
+    return {
+      width: Number(size) / 37.5 + 'rem',
+      height: Number(size) / 37.5 + 'rem'
     }
   }
 }
@@ -141,10 +129,10 @@ export default class DrLoading extends Vue {
       width: 100%;
       height: 100%;
       font-size: 0;
-      animation: dr-rotate 1.8s linear infinite;
+      animation: dr-loading-rotate 1.8s linear infinite;
       circle {
         stroke: currentColor;
-        animation: dr-circular 1.5s ease-in-out infinite;
+        animation: dr-loading-circular 1.5s ease-in-out infinite;
         stroke-width: 3;
         stroke-linecap: round;
       }
@@ -156,7 +144,7 @@ export default class DrLoading extends Vue {
     width: 30px;
     height: 30px;
     color: currentColor;
-    animation: dr-rotate 0.8s linear infinite;
+    animation: dr-loading-rotate 0.8s linear infinite;
     animation-timing-function: steps(12);
     @for $i from 1 through 12 {
       i {

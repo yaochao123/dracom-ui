@@ -1,15 +1,32 @@
+import './static/iconfont/iconfont.css'
+import './static/iconfont/iconfont.js'
+
 import DrButton from './components/button/index'
 import DrLoading from './components/loading/index'
 import DrDialog from './components/dialog/index'
 import DrOverlay from './components/overlay/index'
+import DrSearch from './components/search/index'
+import DrIcon from './components/icon/index'
+import DrTab from './components/tab/index'
 
-const components = [DrButton, DrLoading, DrDialog, DrOverlay]
+const components = [
+  DrButton,
+  DrLoading,
+  DrDialog,
+  DrOverlay,
+  DrSearch,
+  DrIcon,
+  DrTab
+]
 
 const componentsName: string[] = [
   'DrButton',
   'DrLoading',
   'DrDialog',
-  'DrOverlay'
+  'DrOverlay',
+  'DrSearch',
+  'DrIcon',
+  'DrTab'
 ]
 
 const install = function(Vue: any) {
@@ -33,5 +50,8 @@ export default {
   DrButton,
   DrLoading,
   DrDialog,
-  DrOverlay
+  DrOverlay,
+  DrSearch,
+  DrIcon,
+  DrTab
 }

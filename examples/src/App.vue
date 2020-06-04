@@ -10,14 +10,10 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({})
 export default class App extends Vue {
   private mounted() {
-    this.$dialog.setDefaultOptions({
-      closeOnOverlay: true
-    })
     window.onmessage = (e: any) => {
       const data = e.data
       if (
-        data &&
-        data.type &&
+        data !== 'undefined' &&
         data.type !== 'webpackOk' &&
         data.type !== 'webpackErrors' &&
         data.type !== 'webpackInvalid'
@@ -35,6 +31,10 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
+html {
+  font-size: 37.5px !important;
+}
+
 #app {
   min-width: 1100px;
   background-color: #f7f8fa;

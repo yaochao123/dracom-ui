@@ -1,11 +1,14 @@
 # Overlay 遮罩层
 
+### 介绍
+
+创建一个遮罩层，显示特定的元素，并禁止其他操作
+
 ### 引入
 
 ```js
 import Vue from 'vue'
 import { DrOverlay } from 'dracom-ui'
-
 Vue.use(DrOverlay)
 ```
 

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'font_family';
+  src: url('./iconfont.eot?t=1591080569857'); /* IE9 */
+  src: url('./iconfont.eot?t=1591080569857#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+      url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAQYAAsAAAAACJQAAAPLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDGgqEJINmATYCJAMUCwwABCAFhREHShuAB8gOJSHBwABAQQFgPHyNsd7fXcQkqVSzaDKdRKMzVJJXGrFQmX4eL9rwefqvHaR8aaKz5KXLymBwcpqA05dPkq/r/B8z3V8GYH0bAFS2VdJoOII97/btDujAIvHcTyW8LoPcEc/rBGoNOkiwFRmfDjQVzrxAXJMiFGiWjEoHI1RrKomtZVbQDdRUp3vhNcBD/PHxk2toklRkztL9qwgcBH8BH7LKnZID+SECiJazQ9pFxhSgEJek85hKmpyiotZIqhoDjjUu+JKVSr4IhYdNkWT6nxeVHGU9MGupwhc+l8SX4JL5khS6VRni57+qAtSiDm8A+M0h93txWZbk+m6Bbk19/YCRrhH64EPmw49Z999n3HtXNHjUFM8cPLw8bJYxYGY20GZhMWQhGuLNGW69dVOQO3au7YxV9uIqv9a2wi3X3HuXPoY/sv/Bh9o8J7+/1TwzPchb5S2yMgeH+c0ysoZ655umZwxw2EMHzz/At97Dc/fzsEF+qM2MFEyw37rXqsv5dnkbhnD3lNRdVUsr1TsuL+y5q5ofGb9+0uPE/v2TUye0M3RWz1x0dXFJ1U8N7uWamLpquwoc121xF9zWSF9nyQ3XCXhT/OPQz0PKQ1sCzOiRGoKoMdkjjg8pXwh2HxVfVdVvLJBd5fmQ8nnxvmwzPOIkhm132LQkoRabHbY1so3bkhM24Mp4KugOkEoCuhe9XKm023+pyz8SlY6VdAUcUas02zKtXFqsNFWaVV769Xwu4jRXWVsbMXs6Yq62BrIahYcVsyAbwP8Olb+ZiZnTqhEqxWleVZBv//W/MfPa5F5k4P9fU6eAzz8W1dD/54ZXcgColpBE/3Fd+QZQtmWJY6oousgHv8SbVKgwQ4VvUK/WjfAfON5WL5bRdvDpUKcjh0mVYZjVGQUFswAqMMugErMHa01K212nTQMVUWowoYfB0OkUTBp9wKzTS1Aw/xEVlNABlZhtsNZpeB1ZZyQ6tMNoiLIQR0qqERKTywjPwGoHvywiUCkpqU6FonIJStcas9dmQpoh5TLExdGZyERBGaSXW8FUiFxZlkAIWi5FInvcBiUSOaKg5WUQYx1LWVbh6+REUDpHDM8AtG2iQSgWhEOUqIYgYeRkiFDO2pIUFOWjpEgS8/OkgkTKSaDo7g6I/EwQjYGgYzAIF46ch4EopWxoyyOewqgg4orFIiAINEtLISIXmQRJSMghFPSkMhCG5ah0QlzBl5PbjRiqdLy8Wvqpy6ED5+kqIkWOEhVRqeqmHMMgw6gSKClRx6EEslCdgSiNlQIAAA==')
+      format('woff2'),
+    url('./iconfont.woff?t=1591080569857') format('woff'),
+    url('./iconfont.ttf?t=1591080569857') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('./iconfont.svg?t=1591080569857#font_family') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: 'font_family' !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-success:before {
+  content: '\e603';
+}
+
+.icon-fail:before {
+  content: '\e600';
+}
+
+.icon-delete:before {
+  content: '\e601';
+}
+
+.icon-search:before {
+  content: '\e602';
+}

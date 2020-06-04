@@ -30,6 +30,7 @@ export default class SiteContent extends Vue {}
 
   pre {
     margin: 20px 0 0;
+    line-height: 1;
   }
 
   h1 {

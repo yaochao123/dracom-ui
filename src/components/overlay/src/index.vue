@@ -19,15 +19,15 @@ import { noop, preventDefault } from '../../../utils/index'
 @Component({})
 export default class DrOverlay extends Vue {
   // 是否显示遮罩
-  @Prop({ type: Boolean, required: false, default: false }) show?: boolean
+  @Prop({ type: Boolean, required: false, default: false }) show!: boolean
 
   // 层级
-  @Prop({ type: [Number, String], required: false, default: 1000 }) zIndex?:
+  @Prop({ type: [Number, String], required: false, default: 1000 }) zIndex!:
     | number
     | string
 
   // 是否禁止滚动
-  @Prop({ type: Boolean, required: false, default: true }) lockScroll?: boolean
+  @Prop({ type: Boolean, required: false, default: true }) lockScroll!: boolean
 
   private noop = noop
   private preventDefault = preventDefault

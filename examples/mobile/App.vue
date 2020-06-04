@@ -11,6 +11,10 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss">
+html {
+  font-size: 37.5px !important;
+}
+
 #app {
   min-height: calc(100vh - 20px);
   background-color: #ffffff;

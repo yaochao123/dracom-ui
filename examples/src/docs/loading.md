@@ -5,7 +5,6 @@
 ```js
 import Vue from 'vue'
 import { DrLoading } from 'dracom-ui'
-
 Vue.use(DrLoading)
 ```
 
