@@ -10,7 +10,14 @@ import DrIcon from './components/icon/index'
 
 const components = [DrButton, DrLoading, DrDialog, DrOverlay, DrSearch, DrIcon]
 
-const componentsName: string[] = components.map(component => String(component))
+const componentsName: string[] = [
+  'DrButton',
+  'DrLoading',
+  'DrDialog',
+  'DrOverlay',
+  'DrSearch',
+  'DrIcon'
+]
 
 const install = function(Vue: any) {
   if ((install as any).installed) return
