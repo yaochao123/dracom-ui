@@ -7,7 +7,7 @@ import '@src/style/variables.css'
 import Dracom from '../../src/index'
 // css变量兼容
 import 'mutationobserver-shim'
-import cssVars from "css-vars-ponyfill"
+import cssVars from 'css-vars-ponyfill'
 cssVars({
   watch: true
 });

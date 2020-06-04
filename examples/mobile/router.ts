@@ -19,6 +19,13 @@ const routes = [
         }
       },
       {
+        path: 'demo-theme',
+        name: 'Introduce',
+        component: (resolve: any) => {
+          require(['@@/docs/demo-introduce.vue'], resolve)
+        }
+      },
+      {
         path: 'demo-button',
         name: 'Button',
         component: (resolve: any) => {
