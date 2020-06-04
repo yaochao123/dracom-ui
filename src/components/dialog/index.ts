@@ -31,8 +31,9 @@ const DrDialog: any = {
       confirmButton: ''
     }
 
-    function resetOptions() {
+    function resetOptions(cb?: Function) {
       Object.assign(instance, defaultOptions)
+      cb && cb()
     }
 
     function initDialog(
@@ -77,13 +78,11 @@ const DrDialog: any = {
       const { resolve, reject } = promise
 
       instance.handleConfirm = () => {
-        resolve()
-        resetOptions()
+        resetOptions(resolve)
       }
 
       instance.handleCancel = () => {
-        reject()
-        resetOptions()
+        resetOptions(reject)
       }
     }
 

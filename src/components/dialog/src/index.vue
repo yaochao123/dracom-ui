@@ -71,64 +71,62 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator'
-import DrDialogIcon from '../components/dr-dialog-icon.vue'
 import DrOverlay from '../../overlay/src/index.vue'
 
 Component.registerHooks(['beforeRouteLeave'])
 @Component({
   components: {
-    DrDialogIcon,
     DrOverlay
   }
 })
 export default class Dialog extends Vue {
   // 是否显示弹框
-  @Model('handleClick', { type: Boolean }) showModel?: boolean
+  @Model('handleClick', { type: Boolean }) showModel!: boolean
 
   // 弹框宽度
-  @Prop({ type: [Number, String], required: false, default: 300 }) width?:
+  @Prop({ type: [Number, String], required: false, default: 300 }) width!:
     | number
     | string
 
   // 图标类型
-  @Prop({ type: String, required: false, default: '' }) type?: string
+  @Prop({ type: String, required: false }) type?: string
 
   // 标题内容
-  @Prop({ type: String, required: false, default: '' }) title?: string
+  @Prop({ type: String, required: false }) title?: string
 
   // 主题色
   @Prop({ type: String, required: false, default: '#33C0AF' })
-  primaryColor?: string
+  primaryColor!: string
 
   // 正文内容
-  @Prop({ type: String, required: false, default: '' }) content?: string
+  @Prop({ type: String, required: false }) content?: string
 
   // 是否显示取消按钮
   @Prop({ type: Boolean, required: false, default: true })
-  showCancelButton?: boolean
+  showCancelButton!: boolean
 
   // 是否显示确认按钮
   @Prop({ type: Boolean, required: false, default: true })
-  showConfirmButton?: boolean
+  showConfirmButton!: boolean
 
   // 是否显示遮罩层
-  @Prop({ type: Boolean, required: false, default: true }) overlay?: boolean
+  @Prop({ type: Boolean, required: false, default: true }) overlay!: boolean
 
   // 是否禁止背景滚动
-  @Prop({ type: Boolean, required: false, default: true }) lockScroll?: boolean
+  @Prop({ type: Boolean, required: false, default: true }) lockScroll!: boolean
 
   // 点击遮罩层关闭弹框
   @Prop({ type: Boolean, required: false, default: false })
-  closeOnOverlay?: boolean
+  closeOnOverlay!: boolean
 
   @Prop({ type: Boolean, required: false, default: true })
-  closeOnPopState?: boolean
+  closeOnPopState!: boolean
 
   // 关闭按钮内容
-  @Prop({ type: String, required: false, default: '' }) cancelButton?: string
+  @Prop({ type: String, required: false }) cancelButton?: string
 
   //确定按钮内容
-  @Prop({ type: String, required: false, default: '' }) confirmButton?: string
+  @Prop({ type: String, required: false }) confirmButton?: string
 
   /**
    * 计算弹出框宽度

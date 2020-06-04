@@ -17,6 +17,7 @@
     :disabled="disabled"
     @click="handleBtnClick"
   >
+    <!-- material背景 -->
     <span
       class="dr-button-material"
       :style="{ top: y + 'px', left: x + 'px' }"
@@ -24,8 +25,14 @@
     ></span>
     <div class="dr-button-content">
       <!-- 加载状态 -->
-      <div class="dr-button-loading" v-if="loading">
-        <dr-loading :size="loadingSize" isBtn></dr-loading>
+      <div
+        class="dr-button-loading"
+        v-if="loading"
+      >
+        <dr-loading
+          :size="loadingSize"
+          isBtn
+        ></dr-loading>
       </div>
       <!-- 图标 -->
       <img
@@ -176,9 +183,7 @@ export default class drButton extends Vue {
    */
   @Emit('click') private handleBtnClick(e: any) {
     if (this.material) {
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
+      this.timer && clearTimeout(this.timer)
       this.showMaterial = true
       this.x = e.offsetX
       this.y = e.offsetY
@@ -193,6 +198,7 @@ export default class drButton extends Vue {
 <style lang="scss" scoped>
 @import '../../../style/mixin.scss';
 @import '../../../style/common.scss';
+@import '../../../style/animation.scss';
 .dr-button {
   display: inline-flex;
   justify-content: center;
@@ -232,7 +238,7 @@ export default class drButton extends Vue {
   &-material {
     position: absolute;
     transform: translate(-50%, -50%);
-    animation: move 0.5s linear infinite;
+    animation: dr-button-material 0.5s linear infinite;
     border-radius: 50%;
     pointer-events: none;
     background-color: #fff;
@@ -299,19 +305,6 @@ export default class drButton extends Vue {
     height: 14px;
     &-margin-right {
       margin-right: 5px;
-    }
-  }
-
-  @keyframes move {
-    from {
-      width: 0;
-      height: 0;
-      opacity: 0.7;
-    }
-    to {
-      width: 1000px;
-      height: 1000px;
-      opacity: 0;
     }
   }
 }

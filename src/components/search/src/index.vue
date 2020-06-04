@@ -19,8 +19,7 @@
       class="dr-search-button"
       v-show="showButton"
       @click="handleClickBtn"
-      >{{ buttonText }}</span
-    >
+    >{{ buttonText }}</span>
   </div>
 </template>
 

@@ -1,4 +1,19 @@
-@keyframes dr-rotate {
+// button Material
+@keyframes dr-button-material {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+  to {
+    width: 1000px;
+    height: 1000px;
+    opacity: 0;
+  }
+}
+
+// loading Circular
+@keyframes dr-loading-rotate {
   from {
     transform: rotate(0deg);
   }
@@ -7,7 +22,8 @@
   }
 }
 
-@keyframes dr-circular {
+// loading Spinner
+@keyframes dr-loading-circular {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
@@ -21,15 +37,5 @@
   100% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -120;
-  }
-}
-
-@keyframes dr-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
   }
 }
