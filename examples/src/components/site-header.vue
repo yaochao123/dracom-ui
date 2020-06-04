@@ -73,19 +73,8 @@ export default class SiteHeader extends Vue {
   }
 
   addIframeStyle(content: string) {
-    let style = document.createElement('style')
-    style.type = 'text/css'
-    style.dataset.type = 'theme'
-    style.appendChild(document.createTextNode(content))
-    let childHead = document
-      .querySelector('iframe')
-      ?.contentWindow?.document.querySelector('head')
-    console.log(childHead)
-    let childFinnalStyle = childHead?.lastChild as HTMLStyleElement
-    if (childFinnalStyle.dataset.type === 'theme') {
-      childHead?.removeChild(childFinnalStyle)
-    }
-    childHead?.appendChild(style)
+    let childHead: any = document.querySelector('iframe')
+    childHead.contentWindow.postMessage(content, '*')
   }
 }
 </script>
