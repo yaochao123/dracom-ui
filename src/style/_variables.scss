@@ -67,15 +67,9 @@
   --dr-overlay-background-color: rgba(0, 0, 0, 0.7);
   --dr-overlay-z-index: 1;
 
+  // Input
+  --dr-input-placeholder-color: #a2a2a2;
+
   // Search
-  --dr-search-input-background-color: var(--dr-input-background-color);
-  --dr-search-input-border: 0;
-  --dr-search-input-placeholder-font-size: var(--dr-font-size-sm);
-  --dr-search-input-placeholder-color: var(--dr-placeholder-color);
-  --dr-search-input-height: 36px;
-  --dr-search-input-border-radius: var(--dr-border-radius-md);
-  --dr-search-input-color: var(--dr-title-color);
-  --dr-search-input-font-size: var(--dr-border-radius-md);
-  --dr-search-input-cancel-font-size: var(--dr-border-radius-md);
-  --dr-search-input-cancel-font-weight: 500;
+  --dr-search-background-color: #f2f5f8;
 }

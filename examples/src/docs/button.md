@@ -61,7 +61,7 @@ Vue.use(DrButton)
   icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
   >图标按钮</dr-button
 >
-<dr-button icon-font="success" color="red">字体图标</dr-button>
+<dr-button icon-font="success" icon-color="red">字体图标</dr-button>
 ```
 
 ### 自定义颜色

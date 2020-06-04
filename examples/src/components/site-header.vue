@@ -14,7 +14,11 @@
         <div class="theme-preview-wrapper">
           <div
             class="theme-preview"
-            :style="{background:colors.a?`rgba(${colors.rgba.r},${colors.rgba.g},${colors.rgba.b},${colors.rgba.a})`:colors.hex}"
+            :style="{
+              background: colors.a
+                ? `rgba(${colors.rgba.r},${colors.rgba.g},${colors.rgba.b},${colors.rgba.a})`
+                : colors.hex
+            }"
           ></div>
         </div>
         <div ref="popper" class="poper">
@@ -76,6 +80,7 @@ export default class SiteHeader extends Vue {
     let childHead = document
       .querySelector('iframe')
       ?.contentWindow?.document.querySelector('head')
+    console.log(childHead)
     let childFinnalStyle = childHead?.lastChild as HTMLStyleElement
     if (childFinnalStyle.dataset.type === 'theme') {
       childHead?.removeChild(childFinnalStyle)
