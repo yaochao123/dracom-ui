@@ -32,7 +32,7 @@
       <img
         :class="['dr-button-icon', { 'dr-button-icon-margin-right': iconMr }]"
         :src="icon"
-        alt=""
+        alt
         v-if="icon"
       />
       <!-- 字体图标 -->
@@ -42,16 +42,9 @@
         :color="iconColor"
         :size="iconSize"
         v-if="iconFont"
-      >
-      </dr-icon>
+      ></dr-icon>
       <!-- 按钮文本 -->
-      <span
-        :class="['dr-button-text']"
-        :style="{ color: textColor }"
-        v-if="text"
-      >
-        {{ text }}
-      </span>
+      <span :class="['dr-button-text']" :style="{ color: textColor }" v-if="text">{{ text }}</span>
       <!-- slot插槽 -->
       <slot />
     </div>

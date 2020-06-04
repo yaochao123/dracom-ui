@@ -64,16 +64,20 @@ export default class DrSearch extends Vue {
 
 <style lang="scss" scoped>
 .dr-search {
-  @include flex();
+  @include flex;
 
   &-input-wrapper {
-    display: flex;
+    @include flex;
+  }
+
+  &-input-wrapper {
+    @include flex;
     flex: 1;
     position: relative;
   }
 
   &-input {
-    display: flex;
+    @include flex;
     flex: 1;
     box-sizing: border-box;
     padding: 8px 10px;

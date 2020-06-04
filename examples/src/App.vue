@@ -20,7 +20,7 @@ export default class App extends Vue {
       ) {
         const currentPath = this.$route.path.split('/')[1]
         if (currentPath !== data) {
-          if (data.indexOf('webpackHotUpdate') === -1) {
+          if (typeof data === 'string' && !data.includes('webpackHotUpdate')) {
             this.$router.replace({ path: `/${data}` })
           }
         }

@@ -23,8 +23,8 @@
   "dependencies": {
     "@types/vue-color": "^2.4.2",
     "core-js": "^3.6.4",
-    "css-vars-ponyfill": "^2.3.1",
     "css-loader": "^3.5.3",
+    "css-vars-ponyfill": "^2.3.1",
     "dracom-ui": "^1.1.57",
     "markdown-it": "^10.0.0",
     "mutationobserver-shim": "^0.3.5",
