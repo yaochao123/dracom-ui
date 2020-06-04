@@ -4,19 +4,19 @@ import App from '@/App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import '@src/style/_animation.scss'
-// import Dracom from 'dracom-ui'
-import Dracom from '../../src/index'
+import DracomUI from 'dracom-ui'
+// import Dracom from '../../src/index'
+
 // css变量兼容
 import 'mutationobserver-shim'
-import cssVars from "css-vars-ponyfill"
+import cssVars from 'css-vars-ponyfill'
 cssVars({
   watch: true
-});
-
+})
 
 Vue.config.productionTip = false
 
-Vue.use(Dracom)
+Vue.use(DracomUI)
 
 new Vue({
   router,

@@ -43,10 +43,12 @@ module.exports = {
       ]
     })
     config.plugins.push(
-      new CopyWebpackPlugin([{
-        from: resolve('./src/style/variables.css'),
-        to: resolve('./lib/variables.css'),
-      }])
+      new CopyWebpackPlugin([
+        {
+          from: resolve('./src/style/variables.css'),
+          to: resolve('./lib/variables.css')
+        }
+      ])
     )
   },
   css: cssOptions,
