@@ -4,7 +4,6 @@ import App from '@/App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import Dracom from 'dracom-ui'
-// import { DrButton } from 'dracom-ui'
 // import Dracom from '../../src/index'
 
 // css变量兼容
@@ -15,7 +14,6 @@ cssVars({
 })
 
 Vue.config.productionTip = false
-// console.log(Dracom)
 Vue.use(Dracom)
 
 new Vue({

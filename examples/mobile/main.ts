@@ -3,8 +3,8 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-// import Dracom from 'dracom-ui'
-import Dracom from '../../src/index'
+import Dracom from 'dracom-ui'
+
 // css变量兼容
 import 'mutationobserver-shim'
 import cssVars from 'css-vars-ponyfill'
@@ -13,7 +13,7 @@ cssVars({
 })
 
 Vue.config.productionTip = false
-
+console.log(Dracom)
 Vue.use(Dracom)
 
 /**

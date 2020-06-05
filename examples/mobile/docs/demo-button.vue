@@ -12,8 +12,14 @@
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">禁用状态</div>
-      <dr-button disabled type="primary">禁用状态</dr-button>
-      <dr-button disabled type="danger">禁用状态</dr-button>
+      <dr-button
+        disabled
+        type="primary"
+      >禁用状态</dr-button>
+      <dr-button
+        disabled
+        type="danger"
+      >禁用状态</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">圆角按钮</div>
@@ -22,32 +28,39 @@
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">加载状态</div>
-      <dr-button type="info" loading></dr-button>
-      <dr-button type="primary" loading>加载中...</dr-button>
+      <dr-button
+        type="info"
+        loading
+      ></dr-button>
+      <dr-button
+        type="primary"
+        loading
+      >加载中...</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">图标按钮</div>
+      <dr-button icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"></dr-button>
+      <dr-button icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png">图标按钮</dr-button>
       <dr-button
-        icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
-      ></dr-button>
-      <dr-button
-        icon="https://liujia-app.oss-cn-hangzhou.aliyuncs.com/201812/407060844277714944.png"
-        >图标按钮</dr-button
-      >
-      <dr-button icon-font="success" icon-color="red">字体图标</dr-button>
+        icon-font="success"
+        icon-color="red"
+      >字体图标</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">自定义颜色</div>
       <dr-button color="#33C0AF">单色按钮</dr-button>
-      <dr-button color="#33C0AF" plain>单色按钮</dr-button>
       <dr-button
-        color="linear-gradient(270deg,rgba(76,216,234,1) 0%,rgba(109,219,211,1) 100%)"
-        >渐变色按钮</dr-button
-      >
+        color="#33C0AF"
+        plain
+      >单色按钮</dr-button>
+      <dr-button color="linear-gradient(270deg,rgba(76,216,234,1) 0%,rgba(109,219,211,1) 100%)">渐变色按钮</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">Material风格</div>
-      <dr-button type="primary" material>Material风格按钮</dr-button>
+      <dr-button
+        type="primary"
+        material
+      >Material风格按钮</dr-button>
     </div>
   </div>
 </template>
