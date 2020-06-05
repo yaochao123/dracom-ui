@@ -7,8 +7,24 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
+@Component({})
 export default class App extends Vue {
-  mounted() {}
+  created() {
+    /**
+     * 父页面主题色修改
+     */
+    window.onmessage = (e: any) => {
+      const data = e.data
+      if (
+        data !== 'undefined' &&
+        data.type !== 'webpackOk' &&
+        data.type !== 'webpackErrors' &&
+        data.type !== 'webpackInvalid'
+      ) {
+        this.$theme.setStyle(data)
+      }
+    }
+  }
 }
 </script>
 
