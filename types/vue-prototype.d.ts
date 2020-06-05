@@ -11,8 +11,6 @@ interface theme {
   setStyle: Function
   getStyle: Function
   clearStyle: Function
-  setStyleContent: Function
-  getStyleContent: Function
 }
 
 declare module 'vue/types/vue' {

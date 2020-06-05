@@ -69,5 +69,7 @@ npm publish
 ```shell
 #未来不稳定供测试版本部署
 npm publish --tag next 
+#下载测试版本
+npm install dracom-ui@next --save
 ```
 

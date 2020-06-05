@@ -22,7 +22,7 @@ const routes = [
         path: 'demo-theme',
         name: 'Introduce',
         component: (resolve: any) => {
-          require(['@@/docs/demo-introduce.vue'], resolve)
+          require(['@@/docs/demo-theme.vue'], resolve)
         }
       },
       {
