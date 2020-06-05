@@ -104,6 +104,14 @@ export default class SiteContent extends Vue {}
     -webkit-font-smoothing: antialiased;
   }
 
+  a {
+    margin: 0 1px;
+    color: #1989fa;
+    text-decoration: none;
+    -webkit-font-smoothing: auto;
+    cursor: pointer;
+  }
+
   table {
     width: 100%;
     margin-top: 12px;
@@ -158,6 +166,7 @@ export default class SiteContent extends Vue {}
       color: #999;
     }
   }
+
   .language-css {
     color: #eb6f6f;
     .hljs-comment {

@@ -8,6 +8,7 @@ import DrOverlay from './components/overlay/index'
 import DrSearch from './components/search/index'
 import DrIcon from './components/icon/index'
 import DrTab from './components/tab/index'
+import DrTheme from './components/theme/index'
 
 const components = [
   DrButton,
@@ -16,7 +17,8 @@ const components = [
   DrOverlay,
   DrSearch,
   DrIcon,
-  DrTab
+  DrTab,
+  DrTheme
 ]
 
 const componentsName: string[] = [
@@ -26,10 +28,11 @@ const componentsName: string[] = [
   'DrOverlay',
   'DrSearch',
   'DrIcon',
-  'DrTab'
+  'DrTab',
+  'DrTheme'
 ]
 
-const install = function(Vue: any) {
+const install = function (Vue: any) {
   if ((install as any).installed) return
   components.forEach((component: any, i) => {
     if (component.install) {
@@ -53,5 +56,6 @@ export default {
   DrOverlay,
   DrSearch,
   DrIcon,
-  DrTab
+  DrTab,
+  DrTheme
 }
