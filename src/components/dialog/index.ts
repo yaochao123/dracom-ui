@@ -43,11 +43,7 @@ const DrDialog: any = {
     ) {
       instance.$mount(document.createElement('div'))
       document.body.appendChild(instance.$el)
-
-      Vue.$nextTick(() => {
-        instance.showModel = true
-      })
-
+      console.log(instance.$el)
       Object.assign(instance, type, options, initOptions, promise)
 
       if (typeof type === 'string') {
