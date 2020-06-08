@@ -44,7 +44,7 @@ const DrDialog: any = {
       instance.$mount(document.createElement('div'))
       document.body.appendChild(instance.$el)
 
-      Object.assign(instance, type, options, initOptions, promise)
+      Object.assign(instance, { type }, options, initOptions, promise)
 
       console.log(instance)
       console.log(instance.$el)
