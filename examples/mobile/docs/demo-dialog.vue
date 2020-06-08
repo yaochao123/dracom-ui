@@ -2,39 +2,23 @@
   <div class="demo-dialog">
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">提示弹框</div>
-      <dr-button
-        type="primary"
-        @click="alert"
-      >提示弹框</dr-button>
-      <dr-button
-        type="primary"
-        @click="alertNoTitle"
-      >提示弹框(无标题)</dr-button>
+      <dr-button type="primary" @click="alert">提示弹框</dr-button>
+      <dr-button type="primary" @click="alertNoTitle"
+        >提示弹框(无标题)</dr-button
+      >
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">确认弹框</div>
-      <dr-button
-        type="primary"
-        @click="confirm"
-      >确认弹框</dr-button>
+      <dr-button type="primary" @click="confirm">确认弹框</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">弹框类型</div>
-      <dr-button
-        type="primary"
-        @click="success"
-      >成功弹框</dr-button>
-      <dr-button
-        type="primary"
-        @click="fail"
-      >失败弹框</dr-button>
+      <dr-button type="primary" @click="success">成功弹框</dr-button>
+      <dr-button type="primary" @click="fail">失败弹框</dr-button>
     </div>
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">自定义颜色</div>
-      <dr-button
-        type="primary"
-        @click="primary"
-      >自定义颜色</dr-button>
+      <dr-button type="primary" @click="primary">自定义颜色</dr-button>
     </div>
   </div>
 </template>
@@ -51,6 +35,7 @@ export default class DemoDialog extends Vue {
     console.log(this.$dialog)
     this.$dialog
       .alert({
+        closeOnOverlay: true,
         title: '提示弹框',
         content: '这是一段弹出框的内容',
         confirmButton: '确定'
