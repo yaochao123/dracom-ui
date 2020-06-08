@@ -4,7 +4,7 @@ import App from '@/App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import 'dracom-ui/lib/index/style.css'
-import Dracom from 'dracom-ui'
+// import Dracom from 'dracom-ui'
 
 // css变量兼容
 import 'mutationobserver-shim'
@@ -15,7 +15,7 @@ cssVars({
 })
 
 Vue.config.productionTip = false
-Vue.use(Dracom)
+// Vue.use(Dracom)
 
 new Vue({
   router,
