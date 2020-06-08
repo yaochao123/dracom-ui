@@ -13,7 +13,7 @@ function isInDocument(element: Element) {
 
 const DrDialog: any = {
   install: (Vue: any) => {
-    const instance = new (Vue.extend(Dialog))()
+    let instance = new (Vue.extend(Dialog))()
     console.log(instance)
     const defaultOptions = {
       showModel: false,
@@ -51,7 +51,7 @@ const DrDialog: any = {
         instance.type = type
       }
 
-      Object.assign(instance, type, options, initOptions, promise)
+      instance = Object.assign(instance, type, options, initOptions, promise)
 
       if (instance.closeOnOverlay) {
         setTimeout(() => {
