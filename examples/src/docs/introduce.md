@@ -22,7 +22,7 @@ import Dracom from 'dracom-ui'
 Vue.use(Dracom)
 ```
 
-注意：由于使用了css变量进行主题及颜色变换，故如需在传统浏览器也要兼容该css变量，请使用[mutationobserver-shim](https://github.com/megawac/MutationObserver.js)与[css-vars-ponyfill](https://github.com/jhildenbiddle/css-vars-ponyfill)进行兼容操作（具体可参考文档注释）
+注意：由于使用了css变量进行主题及颜色变换，故如需在传统浏览器也要兼容该css变量，请使用[mutationobserver-shim](https://github.com/megawac/MutationObserver.js)与[css-vars-ponyfill](https://github.com/jhildenbiddle/css-vars-ponyfill)进行兼容操作（具体可参考相关文档注释）
 
 ```javascript
 // css变量兼容
@@ -69,5 +69,7 @@ npm publish
 ```shell
 #未来不稳定供测试版本部署
 npm publish --tag next 
+#下载测试版本
+npm install dracom-ui@next --save
 ```
 

@@ -2,8 +2,6 @@ interface theme {
   setStyle: Function
   getStyle: Function
   clearStyle: Function
-  setStyleContent: Function
-  getStyleContent: Function
 }
 
 const DrTheme: any = {
@@ -12,7 +10,7 @@ const DrTheme: any = {
     /**
      * @function 返回设置样式内容
      * @param contentObject 设置样式对象
-     * @param cssSelector css选择器
+     * @param cssSelector css选择器（暂不开放）
      * @returns 设置的样式内容
      */
     function setStyleContent(contentObject: any, cssSelector: string) {
@@ -44,7 +42,7 @@ const DrTheme: any = {
       /**
        * @function 设置选择器主题style样式标签
        * @param contentObject 设置样式对象
-       * @param cssSelector css选择器
+       * @param cssSelector css选择器（暂不开放）
        */
       setStyle(contentObject: object, cssSelector: string = ':root') {
         let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
@@ -61,29 +59,44 @@ const DrTheme: any = {
       },
       /**
        * @function 获取选择器主题style样式
-       * @param cssSelector css选择器
+       * @param contentArray 需要获取的style样式
+       * @param cssSelector css选择器（暂不开放）
        */
-      getStyle(cssSelector: string = ':root') {
+      getStyle(contentArray: string[] = [], cssSelector: string = ':root') {
         let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
-        return oldThemeStyle ? getStyleContent(oldThemeStyle.innerHTML) : {}
+        let contentObject = {}
+        let getContent = oldThemeStyle ? getStyleContent(oldThemeStyle.innerHTML) : {}
+
+        if (contentArray.length) {
+          contentArray.forEach(k => {
+            contentObject[k] = getContent[k]
+          })
+          return contentObject
+        } else {
+          return getContent
+        }
       },
       /**
        * @function 清理选择器主题style样式
        * @param contentArray 需要清理的style样式
-       * @param cssSelector css选择器
+       * @param cssSelector css选择器（暂不开放）
        */
-      clearStyle(contentArray: Array<string>, cssSelector: string = ':root') {
+      clearStyle(contentArray: string[] = [], cssSelector: string = ':root') {
         let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
         let contentObject = {}
-        contentArray.forEach(k => {
-          contentObject[k] = undefined
-        })
-        if (oldThemeStyle) {
-          oldThemeStyle.innerHTML = setStyleContent(Object.assign({}, getStyleContent(oldThemeStyle.innerHTML), contentObject), cssSelector)
+        if (contentArray.length) {
+          contentArray.forEach(k => {
+            contentObject[k] = undefined
+          })
+          if (oldThemeStyle) {
+            oldThemeStyle.innerHTML = setStyleContent(Object.assign({}, getStyleContent(oldThemeStyle.innerHTML), contentObject), cssSelector)
+          }
+        } else {
+          if (oldThemeStyle) {
+            document.querySelector('head')?.removeChild(oldThemeStyle)
+          }
         }
-      },
-      setStyleContent,
-      getStyleContent
+      }
     }
     Vue.prototype.$theme = theme
   },
