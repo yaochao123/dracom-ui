@@ -17,7 +17,7 @@ const DrTheme: any = {
       let contentArray = []
       for (const key in contentObject) {
         if (contentObject.hasOwnProperty(key)) {
-          contentObject[key] && contentArray.push(`${key}:${contentObject[key]}`)
+          contentObject[key] !== undefined && contentArray.push(`${key}:${contentObject[key]}`)
         }
       }
       return `${cssSelector}{${contentArray.join(';')}}`
