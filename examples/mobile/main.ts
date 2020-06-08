@@ -5,7 +5,9 @@ import '@/style/reset.css'
 import '@src/style/variables.css'
 import 'dracom-ui/lib/index/style.css'
 import Dracom from 'dracom-ui'
-
+import { button } from 'dracom-ui'
+console.log(button)
+Vue.use(button)
 // css变量兼容
 import 'mutationobserver-shim'
 import cssVars from 'css-vars-ponyfill'
