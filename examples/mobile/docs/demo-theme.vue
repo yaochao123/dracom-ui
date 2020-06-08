@@ -10,7 +10,7 @@
     <div class="doc-demo-block">
       <div class="doc-demo-block-title">变更/清理某内容下默认按钮色（仅现代浏览器）</div>
       <div class="demo-button-row setion-btn">
-        <dr-button class="qwe" type="primary" @click="changeBtnTheme" style="--dr-button-color-primary:#123456">变更</dr-button>
+        <dr-button type="primary" @click="changeBtnTheme">变更</dr-button>
         <dr-button type="primary" @click="clearBtnTheme">清理</dr-button>
       </div>
     </div>
