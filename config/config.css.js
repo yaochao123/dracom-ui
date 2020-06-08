@@ -7,7 +7,9 @@ const sassOptions = {
 }
 
 let cssOptions = {
-  extract: false,
+  extract: {
+    filename: '[name]/style.css'
+  },
   loaderOptions: sassOptions
 }
 

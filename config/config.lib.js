@@ -33,7 +33,7 @@ const libConfig = {
       //  文件名称
       filename: '[name]/index.js',
       //  构建依赖类型
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'umd',
       //  库中被导出的项
       libraryExport: 'default',
       //  引用时的依赖名
@@ -50,7 +50,7 @@ const libConfig = {
   },
   css: baseConfig.css,
   chainWebpack: config => {
-    config.optimization.delete('splitChunks')
+    // config.optimization.delete('splitChunks')
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
