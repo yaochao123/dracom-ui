@@ -7,7 +7,9 @@ import DrDialog from './components/dialog/index'
 import DrOverlay from './components/overlay/index'
 import DrSearch from './components/search/index'
 import DrIcon from './components/icon/index'
+
 import DrTab from './components/tab/index'
+import DrTheme from './components/theme/index'
 
 const components = [
   DrButton,
@@ -16,7 +18,8 @@ const components = [
   DrOverlay,
   DrSearch,
   DrIcon,
-  DrTab
+  DrTab,
+  DrTheme
 ]
 
 const componentsName: string[] = [
@@ -26,7 +29,8 @@ const componentsName: string[] = [
   'DrOverlay',
   'DrSearch',
   'DrIcon',
-  'DrTab'
+  'DrTab',
+  'DrTheme'
 ]
 
 const install = function(Vue: any) {
@@ -47,11 +51,5 @@ if (typeof window !== 'undefined' && (window as any).Vue) {
 
 export default {
   install,
-  DrButton,
-  DrLoading,
-  DrDialog,
-  DrOverlay,
-  DrSearch,
-  DrIcon,
-  DrTab
+  ...components
 }

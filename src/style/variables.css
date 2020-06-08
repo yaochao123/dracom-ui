@@ -1,5 +1,5 @@
 :root {
-  // Color Palette
+  /* Color Palette */
   --dr-black: #000;
   --dr-white: #fff;
   --dr-blue: #1989fa;
@@ -9,24 +9,24 @@
   --dr-gray-1: #606060;
   --dr-gray-2: #e1e6eb;
 
-  // Color
+  /* Color */
   --dr-title-color: #303030;
   --dr-primary-color: var(--dr-green);
   --dr-input-background-color: #f2f5f8;
   --dr-placeholder-color: #a2a2a2;
 
-  // FontSize
+  /* FontSize */
   --dr-font-size-xs: 12px;
   --dr-font-size-sm: 14px;
   --dr-font-size-md: 16px;
   --dr-font-size-lg: 18px;
   --dr-font-size-xl: 20px;
 
-  // Nav
+  /* Nav */
   --dr-nav-color: #455a64;
   --dr-nav-color-active: var(--dr-primary-color);
 
-  // Border
+  /* Border */
   --dr-border-color: var(--dr-gray-2);
   --dr-border-width-base: 1px;
   --dr-border-radius-sm: 2px;
@@ -34,7 +34,7 @@
   --dr-border-radius-lg: 8px;
   --dr-border-radius-xl: 25px;
 
-  // Button
+  /* Button */
   --dr-button-color-default: var(--dr-gray-1);
   --dr-button-color-primary: var(--dr-primary-color);
   --dr-button-color-info: var(--dr-blue);
@@ -50,7 +50,7 @@
   --dr-button-normal-font-size: var(--dr-font-size-sm);
   --dr-button-normal-min-width: 44px;
 
-  // Dialog
+  /* Dialog */
   --dr-dialog-background-color: var(--dr-white);
   --dr-dialog-border-radius: var(--dr-border-radius-md);
   --dr-dialog-title-color: var(--dr-title-color);
@@ -63,13 +63,13 @@
   --dr-dialog-button-weight: 500;
   --dr-dialog-theme-color: var(--dr-button-color-primary);
 
-  // Overlay
+  /* Overlay */
   --dr-overlay-background-color: rgba(0, 0, 0, 0.7);
   --dr-overlay-z-index: 1;
 
-  // Input
+  /* Input */
   --dr-input-placeholder-color: #a2a2a2;
 
-  // Search
+  /* Search */
   --dr-search-background-color: #f2f5f8;
 }

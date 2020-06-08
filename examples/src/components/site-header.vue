@@ -55,24 +55,16 @@ export default class SiteHeader extends Vue {
 
   updateValue(val: any) {
     let rgba = `rgba(${val.rgba.r},${val.rgba.g},${val.rgba.b},${val.rgba.a})`
-    this.addStyle(`:root{--dr-primary-color:${rgba}}`)
-    this.addIframeStyle(`:root{--dr-primary-color:${rgba}}`)
-  }
 
-  addStyle(content: string) {
-    let style = document.createElement('style')
-    style.type = 'text/css'
-    style.dataset.type = 'theme'
-    style.appendChild(document.createTextNode(content))
-    let head = document.querySelector('head')
-    let finnalStyle = head?.lastChild as HTMLStyleElement
-    if (finnalStyle.dataset.type === 'theme') {
-      head?.removeChild(finnalStyle)
+    let obj = {
+      '--dr-primary-color': rgba
     }
-    head?.appendChild(style)
+
+    this.$theme.setStyle(obj)
+    this.setIframeStyle(obj)
   }
 
-  addIframeStyle(content: string) {
+  setIframeStyle(content: object) {
     let childHead: any = document.querySelector('iframe')
     childHead.contentWindow.postMessage(content, '*')
   }

@@ -10,6 +10,14 @@ export const navData = [
         component: (resolve: any) => {
           require(['@/docs/introduce.md'], resolve)
         }
+      },
+      {
+        name: 'Theme',
+        path: '/theme',
+        navName: '主题样式',
+        component: (resolve: any) => {
+          require(['@/docs/theme.md'], resolve)
+        }
       }
     ]
   },

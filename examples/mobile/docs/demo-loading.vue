@@ -15,7 +15,10 @@
         <dr-loading color="#33C0AF"></dr-loading>
       </div>
       <div class="demo-loading">
-        <dr-loading type="spinner" color="#33C0AF"></dr-loading>
+        <dr-loading
+          type="spinner"
+          color="#33C0AF"
+        ></dr-loading>
       </div>
     </div>
     <div class="doc-demo-block">
@@ -24,7 +27,10 @@
         <dr-loading size="40"></dr-loading>
       </div>
       <div class="demo-loading">
-        <dr-loading type="spinner" size="40"></dr-loading>
+        <dr-loading
+          type="spinner"
+          size="40"
+        ></dr-loading>
       </div>
     </div>
     <div class="doc-demo-block">
@@ -37,7 +43,10 @@
         <dr-loading vertical>加载中...</dr-loading>
       </div>
       <div class="demo-loading">
-        <dr-loading type="spinner" vertical>加载中...</dr-loading>
+        <dr-loading
+          type="spinner"
+          vertical
+        >加载中...</dr-loading>
       </div>
     </div>
   </div>

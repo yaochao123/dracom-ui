@@ -52,7 +52,6 @@ export default class DemoIntroduce extends Vue {
   }
 
   /**
-   * methods
    * 前往组件详情页
    */
   private goPage(data: any) {

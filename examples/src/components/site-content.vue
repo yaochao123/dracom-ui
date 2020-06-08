@@ -29,7 +29,7 @@ export default class SiteContent extends Vue {}
   }
 
   pre {
-    margin: 20px 0 0;
+    margin: 20px 0;
     line-height: 1;
   }
 
@@ -79,7 +79,7 @@ export default class SiteContent extends Vue {}
     font-weight: 400;
     font-size: 13.4px;
     font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
-    line-height: 26px;
+    line-height: 1;
     white-space: pre-wrap;
     word-wrap: break-word;
     -webkit-font-smoothing: auto;
@@ -102,6 +102,14 @@ export default class SiteContent extends Vue {}
     background-color: #f0f2f5;
     border-radius: 4px;
     -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    margin: 0 1px;
+    color: #1989fa;
+    text-decoration: none;
+    -webkit-font-smoothing: auto;
+    cursor: pointer;
   }
 
   table {
@@ -149,6 +157,20 @@ export default class SiteContent extends Vue {}
       font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
       font-style: normal;
       -webkit-font-smoothing: auto;
+    }
+  }
+
+  .language-shell {
+    .bash {
+      font-style: italic;
+      color: #999;
+    }
+  }
+
+  .language-css {
+    color: #eb6f6f;
+    .hljs-comment {
+      color: #999;
     }
   }
 }
