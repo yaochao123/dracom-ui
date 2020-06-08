@@ -42,9 +42,10 @@ const DrDialog: any = {
       initOptions: Object,
       promise: any
     ) {
-      console.log('$mount')
       instance.$mount(document.createElement('div'))
+      console.log(instance.$el)
       document.body.appendChild(instance.$el)
+      console.log(document.body)
 
       if (typeof type === 'string') {
         instance.type = type
@@ -54,7 +55,6 @@ const DrDialog: any = {
 
       if (instance.closeOnOverlay) {
         setTimeout(() => {
-          console.log('closeOnOverlay')
           instance.$el.lastChild.addEventListener('click', () => {
             resetOptions()
           })
@@ -73,7 +73,6 @@ const DrDialog: any = {
 
       if (!instance || !isInDocument(instance.$el)) {
         if (instance) {
-          console.log('$destory')
           instance.$destroy()
         }
       }
@@ -97,7 +96,6 @@ const DrDialog: any = {
           showConfirmButton: true
         }
         return new Promise((resolve, reject) => {
-          console.log('alert')
           initDialog(type, options, alertOptions, { resolve, reject })
         })
       },
@@ -123,11 +121,9 @@ const DrDialog: any = {
     }
 
     Vue.prototype.$dialog = dialog
-    console.log(Vue.prototype)
   }
 }
 
 DrDialog.Component = Dialog
-console.log(DrDialog)
 
 export default DrDialog
