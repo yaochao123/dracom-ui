@@ -3,7 +3,7 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-// import 'dracom-ui/lib/index/style.css'
+// import 'dracom-ui/lib/index/style/.css'
 // import Dracom from 'dracom-ui'
 import Dracom from '../../src/index'
 

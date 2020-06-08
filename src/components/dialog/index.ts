@@ -14,6 +14,7 @@ function isInDocument(element: Element) {
 const DrDialog: any = {
   install: (Vue: any) => {
     const instance = new (Vue.extend(Dialog))()
+
     const defaultOptions = {
       showModel: false,
       type: '',
@@ -30,9 +31,6 @@ const DrDialog: any = {
       confirmButton: ''
     }
 
-    instance.$mount(document.createElement('div'))
-    document.body.appendChild(instance.$el)
-
     function resetOptions(cb?: Function) {
       Object.assign(instance, defaultOptions)
       cb && cb()
@@ -44,6 +42,9 @@ const DrDialog: any = {
       initOptions: Object,
       promise: any
     ) {
+      instance.$mount(document.createElement('div'))
+      document.body.appendChild(instance.$el)
+
       Object.assign(instance, type, options, initOptions, promise)
 
       if (typeof type === 'string') {
@@ -116,8 +117,10 @@ const DrDialog: any = {
         Object.assign(instance, options)
       }
     }
-
-    Vue.prototype.$dialog = dialog
+    Vue.prototype.$dialog.alert = dialog.alert
+    Vue.prototype.$dialog.confirm = dialog.confirm
+    Vue.prototype.$dialog.close = dialog.close
+    Vue.prototype.$dialog.setDefaultOptions = dialog.setDefaultOptions
   }
 }
 
