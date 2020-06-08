@@ -3,7 +3,11 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-import Dracom from '../../src/index'
+import Dracom from 'dracom-ui'
+// import 'dracom-ui/lib/index/style.css'
+import Dracom1 from '../../src/index'
+console.log(Dracom)
+console.log(Dracom1)
 
 // css变量兼容
 import 'mutationobserver-shim'

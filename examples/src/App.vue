@@ -35,12 +35,13 @@ html {
   font-size: 37.5px !important;
 }
 
-#app {
-  min-width: 1100px;
-  background-color: #f7f8fa;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
+// #app {
+//   min-width: 1100px;
+//   background-color: #f7f8fa;
+//   min-height: 100vh;
+//   -webkit-font-smoothing: antialiased;
+// }
+
 * {
   box-sizing: border-box;
 }

@@ -33,7 +33,7 @@ const libConfig = {
       //  文件名称
       filename: '[name]/index.js',
       //  构建依赖类型
-      libraryTarget: 'umd',
+      libraryTarget: 'commonjs2',
       //  库中被导出的项
       libraryExport: 'default',
       //  引用时的依赖名
