@@ -20,8 +20,7 @@ const DrTheme: any = {
           contentObject[key] && contentArray.push(`${key}:${contentObject[key]}`)
         }
       }
-      // return `${cssSelector}{${contentArray.join(';')}}`
-      return `:root{${contentArray.join(';')}}`
+      return `${cssSelector}{${contentArray.join(';')}}`
     }
 
     /**
@@ -46,16 +45,14 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       setStyle(contentObject: object, cssSelector: string = ':root') {
-        // let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
-        let oldThemeStyle = document.querySelector(`head style[data-type=':root-theme']`)
+        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
         if (oldThemeStyle) {
           oldThemeStyle.innerHTML = setStyleContent(Object.assign({}, getStyleContent(oldThemeStyle.innerHTML), contentObject), cssSelector)
         } else {
           let head = document.querySelector('head')
           let style = document.createElement('style')
           style.type = 'text/css'
-          // style.dataset.type = `${cssSelector}-theme`
-          style.dataset.type = `:root-theme`
+          style.dataset.type = `${cssSelector}-theme`
           style.appendChild(document.createTextNode(setStyleContent(contentObject, cssSelector)))
           head?.appendChild(style)
         }
@@ -66,8 +63,7 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       getStyle(contentArray: string[] = [], cssSelector: string = ':root') {
-        // let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
-        let oldThemeStyle = document.querySelector(`head style[data-type=':root-theme']`)
+        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
         let contentObject = {}
         let getContent = oldThemeStyle ? getStyleContent(oldThemeStyle.innerHTML) : {}
 
@@ -86,8 +82,7 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       clearStyle(contentArray: string[] = [], cssSelector: string = ':root') {
-        // let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
-        let oldThemeStyle = document.querySelector(`head style[data-type=':root-theme']`)
+        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
         let contentObject = {}
         if (contentArray.length) {
           contentArray.forEach(k => {
