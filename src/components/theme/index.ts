@@ -6,7 +6,6 @@ interface theme {
 
 const DrTheme: any = {
   install: (Vue: any) => {
-
     /**
      * @function 返回设置样式内容
      * @param contentObject 设置样式对象
@@ -17,7 +16,8 @@ const DrTheme: any = {
       let contentArray = []
       for (const key in contentObject) {
         if (contentObject.hasOwnProperty(key)) {
-          contentObject[key] && contentArray.push(`${key}:${contentObject[key]}`)
+          contentObject[key] &&
+            contentArray.push(`${key}:${contentObject[key]}`)
         }
       }
       return `${cssSelector}{${contentArray.join(';')}}`
@@ -25,7 +25,7 @@ const DrTheme: any = {
 
     /**
      * @function 返回获取的样式对象
-     * @param contentString 
+     * @param contentString
      */
     function getStyleContent(contentString: string) {
       let arrayStr = contentString.split(/{([^}]*)}/)[1]
@@ -45,15 +45,26 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       setStyle(contentObject: object, cssSelector: string = ':root') {
-        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
+        let oldThemeStyle = document.querySelector(
+          `head style[data-type='${cssSelector}-theme']`
+        )
         if (oldThemeStyle) {
-          oldThemeStyle.innerHTML = setStyleContent(Object.assign({}, getStyleContent(oldThemeStyle.innerHTML), contentObject), cssSelector)
+          oldThemeStyle.innerHTML = setStyleContent(
+            Object.assign(
+              {},
+              getStyleContent(oldThemeStyle.innerHTML),
+              contentObject
+            ),
+            cssSelector
+          )
         } else {
           let head = document.querySelector('head')
           let style = document.createElement('style')
           style.type = 'text/css'
           style.dataset.type = `${cssSelector}-theme`
-          style.appendChild(document.createTextNode(setStyleContent(contentObject, cssSelector)))
+          style.appendChild(
+            document.createTextNode(setStyleContent(contentObject, cssSelector))
+          )
           head?.appendChild(style)
         }
       },
@@ -63,9 +74,13 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       getStyle(contentArray: string[] = [], cssSelector: string = ':root') {
-        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
+        let oldThemeStyle = document.querySelector(
+          `head style[data-type='${cssSelector}-theme']`
+        )
         let contentObject = {}
-        let getContent = oldThemeStyle ? getStyleContent(oldThemeStyle.innerHTML) : {}
+        let getContent = oldThemeStyle
+          ? getStyleContent(oldThemeStyle.innerHTML)
+          : {}
 
         if (contentArray.length) {
           contentArray.forEach(k => {
@@ -82,14 +97,23 @@ const DrTheme: any = {
        * @param cssSelector css选择器（暂不开放）
        */
       clearStyle(contentArray: string[] = [], cssSelector: string = ':root') {
-        let oldThemeStyle = document.querySelector(`head style[data-type='${cssSelector}-theme']`)
+        let oldThemeStyle = document.querySelector(
+          `head style[data-type='${cssSelector}-theme']`
+        )
         let contentObject = {}
         if (contentArray.length) {
           contentArray.forEach(k => {
             contentObject[k] = undefined
           })
           if (oldThemeStyle) {
-            oldThemeStyle.innerHTML = setStyleContent(Object.assign({}, getStyleContent(oldThemeStyle.innerHTML), contentObject), cssSelector)
+            oldThemeStyle.innerHTML = setStyleContent(
+              Object.assign(
+                {},
+                getStyleContent(oldThemeStyle.innerHTML),
+                contentObject
+              ),
+              cssSelector
+            )
           }
         } else {
           if (oldThemeStyle) {
@@ -99,6 +123,6 @@ const DrTheme: any = {
       }
     }
     Vue.prototype.$theme = theme
-  },
+  }
 }
 export default DrTheme
