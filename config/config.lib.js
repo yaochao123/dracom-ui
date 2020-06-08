@@ -46,7 +46,10 @@ const libConfig = {
           to: resolve('lib/variables.css')
         }
       ])
-    ]
+    ],
+    externals: {
+      vue: 'Vue'
+    }
   },
   css: baseConfig.css,
   chainWebpack: config => {
