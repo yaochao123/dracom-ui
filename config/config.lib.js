@@ -25,7 +25,8 @@ const libConfig = {
   configureWebpack: {
     //  入口文件
     entry: {
-      ...getComponentEntries('src/components')
+      ...getComponentEntries('src/components'),
+      index: resolve('src/index.ts')
     },
     //  输出配置
     output: {
