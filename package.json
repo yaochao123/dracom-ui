@@ -17,7 +17,7 @@
     "serve": "vue-cli-service serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vue-cli-service build",
-    "build:lib": "vue-cli-service build --target lib --name dracom-ui --dest lib ./src/index.ts"
+    "build:lib": "vue-cli-service build"
   },
   "dependencies": {
     "@types/vue-color": "^2.4.2",

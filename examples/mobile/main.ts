@@ -4,6 +4,7 @@ import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import Dracom from 'dracom-ui'
+import 'dracom-ui/lib/dracom-ui.css'
 // import 'dracom-ui/lib/index/style.css'
 // import Dracom from '../../src/index'
 
