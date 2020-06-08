@@ -75,7 +75,6 @@
 import { Vue, Component, Prop, Model, Watch } from 'vue-property-decorator'
 import DrOverlay from '../../overlay/src/index.vue'
 
-Component.registerHooks(['beforeRouteLeave'])
 @Component({
   components: {
     DrOverlay

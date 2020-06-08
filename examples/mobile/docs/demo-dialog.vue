@@ -32,10 +32,8 @@ export default class DemoDialog extends Vue {
    * 提示弹框
    */
   private alert() {
-    console.log(this.$dialog)
     this.$dialog
       .alert({
-        closeOnOverlay: true,
         title: '提示弹框',
         content: '这是一段弹出框的内容',
         confirmButton: '确定'

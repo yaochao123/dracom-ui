@@ -87,7 +87,6 @@ const DrDialog: any = {
 
     const dialog: dialog = {
       alert: (type: String, options: Object) => {
-        instance.showModel = true
         const alertOptions = {
           showModel: true,
           showCancelButton: false,

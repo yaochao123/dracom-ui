@@ -16,8 +16,8 @@ const components = [
   DrOverlay,
   DrSearch,
   DrIcon,
-  DrTab
-  // DrTheme
+  DrTab,
+  DrTheme
 ]
 
 const componentsName: string[] = [
@@ -27,8 +27,8 @@ const componentsName: string[] = [
   'DrOverlay',
   'DrSearch',
   'DrIcon',
-  'DrTab'
-  // 'DrTheme'
+  'DrTab',
+  'DrTheme'
 ]
 
 const install = function(Vue: any) {
