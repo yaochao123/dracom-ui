@@ -7,7 +7,12 @@
           :class="['dr-dialog-title', { 'dr-dialog-title-only': !content }]"
           v-if="title || type"
         >
-          <dr-icon class="dr-dialog-icon" :name="type" :color="primaryColor" v-if="type"></dr-icon>
+          <dr-icon
+            class="dr-dialog-icon"
+            :name="type"
+            :color="primaryColor"
+            v-if="type"
+          ></dr-icon>
           <span :class="{ 'dr-dialog-title-has-icon': type }">{{ title }}</span>
         </div>
         <!-- 弹框内容 -->
@@ -20,36 +25,49 @@
           v-if="content"
         ></div>
         <!-- 弹框按钮 -->
-        <div class="dr-dialog-button" v-if="showCancelButton || showConfirmButton">
+        <div
+          class="dr-dialog-button"
+          v-if="showCancelButton || showConfirmButton"
+        >
           <div
             v-if="showCancelButton"
             :class="[
               'dr-dialog-button-cancel',
               { 'dr-dialog-button-only': !showConfirmButton }
             ]"
-            :style="primaryColor
-            ? { borderColor: primaryColor ,
-                color: primaryColor }
-            : {}"
+            :style="
+              primaryColor
+                ? { borderColor: primaryColor, color: primaryColor }
+                : {}
+            "
             @click="handleCancel"
-          >{{ cancelButton }}</div>
+          >
+            {{ cancelButton }}
+          </div>
           <div
             v-if="showConfirmButton"
             :class="[
               'dr-dialog-button-confirm',
               { 'dr-dialog-button-only': !showCancelButton }
             ]"
-            :style="primaryColor
-            ?{ borderColor: primaryColor,
-              backgroundColor: primaryColor }
-            : {}"
+            :style="
+              primaryColor
+                ? { borderColor: primaryColor, backgroundColor: primaryColor }
+                : {}
+            "
             @click="handleConfirm"
-          >{{ confirmButton }}</div>
+          >
+            {{ confirmButton }}
+          </div>
         </div>
       </div>
     </transition>
     <!-- 遮罩 -->
-    <dr-overlay :show="showModel && overlay" :lock-scroll="lockScroll" @click="handleOverlay"></dr-overlay>
+    <dr-overlay
+      :show="showModel && overlay"
+      :lock-scroll="lockScroll"
+      @click="handleOverlay"
+    ></dr-overlay>
   </div>
 </template>
 
@@ -65,7 +83,7 @@ Component.registerHooks(['beforeRouteLeave'])
 })
 export default class Dialog extends Vue {
   // 是否显示弹框
-  @Model('handleClick', { type: Boolean }) showModel!: boolean
+  @Model('handleClick', { type: Boolean }) showModel?: boolean
 
   // 弹框宽度
   @Prop({ type: [Number, String], required: false, default: 300 }) width!:
