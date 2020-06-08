@@ -14,102 +14,99 @@ function isInDocument(element: Element) {
 const DrDialog: any = {
   install: (Vue: any) => {
     const instance = new (Vue.extend(Dialog))()
-    // const defaultOptions = {
-    //   showModel: false,
-    //   type: '',
-    //   title: '',
-    //   primaryColor: '',
-    //   content: '',
-    //   showCancelButton: true,
-    //   showConfirmButton: true,
-    //   overlay: true,
-    //   lockScroll: true,
-    //   closeOnOverlay: false,
-    //   closeOnPopState: true,
-    //   cancelButton: '',
-    //   confirmButton: ''
-    // }
+    const defaultOptions = {
+      showModel: false,
+      type: '',
+      title: '',
+      primaryColor: '',
+      content: '',
+      showCancelButton: true,
+      showConfirmButton: true,
+      overlay: true,
+      lockScroll: true,
+      closeOnOverlay: false,
+      closeOnPopState: true,
+      cancelButton: '',
+      confirmButton: ''
+    }
 
-    // function resetOptions(cb?: Function) {
-    //   Object.assign(instance, defaultOptions)
-    //   cb && cb()
-    // }
+    function resetOptions(cb?: Function) {
+      Object.assign(instance, defaultOptions)
+      cb && cb()
+    }
 
-    // function initDialog(
-    //   type: String,
-    //   options: Object,
-    //   initOptions: Object,
-    //   promise: any
-    // ) {
-    instance.$mount(document.createElement('div'))
-    document.body.appendChild(instance.$el)
+    function initDialog(
+      type: String,
+      options: Object,
+      initOptions: Object,
+      promise: any
+    ) {
+      instance.$mount(document.createElement('div'))
+      document.body.appendChild(instance.$el)
 
-    //   Object.assign(instance, type, options, initOptions, promise)
+      Object.assign(instance, type, options, initOptions, promise)
 
-    //   console.log(instance)
-    //   console.log(instance.$el)
+      if (typeof type === 'string') {
+        instance.type = type
+      }
 
-    //   if (typeof type === 'string') {
-    //     instance.type = type
-    //   }
+      if (instance.closeOnOverlay) {
+        setTimeout(() => {
+          instance.$el.lastChild.addEventListener('click', () => {
+            resetOptions()
+          })
+        }, 0)
+      }
 
-    //   if (instance.closeOnOverlay) {
-    //     setTimeout(() => {
-    //       instance.$el.lastChild.addEventListener('click', () => {
-    //         resetOptions()
-    //       })
-    //     }, 0)
-    //   }
+      if (instance.closeOnPopState) {
+        window.addEventListener(
+          'popstate',
+          () => {
+            resetOptions()
+          },
+          false
+        )
+      }
 
-    //   if (instance.closeOnPopState) {
-    //     window.addEventListener(
-    //       'popstate',
-    //       () => {
-    //         resetOptions()
-    //       },
-    //       false
-    //     )
-    //   }
+      if (!instance || !isInDocument(instance.$el)) {
+        if (instance) {
+          instance.$destroy()
+        }
+      }
 
-    //   if (!instance || !isInDocument(instance.$el)) {
-    //     if (instance) {
-    //       instance.$destroy()
-    //     }
-    //   }
+      const { resolve, reject } = promise
 
-    //   const { resolve, reject } = promise
+      instance.handleConfirm = () => {
+        resetOptions(resolve)
+      }
 
-    //   instance.handleConfirm = () => {
-    //     resetOptions(resolve)
-    //   }
-
-    //   instance.handleCancel = () => {
-    //     resetOptions(reject)
-    //   }
-    // }
+      instance.handleCancel = () => {
+        resetOptions(reject)
+      }
+    }
 
     const dialog: dialog = {
       alert: (type: String, options: Object) => {
         instance.showModel = true
-        // const alertOptions = {
-        //   showModel: true,
-        //   showCancelButton: false,
-        //   showConfirmButton: true
-        // }
-        // return new Promise((resolve, reject) => {
-        //   initDialog(type, options, alertOptions, { resolve, reject })
-        // })
+        const alertOptions = {
+          showModel: true,
+          showCancelButton: false,
+          showConfirmButton: true
+        }
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, alertOptions, { resolve, reject })
+        })
       },
 
       confirm: (type: String, options: Object) => {
-        // const confirmOptions = {
-        //   showModel: true,
-        //   showCancelButton: true,
-        //   showConfirmButton: true
-        // }
-        // return new Promise((resolve, reject) => {
-        //   initDialog(type, options, confirmOptions, { resolve, reject })
-        // })
+        const confirmOptions = {
+          showModel: true,
+          showCancelButton: true,
+          showConfirmButton: true
+        }
+        return new Promise((resolve, reject) => {
+          initDialog(type, options, confirmOptions, { resolve, reject })
+        })
       },
 
       close: () => {
@@ -117,7 +114,7 @@ const DrDialog: any = {
       },
 
       setDefaultOptions: (options: Object) => {
-        // Object.assign(instance, options)
+        Object.assign(instance, options)
       }
     }
 
