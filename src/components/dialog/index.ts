@@ -123,9 +123,11 @@ const DrDialog: any = {
     }
 
     Vue.prototype.$dialog = dialog
+    console.log(Vue.prototype)
   }
 }
 
 DrDialog.Component = Dialog
+console.log(DrDialog)
 
 export default DrDialog
