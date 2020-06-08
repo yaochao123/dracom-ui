@@ -7,7 +7,6 @@ import DrDialog from './components/dialog/index'
 import DrOverlay from './components/overlay/index'
 import DrSearch from './components/search/index'
 import DrIcon from './components/icon/index'
-
 import DrTab from './components/tab/index'
 import DrTheme from './components/theme/index'
 
