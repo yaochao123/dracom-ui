@@ -24,7 +24,7 @@
     "core-js": "^3.6.4",
     "css-loader": "^3.5.3",
     "css-vars-ponyfill": "^2.3.1",
-    "dracom-ui": "^1.2.14",
+    "dracom-ui": "^1.2.15",
     "markdown-it": "^10.0.0",
     "mutationobserver-shim": "^0.3.5",
     "tippy.js": "^6.2.3",

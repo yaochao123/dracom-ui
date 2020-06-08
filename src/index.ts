@@ -37,7 +37,7 @@ const install = function(Vue: any) {
   components.forEach((component: any, i) => {
     if (component.install) {
       Vue.component(componentsName[i], component.Component)
-      // Vue.use(component)
+      Vue.use(component)
     } else {
       Vue.component(componentsName[i], component)
     }
