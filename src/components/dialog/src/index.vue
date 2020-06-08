@@ -82,7 +82,7 @@ import DrOverlay from '../../overlay/src/index.vue'
 })
 export default class Dialog extends Vue {
   // 是否显示弹框
-  @Model('handleClick', { type: Boolean, default: false }) showModel!: boolean
+  @Model('handleClick', { type: Boolean }) showModel!: boolean
 
   // 弹框宽度
   @Prop({ type: [Number, String], required: false, default: 300 }) width!:

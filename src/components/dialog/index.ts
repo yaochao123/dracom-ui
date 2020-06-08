@@ -30,6 +30,9 @@ const DrDialog: any = {
       confirmButton: ''
     }
 
+    instance.$mount(document.createElement('div'))
+    document.body.appendChild(instance.$el)
+
     function resetOptions(cb?: Function) {
       Object.assign(instance, defaultOptions)
       cb && cb()
@@ -41,9 +44,6 @@ const DrDialog: any = {
       initOptions: Object,
       promise: any
     ) {
-      instance.$mount(document.createElement('div'))
-      document.body.appendChild(instance.$el)
-
       Object.assign(instance, type, options, initOptions, promise)
 
       if (typeof type === 'string') {
