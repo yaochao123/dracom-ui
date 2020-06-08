@@ -42,6 +42,7 @@ const DrDialog: any = {
       initOptions: Object,
       promise: any
     ) {
+      console.log('$mount')
       instance.$mount(document.createElement('div'))
       document.body.appendChild(instance.$el)
 
@@ -88,8 +89,8 @@ const DrDialog: any = {
 
     const dialog: dialog = {
       alert: (type: String, options: Object) => {
+        instance.showModel = true
         const alertOptions = {
-          showModel: true,
           showCancelButton: false,
           showConfirmButton: true
         }
@@ -99,8 +100,8 @@ const DrDialog: any = {
       },
 
       confirm: (type: String, options: Object) => {
+        instance.showModel = true
         const confirmOptions = {
-          showModel: true,
           showCancelButton: true,
           showConfirmButton: true
         }
