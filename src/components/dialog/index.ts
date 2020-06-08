@@ -54,6 +54,7 @@ const DrDialog: any = {
 
       if (instance.closeOnOverlay) {
         setTimeout(() => {
+          console.log('closeOnOverlay')
           instance.$el.lastChild.addEventListener('click', () => {
             resetOptions()
           })
@@ -72,6 +73,7 @@ const DrDialog: any = {
 
       if (!instance || !isInDocument(instance.$el)) {
         if (instance) {
+          console.log('$destory')
           instance.$destroy()
         }
       }
@@ -89,19 +91,20 @@ const DrDialog: any = {
 
     const dialog: dialog = {
       alert: (type: String, options: Object) => {
-        instance.showModel = true
         const alertOptions = {
+          showModel: true,
           showCancelButton: false,
           showConfirmButton: true
         }
         return new Promise((resolve, reject) => {
+          console.log('alert')
           initDialog(type, options, alertOptions, { resolve, reject })
         })
       },
 
       confirm: (type: String, options: Object) => {
-        instance.showModel = true
         const confirmOptions = {
+          showModel: true,
           showCancelButton: true,
           showConfirmButton: true
         }
