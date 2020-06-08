@@ -14,7 +14,7 @@ function isInDocument(element: Element) {
 const DrDialog: any = {
   install: (Vue: any) => {
     const instance = new (Vue.extend(Dialog))()
-
+    console.log(instance)
     const defaultOptions = {
       showModel: false,
       type: '',
