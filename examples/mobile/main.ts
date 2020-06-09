@@ -3,18 +3,18 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-import Dracom from 'dracom-ui'
-import {
-  DrButton,
-  DrSearch,
-  DrLoading,
-  DrOverlay,
-  DrIcon,
-  DrTheme,
-  DrDialog
-} from 'dracom-ui'
-// import Dracom from '../../src/index'
-
+// import Dracom from 'dracom-ui'
+// import {
+//   DrButton,
+//   DrSearch,
+//   DrLoading,
+//   DrOverlay,
+//   DrIcon,
+//   DrTheme,
+//   DrDialog
+// } from 'dracom-ui'
+import Dracom from '../../src/index'
+Vue.use(Dracom)
 // Vue.use(DrButton as any)
 // Vue.use(DrIcon as any)
 // Vue.use(DrSearch as any)
@@ -22,8 +22,8 @@ import {
 // Vue.use(DrDialog as any)
 // Vue.use(DrOverlay as any)
 // Vue.use(DrTheme as any)
-Vue.use(Dracom)
-console.log(Dracom)
+// Vue.use(Dracom)
+
 // css变量兼容
 import 'mutationobserver-shim'
 import cssVars from 'css-vars-ponyfill'
