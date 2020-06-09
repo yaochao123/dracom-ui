@@ -4,10 +4,10 @@ import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import 'dracom-ui/lib/index/style.css'
-import { button } from 'dracom-ui'
-console.log(button)
+// import { button } from 'dracom-ui'
+// console.log(button)
 
-Vue.use(button)
+// Vue.use(button)
 // css变量兼容
 import 'mutationobserver-shim'
 import cssVars from 'css-vars-ponyfill'

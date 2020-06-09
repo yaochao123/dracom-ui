@@ -17,6 +17,12 @@ function getComponentEntries(path) {
   return componentEntries
 }
 
+function firstUpperCase(str) {
+  return str.replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
+    return $1.toUpperCase() + $2.toLowerCase()
+  })
+}
+
 const libConfig = {
   productionSourceMap: baseConfig.productionSourceMap,
   //  输出文件目录
@@ -31,7 +37,9 @@ const libConfig = {
     //  输出配置
     output: {
       //  文件名称
-      filename: '[name]/index.js',
+      filename: chunkData => {
+        return `Dr${firstUpperCase(chunkData.chunk.name)}/index.js`
+      },
       //  构建依赖类型
       libraryTarget: 'umd',
       //  库中被导出的项
