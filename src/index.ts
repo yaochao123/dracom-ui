@@ -31,23 +31,12 @@ const componentsName: string[] = [
   'DrTheme'
 ]
 
-const install = function(Vue: any) {
-  if ((install as any).installed) return
-  components.forEach((component: any, i) => {
-    if (component.install) {
-      Vue.component(componentsName[i], component.Component)
+const Dracom = {
+  install(Vue: any) {
+    components.forEach(component => {
       Vue.use(component)
-    } else {
-      Vue.component(componentsName[i], component)
-    }
-  })
+    })
+  }
 }
 
-if (typeof window !== 'undefined' && (window as any).Vue) {
-  install((window as any).Vue)
-}
-
-export default {
-  install,
-  ...components
-}
+export default Dracom

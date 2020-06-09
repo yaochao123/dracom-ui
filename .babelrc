@@ -4,7 +4,8 @@
       "import",
       {
         "libraryName": "dracom-ui",
-        "libraryDirectory": "lib/"
+        "camel2DashComponentName": false,
+        "libraryDirectory": "lib"
       }
     ]
   ]
