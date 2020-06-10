@@ -57,20 +57,12 @@ const libConfig = {
       ])
     ],
     externals: {
-      vue: {
-        root: 'Vue',
-        commonjs: 'vue',
-        commonjs2: 'vue',
-        amd: 'vue'
-      }
+      vue: 'vue'
     }
   },
   css: baseConfig.css,
   chainWebpack: config => {
-    config.optimization.splitChunks({
-      name: 'common',
-      chunks: 'all'
-    })
+    config.optimization.delete('splitChunks')
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
