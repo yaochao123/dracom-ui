@@ -45,7 +45,8 @@ const libConfig = {
       //  库中被导出的项
       libraryExport: 'default',
       //  引用时的依赖名
-      library: 'dracom-ui'
+      library: 'dracom-ui',
+      chunkFilename: 'common.bundle.js'
     },
     plugins: [
       new CopyWebpackPlugin([
@@ -61,8 +62,8 @@ const libConfig = {
   },
   css: baseConfig.css,
   chainWebpack: config => {
-    config.optimization.minimize(true)
     config.optimization.splitChunks({
+      name: 'common',
       chunks: 'all'
     })
     config.plugins.delete('copy')
