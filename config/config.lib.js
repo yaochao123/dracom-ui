@@ -62,7 +62,15 @@ const libConfig = {
   },
   css: baseConfig.css,
   chainWebpack: config => {
-    config.optimization.delete('splitChunks')
+    config.optimization.splitChunks({
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    })
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')

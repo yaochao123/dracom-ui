@@ -4,8 +4,8 @@ import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 // import Dracom from '../../src/index'
-import { DrButton } from 'dracom-ui'
-
+import { DrButton, DrIcon } from 'dracom-ui'
+console.log(DrButton)
 Vue.use(DrButton)
 
 // css变量兼容
