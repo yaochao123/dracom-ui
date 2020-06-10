@@ -34,7 +34,7 @@ const componentsName: string[] = [
 const install = function(Vue: any) {
   if ((install as any).installed) return
   components.forEach((component: any, i) => {
-    if (component.install) {
+    if (component.Component) {
       Vue.component(componentsName[i], component.Component)
     } else {
       Vue.component(componentsName[i], component)
