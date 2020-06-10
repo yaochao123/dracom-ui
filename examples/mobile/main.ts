@@ -5,7 +5,7 @@ import '@/style/reset.css'
 import '@src/style/variables.css'
 // import Dracom from '../../src/index'
 import { DrButton } from 'dracom-ui'
-console.log(DrButton)
+// console.log(DrButton)
 // Vue.use(DrButton)
 // Vue.use(Dracom)
 

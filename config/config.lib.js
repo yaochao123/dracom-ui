@@ -61,6 +61,7 @@ const libConfig = {
   },
   css: baseConfig.css,
   chainWebpack: config => {
+    config.optimization.delete('splitChunks')
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')
