@@ -4,10 +4,9 @@ import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 // import Dracom from '../../src/index'
-import { DrButton, DrSearch, DrDialog } from 'dracom-ui'
+import { DrButton } from 'dracom-ui'
+
 Vue.use(DrButton)
-// Vue.use(DrSearch)
-// Vue.use(DrDialog)
 
 // css变量兼容
 import 'mutationobserver-shim'

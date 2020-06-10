@@ -46,7 +46,6 @@ const libConfig = {
       libraryExport: 'default',
       //  引用时的依赖名
       library: 'dracom-ui',
-      chunkFilename: 'common.bundle.js',
       umdNamedDefine: true
     },
     plugins: [
@@ -58,7 +57,12 @@ const libConfig = {
       ])
     ],
     externals: {
-      vue: 'Vue'
+      vue: {
+        root: 'Vue',
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue'
+      }
     }
   },
   css: baseConfig.css,
