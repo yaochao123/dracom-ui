@@ -1,19 +1,16 @@
 import Vue from 'vue'
+import { DrComponent } from './component'
 
 declare function install(vue: typeof Vue): void
 
-declare class DrButton extends Vue {}
-declare class DrLoading extends Vue {}
-declare class DrDialog extends Vue {}
-declare class DrOverlay extends Vue {}
-declare class DrSearch extends Vue {}
-declare class DrIcon extends Vue {}
-declare class DrTab extends Vue {}
-declare class DrTheme extends Vue {}
-
-declare const _default: {
-  install: typeof install
-}
+declare class DrButton extends DrComponent {}
+declare class DrLoading extends DrComponent {}
+declare class DrDialog extends DrComponent {}
+declare class DrOverlay extends DrComponent {}
+declare class DrSearch extends DrComponent {}
+declare class DrIcon extends DrComponent {}
+declare class DrTab extends DrComponent {}
+declare class DrTheme extends DrComponent {}
 
 export {
   DrButton,
