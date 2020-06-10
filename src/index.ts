@@ -42,6 +42,10 @@ const install = function(Vue: any) {
   })
 }
 
+if (typeof window !== 'undefined' && (window as any).Vue) {
+  install((window as any).Vue)
+}
+
 export default {
   install,
   ...components
