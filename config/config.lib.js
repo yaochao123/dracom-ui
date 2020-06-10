@@ -71,6 +71,7 @@ const libConfig = {
         }
       }
     })
+    // config.optimization.runtimeChunk
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')

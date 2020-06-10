@@ -1,12 +1,12 @@
 {
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "dracom-ui",
-        "camel2DashComponentName": false,
-        "libraryDirectory": "lib"
-      }
-    ]
-  ]
+  // "plugins": [
+  //   [
+  //     "import",
+  //     {
+  //       "libraryName": "dracom-ui",
+  //       "camel2DashComponentName": false,
+  //       "libraryDirectory": "lib"
+  //     }
+  //   ]
+  // ]
 }
