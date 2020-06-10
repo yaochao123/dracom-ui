@@ -46,7 +46,8 @@ const libConfig = {
       libraryExport: 'default',
       //  引用时的依赖名
       library: 'dracom-ui',
-      chunkFilename: 'common.bundle.js'
+      chunkFilename: 'common.bundle.js',
+      umdNamedDefine: true
     },
     plugins: [
       new CopyWebpackPlugin([
