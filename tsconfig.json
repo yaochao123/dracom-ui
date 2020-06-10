@@ -9,13 +9,11 @@
     "module": "es2015",
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "declaration": true,
     "suppressImplicitAnyIndexErrors": true
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
     "examples/**/*.ts",
     "examples/**/*.tsx",
     "examples/**/*.vue",
