@@ -25,5 +25,3 @@ export {
   DrTab,
   DrTheme
 }
-
-export default _default
