@@ -7,9 +7,9 @@ import '@src/style/variables.css'
 // import { DrButton, DrIcon } from 'dracom-ui'
 // console.log(DrButton)
 // Vue.use(DrButton)
-import { DrIndex } from 'dracom-ui'
+import DracomUI from 'dracom-ui'
 
-console.log(DrIndex)
+console.log(DracomUI)
 
 // css变量兼容
 import 'mutationobserver-shim'

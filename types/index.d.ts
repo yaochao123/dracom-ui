@@ -12,6 +12,10 @@ declare class DrIcon extends DrComponent {}
 declare class DrTab extends DrComponent {}
 declare class DrTheme extends DrComponent {}
 
+declare const _default: {
+  install: typeof install
+}
+
 export {
   DrButton,
   DrLoading,
@@ -22,3 +26,5 @@ export {
   DrTab,
   DrTheme
 }
+
+export default _default
