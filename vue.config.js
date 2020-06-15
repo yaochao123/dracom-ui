@@ -1,3 +1,5 @@
-const devConfig = require('./config/config.dev')
+const devConfig = require('./build/config.dev')
+const libConfig = require('./build/build.lib')
 
-module.exports = devConfig
+module.exports =
+  process.env.npm_lifecycle_event === 'build:lib' ? libConfig : devConfig

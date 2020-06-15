@@ -17,12 +17,6 @@ function getComponentEntries(path) {
   return componentEntries
 }
 
-function firstUpperCase(str) {
-  return str.replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
-    return $1.toUpperCase() + $2.toLowerCase()
-  })
-}
-
 const libConfig = {
   productionSourceMap: baseConfig.productionSourceMap,
   //  输出文件目录
@@ -38,7 +32,10 @@ const libConfig = {
     output: {
       //  文件名称
       filename: chunkData => {
-        return `Dr${firstUpperCase(chunkData.chunk.name)}/index.js`
+        if (chunkData.chunk.name === 'index') {
+          return 'dracom-ui.min.js'
+        }
+        return `dr-${chunkData.chunk.name}/index.js`
       },
       //  构建依赖类型
       libraryTarget: 'umd',
@@ -62,16 +59,7 @@ const libConfig = {
   },
   css: baseConfig.css,
   chainWebpack: config => {
-    config.optimization.splitChunks({
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
-        }
-      }
-    })
-    // config.optimization.runtimeChunk
+    config.optimization.delete('splitChunks')
     config.plugins.delete('copy')
     config.plugins.delete('preload')
     config.plugins.delete('prefetch')

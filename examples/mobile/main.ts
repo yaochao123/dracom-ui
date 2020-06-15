@@ -3,9 +3,9 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-import Dracom from 'dracom-ui'
-console.log(Dracom)
-Vue.use(Dracom)
+import { DrButton } from 'dracom-ui'
+console.log(DrButton)
+// Vue.use(Dracom)
 
 // css变量兼容
 import 'mutationobserver-shim'
