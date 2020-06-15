@@ -32,6 +32,7 @@ export default class DemoDialog extends Vue {
    * 提示弹框
    */
   private alert() {
+    console.log(this.$dialog)
     this.$dialog
       .alert({
         title: '提示弹框',

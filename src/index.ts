@@ -36,6 +36,7 @@ const install = function(Vue: any) {
   components.forEach((component: any, i) => {
     if (component.Component) {
       Vue.component(componentsName[i], component.Component)
+      Vue.use(component)
     } else {
       Vue.component(componentsName[i], component)
     }

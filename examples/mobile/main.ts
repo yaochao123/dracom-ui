@@ -4,7 +4,7 @@ import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
 import Dracom from 'dracom-ui'
-
+console.log(Dracom)
 Vue.use(Dracom)
 
 // css变量兼容
