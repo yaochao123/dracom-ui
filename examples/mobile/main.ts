@@ -3,8 +3,12 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-import { DrButton } from 'dracom-ui'
-console.log(DrButton)
+import { DrButton, DrDialog, DrLoading } from 'dracom-ui'
+// import Dracom from 'dracom-ui'
+
+Vue.use(DrButton)
+Vue.use(DrDialog)
+Vue.use(DrLoading)
 // Vue.use(Dracom)
 
 // css变量兼容
