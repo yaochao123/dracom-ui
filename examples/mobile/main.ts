@@ -3,13 +3,9 @@ import router from './router'
 import App from './App.vue'
 import '@/style/reset.css'
 import '@src/style/variables.css'
-// import Dracom from '../../src/index'
-// import { DrButton, DrIcon } from 'dracom-ui'
-// console.log(DrButton)
-// Vue.use(DrButton)
-import DracomUI from 'dracom-ui'
+import Dracom from 'dracom-ui'
 
-console.log(DracomUI)
+console.log(Dracom)
 
 // css变量兼容
 import 'mutationobserver-shim'
@@ -19,8 +15,6 @@ cssVars({
 })
 
 Vue.config.productionTip = false
-
-// Vue.use(Dracom)
 
 /**
  * 父页面主题色修改
