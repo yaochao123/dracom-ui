@@ -118,7 +118,6 @@ const DrDialog: any = {
       }
     }
     Vue.prototype.$dialog = dialog
-    Vue.use(DrDialog)
   }
 }
 

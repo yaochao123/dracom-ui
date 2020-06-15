@@ -39,6 +39,9 @@ const install = function(Vue: any) {
     } else {
       Vue.component(componentsName[i], component)
     }
+    if (component.install) {
+      Vue.use(component)
+    }
   })
 }
 
