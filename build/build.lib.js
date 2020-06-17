@@ -38,9 +38,7 @@ const libConfig = {
         return `dr-${chunkData.chunk.name}/index.js`
       },
       //  构建依赖类型
-      libraryTarget: 'umd',
-      //  库中被导出的项
-      libraryExport: 'default',
+      libraryTarget: 'commonjs2',
       //  引用时的依赖名
       library: 'dracom-ui',
       umdNamedDefine: true
